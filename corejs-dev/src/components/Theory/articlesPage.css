@@ -1,0 +1,33 @@
+.articles-nav-wrap{
+    position: absolute;
+    left: 0;
+    width: 200px;
+}
+.nav-item{
+    margin: 10px;
+}
+.nav.articles-nav{
+    width: 200px;
+}
+.article-nav-link{
+    color: rgb(70, 70, 70);
+    text-decoration: none;
+    transition: .3s;
+    size: 1.5em;
+}
+.article-nav-link:hover{
+    color: black;
+}
+.article-nav-link.active{
+    color:black;
+    border-bottom: 1px solid black;
+}
+.articles-wrap{
+    margin-left: 200px;
+    padding: 15px;
+    width: calc(100% - 200px);
+    text-align: initial
+}
+.articles-wrap p{
+    text-align: justify;
+}

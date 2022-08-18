@@ -1,6 +1,20 @@
 .App {
   text-align: center;
 }
+.header-wrap{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: yellow;
+  border-bottom: 2px solid black;
+}
 .hi{
   text-align: center;
+}
+.header-title{
+  text-decoration: auto;
+  size: 1em;
+}
+.special{
+  color:yellow;
 }

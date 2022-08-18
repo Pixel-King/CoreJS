@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import  * as React from 'react';
+import { render } from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import { createRoot } from 'react-dom/client';
+const container = document.getElementById('root') as HTMLElement;
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+<BrowserRouter>
+  <App/>
+</BrowserRouter>
 );
 
