@@ -4,7 +4,9 @@ import Home from './components/Home/Home';
 import TheoryPage from './components/Theory/TheoryPage';
 import { Routes, Route, Link} from "react-router-dom";
 import { Navbar, Nav, Container, Button } from 'react-bootstrap'
-import TestPage from './components/Tests/testPage';
+import TestPage from './components/Tests/testPage'; 
+import Regestraition from './components/regestraition/Regestraition';
+import SignInForm from './components/SignInForm/SignInForm';
 
 
 function App () {
@@ -22,8 +24,9 @@ function App () {
               <Link to="/tests" className='nav-link'>Tests</Link>
           </Nav>
           <div className='account-buttons'>
-            <Button variant="primary">Registration</Button>{' '}
-            <Button variant="outline-primary">Sign in</Button>
+            <Link to="/registraition"><Button variant="primary">Registration</Button></Link>
+            {' '}
+            <Link to="/SignIn"><Button variant="outline-primary">Sign in</Button></Link>
           </div>
         </Container>
       </Navbar>
@@ -33,6 +36,8 @@ function App () {
         <Route path="/" element={<Home/>} />
         <Route path="theory" element={<TheoryPage />} />
         <Route path="tests" element={<TestPage />} />
+        <Route path='registraition' element={<Regestraition/>}/>
+        <Route path='SignIn' element={<SignInForm/>}/>
       </Routes>
     </main>
   </div>
