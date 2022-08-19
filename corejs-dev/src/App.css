@@ -18,3 +18,13 @@
 .special{
   color:yellow;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212529;
+  color: rgb(135 137 138);
+  height: 50px;
+  padding-top: 0;
+}

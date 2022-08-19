@@ -1,0 +1,16 @@
+.home_content {
+    background-image: url('./assets/light.png');
+    background-size: cover;
+    padding: 5% 0;
+}
+
+/* .about_text {
+    padding-bottom: 5%;
+} */
+
+.wrapper_cards {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

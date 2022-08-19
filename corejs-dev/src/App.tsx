@@ -7,7 +7,8 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap'
 import TestPage from './components/Tests/testPage'; 
 import Regestraition from './components/regestraition/Regestraition';
 import SignInForm from './components/SignInForm/SignInForm';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import Toggle from './components/Theme/Toggle';
 
 function App () {
   return (
@@ -22,6 +23,7 @@ function App () {
               <Link to="/" className='nav-link'>Home</Link>
               <Link to="/theory" className='nav-link'>Theory</Link>
               <Link to="/tests" className='nav-link'>Tests</Link>
+              <Toggle />
           </Nav>
           <div className='account-buttons'>
             <Link to="/registraition"><Button variant="primary">Registration</Button></Link>
@@ -31,7 +33,7 @@ function App () {
         </Container>
       </Navbar>
     </header>
-    <main>
+    <main className='main'>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="theory" element={<TheoryPage />} />
@@ -40,6 +42,11 @@ function App () {
         <Route path='SignIn' element={<SignInForm/>}/>
       </Routes>
     </main>
+    <footer>
+      <div className='footer'>
+        &copy; {new Date().getFullYear()}
+      </div>
+    </footer>
   </div>
   );
 }
