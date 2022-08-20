@@ -17,9 +17,14 @@ import Polyfills from "./articlesTheory/Polyfills";
 import Functions from "./articlesTheory/Functions";
 import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 import ArrowFunctions from "./articlesTheory/ArrowFunctions";
+import Button from 'react-bootstrap/Button';
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
+    const scrollButton = <Button variant="outline-danger position-fixed bottom-0 end-0 mx-3 my-3" onClick={scrollUp}>В начало ↑</Button>;
+    function scrollUp() {
+        window.scrollBy(0, -window.pageYOffset);
+    }
     return (
         <div className="theory-page-wrap">
             <div className="articles-nav-wrap">
@@ -80,6 +85,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art12'? <FunctionExpressions/>:<a></a>  }
                 {activePage === 'art13'? <ArrowFunctions/>:<a></a>  }
             </div>
+            {scrollButton}
         </div> 
     );
 }
