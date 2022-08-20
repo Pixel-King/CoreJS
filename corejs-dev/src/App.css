@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-image: url('./components/Home/assets/light.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .header-wrap{
   position: relative;
@@ -8,6 +12,7 @@
   background-color: yellow;
   border-bottom: 2px solid black;
 }
+
 .hi{
   text-align: center;
 }
@@ -25,6 +30,10 @@
   justify-content: center;
   background-color: #212529;
   color: rgb(135 137 138);
-  height: 50px;
-  padding-top: 0;
+  padding: 1rem;
+  gap: 10px;
 }
+
+/* main {
+  height: calc(100%-131px);
+} */

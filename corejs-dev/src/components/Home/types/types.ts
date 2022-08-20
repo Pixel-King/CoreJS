@@ -3,4 +3,6 @@ export type CardType = {
     title: string;
     textRU: string;
     textEN: string;
+    path: string;
+    imgsrc: string;
 }
