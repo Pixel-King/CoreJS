@@ -15,6 +15,7 @@ import TypeConversions from "./articlesTheory/TypeConversions";
 import Comparison from "./articlesTheory/Comparison";
 import Polyfills from "./articlesTheory/Polyfills";
 import Functions from "./articlesTheory/Functions";
+import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -55,6 +56,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art11')}} className={`article-nav-link ${activePage === 'art11'?'active':''}`}>Функции</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art12')}} className={`article-nav-link ${activePage === 'art12'?'active':''}`}>Function Expressions</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -69,6 +73,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art9'? <Comparison/>:<a></a>  }
                 {activePage === 'art10'? <Polyfills/>:<a></a>  }
                 {activePage === 'art11'? <Functions/>:<a></a>  }
+                {activePage === 'art12'? <FunctionExpressions/>:<a></a>  }
             </div>
         </div> 
     );
