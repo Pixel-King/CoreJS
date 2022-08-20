@@ -18,6 +18,7 @@ import Functions from "./articlesTheory/Functions";
 import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 import ArrowFunctions from "./articlesTheory/ArrowFunctions";
 import Button from 'react-bootstrap/Button';
+import Date from "./articlesTheory/Date";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -68,6 +69,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art13')}} className={`article-nav-link ${activePage === 'art13'?'active':''}`}>Стрелочные функции</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art14')}} className={`article-nav-link ${activePage === 'art14'?'active':''}`}>Дата и время</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -84,6 +88,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art11'? <Functions/>:<a></a>  }
                 {activePage === 'art12'? <FunctionExpressions/>:<a></a>  }
                 {activePage === 'art13'? <ArrowFunctions/>:<a></a>  }
+                {activePage === 'art14'? <Date/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 
