@@ -13,6 +13,7 @@ import TernaryOperator from "./articlesTheory/TernaryOperator";
 import SwitchCase from "./articlesTheory/SwitchCase";
 import TypeConversions from "./articlesTheory/TypeConversions";
 import Comparison from "./articlesTheory/Comparison";
+import Polyfills from "./articlesTheory/Polyfills";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -47,6 +48,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art9')}} className={`article-nav-link ${activePage === 'art9'?'active':''}`}>Операторы сравнения</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art10')}} className={`article-nav-link ${activePage === 'art10'?'active':''}`}>Полифилы</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -59,6 +63,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art7'? <SwitchCase/>:<a></a>  }
                 {activePage === 'art8'? <TypeConversions/>:<a></a>  }
                 {activePage === 'art9'? <Comparison/>:<a></a>  }
+                {activePage === 'art10'? <Polyfills/>:<a></a>  }
             </div>
         </div> 
     );
