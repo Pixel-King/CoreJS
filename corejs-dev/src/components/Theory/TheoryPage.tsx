@@ -11,6 +11,7 @@ import Variables from "./articlesTheory/Variables";
 import LetVarConst from "./articlesTheory/LetVarConst";
 import TernaryOperator from "./articlesTheory/TernaryOperator";
 import SwitchCase from "./articlesTheory/SwitchCase";
+import TypeConversions from "./articlesTheory/TypeConversions";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -39,6 +40,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art7')}} className={`article-nav-link ${activePage === 'art7'?'active':''}`}>Конструкция switch</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art8')}} className={`article-nav-link ${activePage === 'art8'?'active':''}`}>Преобразование типов</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -49,6 +53,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art5'? <LetVarConst/>:<a></a>  }
                 {activePage === 'art6'? <TernaryOperator/>:<a></a>  }
                 {activePage === 'art7'? <SwitchCase/>:<a></a>  }
+                {activePage === 'art8'? <TypeConversions/>:<a></a>  }
             </div>
         </div> 
     );

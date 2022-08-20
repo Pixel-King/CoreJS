@@ -18,16 +18,16 @@ const DataTypes: React.FC =() => {
     <ul>
         <li>6 типов данных являющихся примитивами:
             <ul itemType='circle'>
-                <li>Undefined (Неопределённый тип) : <code>typeof instance === "undefined"</code></li>
-                <li>Boolean (Булев, Логический тип) : <code>typeof instance === "boolean"</code></li>
-                <li>Number (Число) : <code>typeof instance === "number"</code> </li>
-                <li>String (Строка) : <code>typeof instance === "string"</code> </li>
-                <li>BigInt : <code>typeof instance === "bigint"</code> </li>
-                <li>Symbol (в ECMAScript 6) : <code>typeof instance === "symbol"</code> </li>
+                <li>Undefined (Неопределённый тип) : <code className="fs-6">typeof instance === "undefined"</code></li>
+                <li>Boolean (Булев, Логический тип) : <code className="fs-6">typeof instance === "boolean"</code></li>
+                <li>Number (Число) : <code className="fs-6">typeof instance === "number"</code> </li>
+                <li>String (Строка) : <code className="fs-6">typeof instance === "string"</code> </li>
+                <li>BigInt : <code className="fs-6">typeof instance === "bigint"</code> </li>
+                <li>Symbol (в ECMAScript 6) : <code className="fs-6">typeof instance === "symbol"</code> </li>
             </ul>
         </li>
-        <li>Null (Null тип ) : <code>typeof instance === "object"</code> . Специальный примитив, используемый не только для данных но и в качестве указателя на финальную точку в Цепочке Прототипов;</li>
-        <li>Object (Объект) : <code>typeof instance === "object"</code> . Простая структура, используемая не только для хранения данных, но и для создания других структур, где любая структура создаётся с использованием ключевого слова new: new Object, new Array, new Map (en-US), new Set, new WeakMap, new WeakSet, new Date и множество других структур;</li>
+        <li>Null (Null тип ) : <code className="fs-6">typeof instance === "object"</code> . Специальный примитив, используемый не только для данных но и в качестве указателя на финальную точку в Цепочке Прототипов;</li>
+        <li>Object (Объект) : <code className="fs-6">typeof instance === "object"</code> . Простая структура, используемая не только для хранения данных, но и для создания других структур, где любая структура создаётся с использованием ключевого слова new: new Object, new Array, new Map (en-US), new Set, new WeakMap, new WeakSet, new Date и множество других структур;</li>
     </ul>
     </>
     );
