@@ -19,6 +19,9 @@ import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 import ArrowFunctions from "./articlesTheory/ArrowFunctions";
 import Button from 'react-bootstrap/Button';
 import Date from "./articlesTheory/Date";
+import ObjectsBasics from "./articlesTheory/ObjectsBasics";
+import ObjectsCopy from "./articlesTheory/ObjectsCopy";
+import ObjectMethods from "./articlesTheory/ObjectMethods";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -72,6 +75,15 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art14')}} className={`article-nav-link ${activePage === 'art14'?'active':''}`}>Дата и время</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art15')}} className={`article-nav-link ${activePage === 'art15'?'active':''}`}>Объекты. Основы</Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art16')}} className={`article-nav-link ${activePage === 'art16'?'active':''}`}>Объекты. Копирование</Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art17')}} className={`article-nav-link ${activePage === 'art17'?'active':''}`}>Методы объектов</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -89,6 +101,9 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art12'? <FunctionExpressions/>:<a></a>  }
                 {activePage === 'art13'? <ArrowFunctions/>:<a></a>  }
                 {activePage === 'art14'? <Date/>:<a></a>  }
+                {activePage === 'art15'? <ObjectsBasics/>:<a></a>  }
+                {activePage === 'art16'? <ObjectsCopy/>:<a></a>  }
+                {activePage === 'art17'? <ObjectsCopy/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 
