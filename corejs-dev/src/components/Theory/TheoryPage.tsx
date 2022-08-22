@@ -28,6 +28,7 @@ import Loops from "./articlesTheory/Loops";
 import Hoisting from "./articlesTheory/Hoisting";
 import TempDeadZone from "./articlesTheory/TempDeadZone";
 import GlobalObject from "./articlesTheory/GlobalObject";
+import Document from "./articlesTheory/Document";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -108,6 +109,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art23'); scrollUp()}} className={`article-nav-link ${activePage === 'art23'?'active':''}`}>Глобальный объект</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art24'); scrollUp()}} className={`article-nav-link ${activePage === 'art24'?'active':''}`}>Document</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -134,6 +138,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art21'? <Hoisting/>:<a></a>  }
                 {activePage === 'art22'? <TempDeadZone/>:<a></a>  }
                 {activePage === 'art23'? <GlobalObject/>:<a></a>  }
+                {activePage === 'art24'? <Document/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 
