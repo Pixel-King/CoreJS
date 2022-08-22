@@ -32,7 +32,7 @@ const TheoryPage: React.FC = () => {
         window.scrollBy(0, -window.pageYOffset);
     }
     return (
-        <div className="theory-page-wrap">
+        <div className="theory-page-wrap d-flex flex-row">
             <div className="articles-nav-wrap">
                 <Nav className="articles-nav flex-column">
                     <Nav.Item>
