@@ -24,8 +24,8 @@
 }
 .articles-wrap{
     /* margin-left: 200px; */
-    padding: 20px;
-    /* width: calc(100% - 200px); */
+    padding: 15px;
+    width: calc(100% - 200px);
     text-align: initial
 }
 .articles-wrap p{
