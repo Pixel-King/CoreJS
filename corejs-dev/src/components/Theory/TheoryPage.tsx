@@ -25,6 +25,7 @@ import ObjectMethods from "./articlesTheory/ObjectMethods";
 import Arrays from "./articlesTheory/Arrays";
 import ArrayMethods from "./articlesTheory/ArrayMethods";
 import Loops from "./articlesTheory/Loops";
+import Hoisting from "./articlesTheory/Hoisting";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -96,6 +97,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art20'); scrollUp()}} className={`article-nav-link ${activePage === 'art20'?'active':''}`}>Циклы</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art21'); scrollUp()}} className={`article-nav-link ${activePage === 'art21'?'active':''}`}>Hoisting</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -119,6 +123,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art18'? <Arrays/>:<a></a>  }
                 {activePage === 'art19'? <ArrayMethods/>:<a></a>  }
                 {activePage === 'art20'? <Loops/>:<a></a>  }
+                {activePage === 'art21'? <Hoisting/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 
