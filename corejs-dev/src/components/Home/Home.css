@@ -1,14 +1,15 @@
 .home_content {
-    background-image: url('./assets/light.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 10% 0;
     font-family: 'Poppins', sans-serif;
+    padding: 2%;
 }
 
 .about_text {
     width: 90%;
     margin: auto;
+}
+
+.about_text h1 {
+    font-weight: bold;
 }
 
 .wrapper_cards {
@@ -17,4 +18,17 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.homecard_text {
+    height: 70%;
+    font-size: 18px;
+}
+
+.card_home {
+    width: 20rem;
+    height: 100%;
+    opacity: 0.9;
 }

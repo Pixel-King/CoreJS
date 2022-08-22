@@ -9,7 +9,7 @@
 }
 
 .dev {
-    width: 70%;
+    width: 70vw;
     display: flex;
     flex-direction: row;
     border-radius: 15px;
@@ -28,6 +28,5 @@
 }
 
 .dev_text {
-    width: 70%;
     text-align: center;
 }

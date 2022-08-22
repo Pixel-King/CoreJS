@@ -7,11 +7,11 @@ import { CardType } from "./types/types";
 
 function OneCard(props: CardType) {
     return (
-      <Card style={{ width: '20rem', height: '17rem', opacity: 0.9 }}>
+      <Card style={{ width: '20rem', height: '100%', opacity: 0.9 }}>
         
         <Card.Header className="text-uppercase bg-dark text-light">{props.title}</Card.Header>
         <Card.Body>
-          <Card.Text>
+          <Card.Text className="homecard_text">
             {props.textRU}
           </Card.Text>
           <Link to={props.path}>

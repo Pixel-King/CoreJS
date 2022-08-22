@@ -4,6 +4,9 @@
   background-image: url('./components/Home/assets/light.png');
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .header-wrap{
   position: relative;
@@ -24,7 +27,7 @@
   color:yellow;
 }
 
-.footer {
+.footer-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,6 +37,10 @@
   gap: 10px;
 }
 
-/* main {
-  height: calc(100%-131px);
-} */
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
