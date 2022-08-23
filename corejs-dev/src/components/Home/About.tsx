@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default function About() {
     return (
-        <div className=" about_text text-center">
+        <div className="about_text text-center">
             <h1>
                 CoreJS - самоучитель по JavaScript online
             </h1>

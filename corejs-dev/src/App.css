@@ -1,9 +1,12 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background-image: url('./components/Home/assets/light.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #eafafb;
+  /*background-image: url('./components/Home/assets/light.png'); */
+  background-image: url('./white-grey-scratone.png');
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .header-wrap{
   position: relative;
@@ -11,6 +14,33 @@
   height: 60px;
   background-color: yellow;
   border-bottom: 2px solid black;
+}
+
+header {
+  background: #000;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.navbar-nav a:after {
+  display: block; 
+  content: "";
+  height: 3px;
+  width: 0%;
+  background-color: #04f9e9; 
+  transition: width 0.4s ease-in-out; 
+}
+
+.navbar-nav a:hover:after,
+.navbar-nav a:focus:after {
+width: 100%;
+}
+
+.navbar-nav a:hover {
+  color:#04f9e9;
 }
 
 .hi{
@@ -24,7 +54,7 @@
   color:yellow;
 }
 
-.footer {
+.footer-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,6 +64,10 @@
   gap: 10px;
 }
 
-/* main {
-  height: calc(100%-131px);
-} */
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,14 +1,27 @@
 .home_content {
-    background-image: url('./assets/light.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 10% 0;
     font-family: 'Poppins', sans-serif;
+    padding-bottom: 2%;
+    background: none !important;
+}
+
+.homepage_img {
+    width: 100%;
+    height: auto;
+}
+
+.homepage_img img {
+    width: 100%;
+    height: auto;
 }
 
 .about_text {
+    padding-top: 5%;
     width: 90%;
     margin: auto;
+}
+
+.about_text h1 {
+    font-weight: bold;
 }
 
 .wrapper_cards {
@@ -17,4 +30,25 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.homecard_text {
+    height: 70%;
+    font-size: 18px;
+}
+
+.card_home {
+    box-shadow: 0 15px 30px 1px grey;
+	background: rgba(255, 255, 255, 0.90);
+}
+
+.card_title {
+    font-weight: 700 !important;
+}
+
+.card_home_btn {
+    padding-inline: 10% !important;
+    margin-bottom: 20px !important;
 }
