@@ -13,6 +13,7 @@ import Statistics from './components/Statistics/Statistics';
 import { themes } from './components/Theme/ThemeContext';
 import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
+import logo from './logo2.png';
 
 class App extends React.Component {
   constructor(props: themes) {
@@ -29,9 +30,14 @@ class App extends React.Component {
           <Navbar bg="dark" variant="dark">
             <Container>
               <Navbar.Brand>
-                <Link to="/" className='header-title'><h1>Core<span className='special'>JS</span></h1></Link>
+                <Link to="/" className='header-title'>
+                  <img
+                  src={logo}
+                  className="logo d-inline-block align-top"
+                  alt="logo" />  
+                </Link>
               </Navbar.Brand>
-              <Nav className='me-auto' variant="pils">
+              <Nav className='me-auto fs-5' variant="pils">
                   <Link to="/" className='nav-link'>Home</Link>
                   <Link to="/theory" className='nav-link'>Theory</Link>
                   <Link to="/tests" className='nav-link'>Tests</Link>
@@ -61,7 +67,7 @@ class App extends React.Component {
           </Routes>
         </main>
         <footer className='footer'>
-          <div className='footer-container'>
+          <div className='footer-container fs-5'>
             &copy; {new Date().getFullYear()}
             <Link to="/Devs"><Button variant="outline-secondary">Developers</Button></Link>
           </div>
