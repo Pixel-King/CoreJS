@@ -31,6 +31,7 @@ import GlobalObject from "./articlesTheory/GlobalObject";
 import Document from "./articlesTheory/Document";
 import Events from "./articlesTheory/Events";
 import EventsBubblingCapturing from "./articlesTheory/EventsBubblingCapturing";
+import EventDelegation from "./articlesTheory/EventDelegation";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -120,6 +121,9 @@ const TheoryPage: React.FC = () => {
                     <Nav.Item>
                         <Link to="" onClick={()=>{setActivatePage('art26'); scrollUp()}} className={`article-nav-link ${activePage === 'art26'?'active':''}`}>События. Всплытие и погружение</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art27'); scrollUp()}} className={`article-nav-link ${activePage === 'art27'?'active':''}`}>Делегирование событий</Link>
+                    </Nav.Item>
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -149,6 +153,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art24'? <Document/>:<a></a>  }
                 {activePage === 'art25'? <Events/>:<a></a>  }
                 {activePage === 'art26'? <EventsBubblingCapturing/>:<a></a>  }
+                {activePage === 'art27'? <EventDelegation/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 
