@@ -30,6 +30,7 @@ import TempDeadZone from "./articlesTheory/TempDeadZone";
 import GlobalObject from "./articlesTheory/GlobalObject";
 import Document from "./articlesTheory/Document";
 import Events from "./articlesTheory/Events";
+import EventsBubblingCapturing from "./articlesTheory/EventsBubblingCapturing";
 
 const TheoryPage: React.FC = () => {
     const [activePage, setActivatePage] = useState<string>('art1');
@@ -114,7 +115,10 @@ const TheoryPage: React.FC = () => {
                         <Link to="" onClick={()=>{setActivatePage('art24'); scrollUp()}} className={`article-nav-link ${activePage === 'art24'?'active':''}`}>Document</Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Link to="" onClick={()=>{setActivatePage('art25'); scrollUp()}} className={`article-nav-link ${activePage === 'art25'?'active':''}`}>События</Link>
+                        <Link to="" onClick={()=>{setActivatePage('art25'); scrollUp()}} className={`article-nav-link ${activePage === 'art25'?'active':''}`}>Введение в события</Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Link to="" onClick={()=>{setActivatePage('art26'); scrollUp()}} className={`article-nav-link ${activePage === 'art26'?'active':''}`}>События. Всплытие и погружение</Link>
                     </Nav.Item>
                 </Nav>
             </div>
@@ -144,6 +148,7 @@ const TheoryPage: React.FC = () => {
                 {activePage === 'art23'? <GlobalObject/>:<a></a>  }
                 {activePage === 'art24'? <Document/>:<a></a>  }
                 {activePage === 'art25'? <Events/>:<a></a>  }
+                {activePage === 'art26'? <EventsBubblingCapturing/>:<a></a>  }
             </div>
             {scrollButton}
         </div> 

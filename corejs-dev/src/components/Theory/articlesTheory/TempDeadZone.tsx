@@ -4,7 +4,7 @@ const TempDeadZone: React.FC =() => {
     return (
     <>
     
-    <h1>Область видимости <code className="fs-6">let</code>, temporal dead zone</h1>
+    <h1>Область видимости <code>let</code>, temporal dead zone</h1>
     <p>Директива <code className="fs-6">let</code> объявляет переменную с блочной областью видимости с возможностью инициализировать её значением.</p>
     <h2>Синтаксис</h2>
     <pre className="text-bg-dark px-3 py-3">
