@@ -20,6 +20,9 @@ const JsInBrowserArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'EventDelegation-article'}>
             <Link to='./articlesTheory/EventDelegation' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/EventDelegation' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} EventDelegation`}>Делегирование событий</Link>
+        </Nav.Item>,
+        <Nav.Item key={'MouseEvents-article'}>
+            <Link to='./articlesTheory/MouseEvents' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/MouseEvents' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} MouseEvents`}>События "мыши"</Link>
         </Nav.Item>
     ];
 
