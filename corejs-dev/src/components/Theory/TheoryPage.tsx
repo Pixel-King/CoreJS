@@ -34,6 +34,7 @@ import EventsBubblingCapturing from "./articlesTheory/EventsBubblingCapturing";
 import EventDelegation from "./articlesTheory/EventDelegation";
 import MouseEvents from "./articlesTheory/MouseEvents";
 import MouseMove from "./articlesTheory/MouseMove";
+import DragDrop from "./articlesTheory/DragDrop";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -105,6 +106,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/EventDelegation' element={ <EventDelegation /> } />
                     <Route path='articlesTheory/MouseEvents' element={ <MouseEvents /> } />
                     <Route path='articlesTheory/MouseMove' element={ <MouseMove /> } />
+                    <Route path='articlesTheory/DragDrop' element={ <DragDrop /> } />
                 </Routes>
             </div>
             {scrollButton}
