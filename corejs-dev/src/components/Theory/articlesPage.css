@@ -34,3 +34,9 @@
 .theory-page-wrap {
     width: 100%;
 }
+.articles-nav-container-head {
+    cursor: pointer;
+}
+.articles-nav-container-head:hover {
+    color: #d63384;
+}
