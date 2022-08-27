@@ -39,6 +39,7 @@ import KeyboardEvents from "./articlesTheory/KeyboardEvents";
 import PointerEvents from "./articlesTheory/PointerEvents";
 import Scroll from "./articlesTheory/Scroll";
 import SymbolType from "./articlesTheory/SymbolType";
+import Callbacks from "./articlesTheory/Callbacks";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -46,6 +47,7 @@ import ConditionsComparisonLoopsArticlesList from "./articlesLists/ConditionsCom
 import DateArticlesList from "./articlesLists/DateArticlesList";
 import FunctionsArticleList from "./articlesLists/FunctionsArticleList";
 import JsInBrowserArticlesList from "./articlesLists/JsInBrowserArticlesList";
+import PromisesArticlesList from "./articlesLists/PromisesArticlesList";
 
 const TheoryPage: React.FC = () => {
     const loc = useLocation();
@@ -69,6 +71,7 @@ const TheoryPage: React.FC = () => {
                     <DateArticlesList />
                     <FunctionsArticleList />
                     <JsInBrowserArticlesList />
+                    <PromisesArticlesList />
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -85,6 +88,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/Arrays' element={ <Arrays/> }/>
                     <Route path='articlesTheory/ArrayMethods' element={ <ArrayMethods /> } />
                     <Route path='articlesTheory/TypeConversions' element={ <TypeConversions /> } />
+                    <Route path='articlesTheory/SymbolType' element={ <SymbolType /> } />
 
                     <Route path='articlesTheory/Variables' element={ <Variables /> } />
                     <Route path='articlesTheory/LetVarConst' element={ <LetVarConst/> }/>
@@ -114,7 +118,9 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/KeyboardEvents' element={ <KeyboardEvents /> } />
                     <Route path='articlesTheory/PointerEvents' element={ <PointerEvents /> } />
                     <Route path='articlesTheory/Scroll' element={ <Scroll /> } />
-                    <Route path='articlesTheory/SymbolType' element={ <SymbolType /> } />
+                    
+                    <Route path='articlesTheory/Callbacks' element={ <Callbacks /> } />
+
                 </Routes>
             </div>
             {scrollButton}
