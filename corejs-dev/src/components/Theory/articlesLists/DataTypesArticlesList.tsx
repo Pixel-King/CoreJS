@@ -32,6 +32,9 @@ const DataTypesArticleList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'TypeConversions-article'}>
             <Link to='./articlesTheory/TypeConversions' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/TypeConversions' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} TypeConversions`}>Преобразование типов</Link>
+        </Nav.Item>,
+        <Nav.Item key={'SymbolType-article'}>
+            <Link to='./articlesTheory/SymbolType' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/SymbolType' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} SymbolType`}>Symbol</Link>
         </Nav.Item>
     ];
 
