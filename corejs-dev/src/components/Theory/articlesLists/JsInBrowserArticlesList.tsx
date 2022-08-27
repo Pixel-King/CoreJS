@@ -32,6 +32,9 @@ const JsInBrowserArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'KeyboardEvents-article'}>
             <Link to='./articlesTheory/KeyboardEvents' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/KeyboardEvents' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} KeyboardEvents`}>События клавиатуры</Link>
+        </Nav.Item>,
+        <Nav.Item key={'PointerEvents-article'}>
+            <Link to='./articlesTheory/PointerEvents' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PointerEvents' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PointerEvents`}>События указателя</Link>
         </Nav.Item>
     ];
 
