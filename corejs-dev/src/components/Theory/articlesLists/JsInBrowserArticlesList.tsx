@@ -35,6 +35,9 @@ const JsInBrowserArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'PointerEvents-article'}>
             <Link to='./articlesTheory/PointerEvents' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PointerEvents' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PointerEvents`}>События указателя</Link>
+        </Nav.Item>,
+        <Nav.Item key={'Scroll-article'}>
+            <Link to='./articlesTheory/Scroll' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Scroll' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Scroll`}>Прокрутка</Link>
         </Nav.Item>
     ];
 

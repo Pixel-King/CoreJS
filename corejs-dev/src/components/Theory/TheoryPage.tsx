@@ -37,6 +37,7 @@ import MouseMove from "./articlesTheory/MouseMove";
 import DragDrop from "./articlesTheory/DragDrop";
 import KeyboardEvents from "./articlesTheory/KeyboardEvents";
 import PointerEvents from "./articlesTheory/PointerEvents";
+import Scroll from "./articlesTheory/Scroll";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -111,7 +112,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/DragDrop' element={ <DragDrop /> } />
                     <Route path='articlesTheory/KeyboardEvents' element={ <KeyboardEvents /> } />
                     <Route path='articlesTheory/PointerEvents' element={ <PointerEvents /> } />
-
+                    <Route path='articlesTheory/Scroll' element={ <Scroll /> } />
                 </Routes>
             </div>
             {scrollButton}
