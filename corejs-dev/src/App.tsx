@@ -28,7 +28,7 @@ class App extends React.Component {
       <div className='App'>
         <header>
           <Navbar bg="dark" variant="dark">
-            <Container>
+            <div className='header-container'>
               <Navbar.Brand>
                 <Link to="/" className='header-title'>
                   <img
@@ -37,7 +37,7 @@ class App extends React.Component {
                   alt="logo" />  
                 </Link>
               </Navbar.Brand>
-              <Nav className='me-auto fs-5' variant="pils">
+              <Nav className='nav-link-container fs-5' variant="pils">
                   <Link to="/" className='nav-link'>Home</Link>
                   <Link to="/theory" className='nav-link'>Theory</Link>
                   <Link to="/tests" className='nav-link'>Tests</Link>
@@ -49,7 +49,7 @@ class App extends React.Component {
                 {' '}
                 <Link to="/SignIn"><Button variant="outline-primary">Sign in</Button></Link>
               </div>
-            </Container>
+            </div>
           </Navbar>
         </header>
         <main className='main'>

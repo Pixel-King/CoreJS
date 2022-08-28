@@ -31,9 +31,9 @@ class Answer extends React.Component<IProps, IState> {
                 color: 'success'
             });
         } else {
-           this.setState({
-            color: 'danger'
-        });
+            this.setState({
+                color: 'danger'
+            });
         }
     };
 

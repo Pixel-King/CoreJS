@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, MouseEvent } from "react";
 import { QuestionType } from "./textTest";
 import { questions } from './textTest';
 import { Button } from "react-bootstrap";
@@ -20,8 +20,10 @@ function CardTest(props: string) {
             setCurrentQuestion(nextQuestion);
         }
     }
-    const prevQuestion = () => {
+    const prevQuestion = (e: MouseEvent) => {
+        const btn = e.target as HTMLElement;
         if (currentQuestion === 0) {
+            btn.classList.add('disabled');                 //// !
             setCurrentQuestion(currentQuestion);
         } else {
             const nextQuestion = currentQuestion - 1;
@@ -30,16 +32,21 @@ function CardTest(props: string) {
     }
     return (
         <div className='question-section' key={questionsFilter[currentQuestion].id}>
-            <div className='question-title'>{questionsFilter[currentQuestion].question}</div>
-            <div className='question-code' dangerouslySetInnerHTML={{__html: questionsFilter[currentQuestion].code || ''}}></div>
-            <div className='answer-section'>
-                {questionsFilter[currentQuestion].answerOptions.map((answerOption, index) => (
-                    <Answer {...answerOption} key={index}/>
-                ))}
-            </div>
-            <div className="section_nextprev">
-                <Button onClick={prevQuestion} variant="dark">Prev</Button>
-                <Button onClick={nextQuestion} variant="dark">Next</Button>
+            <div className="question-content">
+                <div className="question-number fs-5">
+                    Вопрос {currentQuestion+1}/{questionsFilter.length}
+                </div>
+                <div className='question-title'>{questionsFilter[currentQuestion].question}</div>
+                <div className='question-code' dangerouslySetInnerHTML={{__html: questionsFilter[currentQuestion].code || ''}}></div>
+                <div className='answer-section'>
+                    {questionsFilter[currentQuestion].answerOptions.map((answerOption, index) => (
+                        <Answer {...answerOption} key={index}/>
+                    ))}
+                </div>
+                <div className="section_nextprev">
+                    <Button onClick={prevQuestion} variant="dark">Prev</Button>
+                    <Button onClick={nextQuestion} variant="dark">Next</Button>
+                </div>
             </div>
         </div>
     )

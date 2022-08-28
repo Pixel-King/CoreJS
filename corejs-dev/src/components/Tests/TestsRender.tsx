@@ -1,7 +1,7 @@
 import React from "react";
 import CardTest from "./CardTest";
 
-export default function TestsTheory(props: {type: string}) {
+export default function TestsRender(props: {type: string}) {
     return (
         CardTest(props.type)
     )
