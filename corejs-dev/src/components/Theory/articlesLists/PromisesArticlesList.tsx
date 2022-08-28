@@ -8,6 +8,9 @@ const PromisesArticlesList: React.FC = () => {
     const body = isOpen && [
         <Nav.Item key={'Callbacks-article'}>
             <Link to='./articlesTheory/Callbacks' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Callbacks' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Callbacks`}>Введение: колбэки</Link>
+        </Nav.Item>,
+        <Nav.Item key={'PromisesBasics-article'}>
+            <Link to='./articlesTheory/PromisesBasics' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromisesBasics' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromisesBasics`}>Промисы</Link>
         </Nav.Item>
     ];
 
