@@ -41,6 +41,7 @@ import Scroll from "./articlesTheory/Scroll";
 import SymbolType from "./articlesTheory/SymbolType";
 import Callbacks from "./articlesTheory/Callbacks";
 import PromisesBasics from "./articlesTheory/PromisesBasics";
+import PromiseChaining from "./articlesTheory/PromiseChaining";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -122,6 +123,7 @@ const TheoryPage: React.FC = () => {
                     
                     <Route path='articlesTheory/Callbacks' element={ <Callbacks /> } />
                     <Route path='articlesTheory/PromisesBasics' element={ <PromisesBasics /> } />
+                    <Route path='articlesTheory/PromiseChaining' element={ <PromiseChaining /> } />
                 </Routes>
             </div>
             {scrollButton}

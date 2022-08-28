@@ -11,6 +11,9 @@ const PromisesArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'PromisesBasics-article'}>
             <Link to='./articlesTheory/PromisesBasics' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromisesBasics' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromisesBasics`}>Промисы</Link>
+        </Nav.Item>,
+        <Nav.Item key={'PromiseChaining-article'}>
+            <Link to='./articlesTheory/PromiseChaining' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromiseChaining' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromiseChaining`}>Цепочка промисов</Link>
         </Nav.Item>
     ];
 
