@@ -46,6 +46,7 @@ import PromisesErrorHandling from "./articlesTheory/PromisesErrorHandling";
 import PromiseApi from "./articlesTheory/PromiseApi";
 import Promisification from "./articlesTheory/Promisification";
 import Microtasks from "./articlesTheory/Microtasks";
+import AsyncAwait from "./articlesTheory/AsyncAwait";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -132,6 +133,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/PromiseApi' element={ <PromiseApi /> } />
                     <Route path='articlesTheory/Promisification' element={ <Promisification /> } />
                     <Route path='articlesTheory/Microtasks' element={ <Microtasks /> } />
+                    <Route path='articlesTheory/AsyncAwait' element={ <AsyncAwait /> } />
                 </Routes>
             </div>
             {scrollButton}
