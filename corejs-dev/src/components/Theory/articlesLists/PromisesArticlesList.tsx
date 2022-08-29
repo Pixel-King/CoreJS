@@ -20,6 +20,9 @@ const PromisesArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'PromiseApi-article'}>
             <Link to='./articlesTheory/PromiseApi' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromiseApi' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromiseApi`}>Promise API</Link>
+        </Nav.Item>,
+        <Nav.Item key={'Promisification-article'}>
+            <Link to='./articlesTheory/Promisification' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Promisification' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Promisification`}>Промисификация</Link>
         </Nav.Item>
     ];
 

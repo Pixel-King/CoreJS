@@ -44,6 +44,7 @@ import PromisesBasics from "./articlesTheory/PromisesBasics";
 import PromiseChaining from "./articlesTheory/PromiseChaining";
 import PromisesErrorHandling from "./articlesTheory/PromisesErrorHandling";
 import PromiseApi from "./articlesTheory/PromiseApi";
+import Promisification from "./articlesTheory/Promisification";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -128,6 +129,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/PromiseChaining' element={ <PromiseChaining /> } />
                     <Route path='articlesTheory/PromisesErrorHandling' element={ <PromisesErrorHandling /> } />
                     <Route path='articlesTheory/PromiseApi' element={ <PromiseApi /> } />
+                    <Route path='articlesTheory/Promisification' element={ <Promisification /> } />
                 </Routes>
             </div>
             {scrollButton}
