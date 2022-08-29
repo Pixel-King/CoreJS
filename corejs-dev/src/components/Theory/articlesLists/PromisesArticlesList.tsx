@@ -17,6 +17,9 @@ const PromisesArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'PromisesErrorHandling-article'}>
             <Link to='./articlesTheory/PromisesErrorHandling' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromisesErrorHandling' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromisesErrorHandling`}>Промисы: обработка ошибок</Link>
+        </Nav.Item>,
+        <Nav.Item key={'PromiseApi-article'}>
+            <Link to='./articlesTheory/PromiseApi' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/PromiseApi' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} PromiseApi`}>Promise API</Link>
         </Nav.Item>
     ];
 
