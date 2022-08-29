@@ -56,6 +56,8 @@ import FunctionsArticleList from "./articlesLists/FunctionsArticleList";
 import JsInBrowserArticlesList from "./articlesLists/JsInBrowserArticlesList";
 import PromisesArticlesList from "./articlesLists/PromisesArticlesList";
 
+import ProgressBar from "./progressBar";
+
 const TheoryPage: React.FC = () => {
     const loc = useLocation();
     const scrollButton = <Button variant="outline-danger position-fixed bottom-0 end-0 mx-3 my-3" onClick={scrollUp}>В начало ↑</Button>;
@@ -82,6 +84,7 @@ const TheoryPage: React.FC = () => {
                 </Nav>
             </div>
             <div className="articles-wrap">
+                <ProgressBar />
                 <div className="mt-5">
                     {greeting}
                 </div>
