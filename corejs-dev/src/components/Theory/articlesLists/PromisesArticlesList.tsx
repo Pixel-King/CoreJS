@@ -23,6 +23,9 @@ const PromisesArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'Promisification-article'}>
             <Link to='./articlesTheory/Promisification' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Promisification' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Promisification`}>Промисификация</Link>
+        </Nav.Item>,
+        <Nav.Item key={'Microtasks-article'}>
+            <Link to='./articlesTheory/Microtasks' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Microtasks' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Microtasks`}>Микрозадачи</Link>
         </Nav.Item>
     ];
 
