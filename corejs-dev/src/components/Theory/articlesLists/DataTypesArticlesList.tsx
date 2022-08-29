@@ -35,6 +35,9 @@ const DataTypesArticleList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'SymbolType-article'}>
             <Link to='./articlesTheory/SymbolType' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/SymbolType' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} SymbolType`}>Symbol</Link>
+        </Nav.Item>,
+        <Nav.Item key={'Iterable-article'}>
+            <Link to='./articlesTheory/Iterable' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Iterable' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Iterable`}>Перебираемые объекты</Link>
         </Nav.Item>
     ];
 
