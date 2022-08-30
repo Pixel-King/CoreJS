@@ -5,8 +5,8 @@ import TheoryPage from './components/Theory/TheoryPage';
 import { Routes, Route, Link} from "react-router-dom";
 import { Navbar, Nav, Container, Button } from 'react-bootstrap'
 import TestPage from './components/Tests/testPage'; 
-import Regestraition from './components/regestraition/Regestraition';
-import SignInForm from './components/SignInForm/SignInForm';
+import Regestraition from './components/Autorisation/regestraition/Regestraition';
+import SignInForm from './components/Autorisation/SignInForm/SignInForm';
 import 'bootstrap/dist/css/bootstrap.css';
 import Toggle from './components/Theme/Toggle';
 import Statistics from './components/Statistics/Statistics';
