@@ -135,7 +135,7 @@ const TernaryOperator: React.FC =() => {
     <p>Но скобки делают код более простым для восприятия, поэтому мы рекомендуем их использовать.</p>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>В примере выше вы можете избежать использования оператора вопросительного знака <code className="fs-6">?</code>, т.к. сравнение само по себе уже возвращает `true/false`:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 // то же самое <br />
                 let accessAllowed = age &gt; 18;

@@ -69,7 +69,7 @@ f();`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong><code className="fs-6">await</code> нельзя использовать в обычных функциях</strong></p>
         <p>Если мы попробуем использовать <code className="fs-6">await</code> внутри функции, объявленной без <code className="fs-6">async</code>, получим синтаксическую ошибку:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`function f() {
     let promise = Promise.resolve(1);
@@ -121,7 +121,7 @@ showAvatar();`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong><code className="fs-6">await</code> нельзя использовать на верхнем уровне вложенности</strong></p>
         <p>Программисты, узнав об <code className="fs-6">await</code>, часто пытаются использовать эту возможность на верхнем уровне вложенности (вне тела функции). Но из-за того, что <code className="fs-6">await</code> работает только внутри <code className="fs-6">async</code>–функций, так сделать не получится:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`// SyntaxError на верхнем уровне вложенности
 let response = await fetch('/article/promise-chaining/user.json');
@@ -129,7 +129,7 @@ let user = await response.json();`}
             </code>
         </pre>
         <p>Можно обернуть этот код в анонимную <code className="fs-6">async</code>–функцию, тогда всё заработает:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`(async () => {
     let response = await fetch('/article/promise-chaining/user.json');
@@ -143,7 +143,7 @@ let user = await response.json();`}
         <p><strong><code className="fs-6">await</code> работает с «thenable»–объектами</strong></p>
         <p>Как и <code className="fs-6">promise.then</code>, <code className="fs-6">await</code> позволяет работать с промис–совместимыми объектами. Идея в том, что если у объекта можно вызвать метод then, этого достаточно, чтобы использовать его с <code className="fs-6">await</code>.</p>
         <p>В примере ниже, экземпляры класса <code className="fs-6">Thenable</code> будут работать вместе с <code className="fs-6">await</code>:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`class Thenable {
     constructor(num) {
@@ -171,7 +171,7 @@ f();`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong>Асинхронные методы классов</strong></p>
         <p>Для объявления асинхронного метода достаточно написать <code className="fs-6">async</code> перед именем:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`class Waiter {
     async wait() {
@@ -258,7 +258,7 @@ f().catch(alert); // TypeError: failed to fetch // (*)`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong><code className="fs-6">async/await</code> отлично работает с <code className="fs-6">Promise.all</code></strong></p>
         <p>Когда необходимо подождать несколько промисов одновременно, можно обернуть их в <code className="fs-6">Promise.all</code>, и затем <code className="fs-6">await</code>:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`// await будет ждать массив с результатами выполнения всех промисов
 let results = await Promise.all([

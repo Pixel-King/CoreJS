@@ -84,7 +84,7 @@ arr[3](); // привет`}
 
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Список элементов массива, как и список свойств объекта, может оканчиваться запятой:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`let fruits = [
     'Яблоко',

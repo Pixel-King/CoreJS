@@ -104,7 +104,7 @@ alert( visitsCountObj["[object Object]"] ); // 123`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong>Цепочка вызовов</strong></p>
         <p>Каждый вызов <code className="fs-6">map.set</code> возвращает объект <code className="fs-6">map</code>, так что мы можем объединить вызовы в цепочку:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`map.set("1", "str1")
     .set(1, "num1")

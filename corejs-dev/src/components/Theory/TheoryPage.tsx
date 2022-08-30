@@ -50,6 +50,7 @@ import AsyncAwait from "./articlesTheory/AsyncAwait";
 import Iterable from "./articlesTheory/Iterable";
 import MapSet from "./articlesTheory/MapSet";
 import ObjectKeysValuesEntries from "./articlesTheory/ObjectKeysValuesEntries";
+import DestructuringAssignment from "./articlesTheory/DestructuringAssignment";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -105,6 +106,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/Iterable' element={ <Iterable /> } />
                     <Route path='articlesTheory/MapSet' element={ <MapSet /> } />
                     <Route path='articlesTheory/ObjectKeysValuesEntries' element={ <ObjectKeysValuesEntries /> } />
+                    <Route path='articlesTheory/DestructuringAssignment' element={ <DestructuringAssignment /> } />
 
                     <Route path='articlesTheory/Variables' element={ <Variables /> } />
                     <Route path='articlesTheory/LetVarConst' element={ <LetVarConst/> }/>

@@ -71,7 +71,7 @@ const FunctionExpressions: React.FC =() => {
 
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>У вас мог возникнуть вопрос: Почему в Function Expression ставится точка с запятой <code className="fs-6">;</code> на конце, а в Function Declaration нет:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function sayHi() {`} <br />
                 {`    // ...`} <br />

@@ -192,7 +192,7 @@ admin['f'](); // Админ (неважен способ доступа к ме�
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Вызов без объекта: <code className="fs-6">this == undefined</code>.</p>
         <p>Мы даже можем вызвать функцию вовсе без использования объекта:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function sayHi() {
     alert(this);

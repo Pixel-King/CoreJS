@@ -94,7 +94,7 @@ const PromisesBasics: React.FC =() => {
         <p><strong>Может быть что-то одно: либо результат, либо ошибка</strong></p>
         <p>Исполнитель должен вызвать что-то одно: <strong>resolve</strong> или <strong>reject</strong>. Состояние промиса может быть изменено только один раз.</p>
         <p>Все последующие вызовы <strong>resolve</strong> и <strong>reject</strong> будут проигнорированы:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`let promise = new Promise(function(resolve, reject) {
     resolve("done");
@@ -114,7 +114,7 @@ const PromisesBasics: React.FC =() => {
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong>Вызов <em>resolve/reject</em> сразу</strong></p>
         <p>Обычно исполнитель делает что-то асинхронное и после этого вызывает <strong>resolve/reject</strong>, то есть через какое-то время. Но это не обязательно, <strong>resolve</strong> или <strong>reject</strong> могут быть вызваны сразу:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`let promise = new Promise(function(resolve, reject) {
     // задача, не требующая времени
@@ -269,7 +269,7 @@ promise.catch(alert); // выведет "Error: Ошибка!" спустя од
         <p>Если промис в состоянии ожидания, обработчики в <code className="fs-6">.then/catch/finally</code> будут ждать его.</p>
         <p>Иногда может случиться так, что промис уже выполнен, когда мы добавляем к нему обработчик.</p>
         <p>В таком случае эти обработчики просто запускаются немедленно:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`// при создании промиса он сразу переводится в состояние "успешно завершён"
     let promise = new Promise(resolve => resolve("готово!"));
