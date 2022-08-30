@@ -1,10 +1,5 @@
 import React, { Component, useContext } from 'react';
-//import styles from '../index.css'
-
-
-// import { ThemeContext } from './ThemeProvider';
 import { FiMoon, FiSun } from 'react-icons/fi'; //npm install react-icons --save
-import { themes } from './ThemeContext';
 
 interface IProps {
 }

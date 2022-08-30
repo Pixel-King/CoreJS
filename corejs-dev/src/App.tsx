@@ -10,20 +10,12 @@ import SignInForm from './components/SignInForm/SignInForm';
 import 'bootstrap/dist/css/bootstrap.css';
 import Toggle from './components/Theme/Toggle';
 import Statistics from './components/Statistics/Statistics';
-import { themes, themesType } from './components/Theme/ThemeContext';
 import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
 import logo from './logo3.png';
 
-class App extends React.Component {
-  constructor(props: themesType) {
-    super(props)
-    this.state = {
-        theme: 'light'
-    }
-  }
+const App: React.FC = () => {
 
-  render() {
     return (
       <div className='App'>
         <header className='header'>
@@ -75,7 +67,6 @@ class App extends React.Component {
       </div>
       );
   }
-  
-}
+
 
 export default App;
