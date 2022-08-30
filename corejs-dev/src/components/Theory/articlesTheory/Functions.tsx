@@ -178,7 +178,7 @@ const Functions: React.FC =() => {
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Ранние версии JavaScript не поддерживали параметры по умолчанию. Поэтому существуют альтернативные способы, которые могут встречаться в старых скриптах.</p>
         <p>Например, явная проверка на `undefined`:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function showMessage(from, text) {`} <br />
                 {`    *!*`} <br />
@@ -191,7 +191,7 @@ const Functions: React.FC =() => {
             </code>
         </pre>
         <p>...Или с помощью оператора `||`:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function showMessage(from, text) {`} <br />
                 {`// Если значение text ложно, тогда присвоить параметру text значение по умолчанию`} <br />
@@ -257,14 +257,14 @@ const Functions: React.FC =() => {
 
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Результат функции с пустым <code className="fs-6">return</code> или без него - <code className="fs-6">undefined</code>. Если функция не возвращает значения, это всё равно, как если бы она возвращала <code className="fs-6">undefined</code>:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function doNothing() { /* пусто */ }`} <br />
                 {`alert( doNothing() === undefined ); // true`}
             </code>
         </pre>
         <p>Пустой <code className="fs-6">return</code> аналогичен <code className="fs-6">return undefined</code>:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`function doNothing() {`} <br />
                 {`    return;`} <br />
@@ -277,14 +277,14 @@ const Functions: React.FC =() => {
     <div className="fst-italic border-3 border-start border-danger px-3">
         <p>Никогда не добавляйте перевод строки между <code className="fs-6">return</code> и его значением.</p>
         <p>Для длинного выражения в <code className="fs-6">return</code> может быть заманчиво разместить его на нескольких отдельных строках, например так:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 return <br />
                 (some + long + expression + or + whatever * f(a) + f(b))
             </code>
         </pre>
         <p>Код не выполнится, потому что интерпретатор JavaScript подставит точку с запятой после `return`. Для него это будет выглядеть так:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 return*!*;*/!* <br />
                 (some + long + expression + or + whatever * f(a) + f(b))
@@ -292,7 +292,7 @@ const Functions: React.FC =() => {
         </pre>
         <p>Таким образом, это фактически стало пустым <code className="fs-6">return</code>.</p>
         <p>Если мы хотим, чтобы возвращаемое выражение занимало несколько строк, нужно начать его на той же строке, что и <code className="fs-6">return</code>. Или, хотя бы, поставить там открывающую скобку, вот так:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`return (`} <br />
                 {`    some + long + expression`} <br />

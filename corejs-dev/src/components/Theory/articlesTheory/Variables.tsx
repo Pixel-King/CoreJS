@@ -182,7 +182,7 @@ const Variables: React.FC =() => {
     </div>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Можно использовать любой язык, включая кириллицу или даже иероглифы, например:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 let имя = &#39;...&#39;;
                 let 我 = &#39;...&#39;;
@@ -195,7 +195,7 @@ const Variables: React.FC =() => {
         <p>Существует <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Lexical_grammar#%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%B2%D1%8B%D0%B5_%D1%81%D0%BB%D0%BE%D0%B2%D0%B0">список зарезервированных слов</a>, которые нельзя использовать в качестве имён переменных, потому что они используются самим языком.</p>
         <p>Например: <code className="fs-6">let</code>, <code className="fs-6">class</code>, <code className="fs-6">return</code> и <code className="fs-6">function</code> зарезервированы.</p>
         <p>Приведённый ниже код даёт синтаксическую ошибку:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 let let = 5; // нельзя назвать переменную &quot;let&quot;, ошибка! <br />
                 let return = 5; // также нельзя назвать переменную &quot;return&quot;, ошибка!

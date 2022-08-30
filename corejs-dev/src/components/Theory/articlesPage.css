@@ -8,6 +8,7 @@
 }
 .nav.articles-nav{
     width: 200px;
+    user-select: none;
 }
 .article-nav-link{
     color: rgb(70, 70, 70);
@@ -34,4 +35,17 @@
 
 .theory-page-wrap {
     width: 100%;
+}
+.articles-nav-container-head {
+    cursor: pointer;
+}
+.articles-nav-container-head:hover {
+    color: #dc3545;
+}
+.progressBar {
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 5px;
 }

@@ -47,7 +47,7 @@ while (i) { // когда i будет равно 0, условие станет
 
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Если тело цикла состоит лишь из одной инструкции, мы можем опустить фигурные скобки <code className="fs-6">{`{…}`}</code>:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`let i = 3;
 *!*
@@ -129,7 +129,7 @@ do {
         </tbody>
     </table>
     <p>В целом, алгоритм работы цикла выглядит следующим образом:</p>
-    <pre><code className="fs-6">Выполнить начало <br />
+    <pre className="text-bg-dark px-3 py-3"><code className="fs-6">Выполнить начало <br />
     → (Если условие == true → Выполнить тело, Выполнить шаг) <br />
     → (Если условие == true → Выполнить тело, Выполнить шаг) <br />
     → (Если условие == true → Выполнить тело, Выполнить шаг) <br />
@@ -155,7 +155,7 @@ if (i < 3) { alert(i); i++ }
     </pre>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>В примере переменная счётчика <code className="fs-6">i</code> была объявлена прямо в цикле. Это так называемое 'встроенное' объявление переменной. Такие переменные существуют только внутри цикла.</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`for (*!*let*/!* i = 0; i < 3; i++) {
     alert(i); // 0, 1, 2
@@ -164,7 +164,7 @@ alert(i); // ошибка, нет такой переменной`}
             </code>
         </pre>
         <p>Вместо объявления новой переменной мы можем использовать уже существующую:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`let i = 0;
 
@@ -252,7 +252,7 @@ alert( 'Сумма: ' + sum );`}
     <p>Для чётных значений <code className="fs-6">i</code>, директива <code className="fs-6">continue</code> прекращает выполнение тела цикла и передаёт управление на следующую итерацию <code className="fs-6">for</code> (со следующим числом). Таким образом <code className="fs-6">alert</code> вызывается только для нечётных значений.</p>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Директива <code className="fs-6">continue</code> позволяет избегать вложенности. Цикл, который обрабатывает только нечётные значения, мог бы выглядеть так:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`for (let i = 0; i < 10; i++) {
 
@@ -271,7 +271,7 @@ alert( 'Сумма: ' + sum );`}
         <p>Нельзя использовать <code className="fs-6">break/continue</code> справа от оператора '?'.</p>
         <p>Обратите внимание, что эти синтаксические конструкции не являются выражениями и не могут быть использованы с тернарным оператором <code className="fs-6">?</code>. В частности, использование таких директив, как <code className="fs-6">break/continue</code>, вызовет ошибку.</p>
         <p>Например, если мы возьмём этот код:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`if (i > 5) {
     alert(i);
@@ -281,7 +281,7 @@ alert( 'Сумма: ' + sum );`}
             </code>
         </pre>
         <p>...и перепишем его, используя вопросительный знак:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`(i > 5) ? alert(i) : *!*continue*/!*; // continue здесь приведёт к ошибке`}
             </code>
@@ -350,7 +350,7 @@ alert( 'Сумма: ' + sum );`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Метки не дают возможности передавать управление в произвольное место кода.</p>
         <p>Например, нет возможности сделать следующее:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`break label; // не прыгает к метке ниже
 
@@ -358,7 +358,7 @@ label: for (...)`}
             </code>
         </pre>
         <p>Директива <code className="fs-6">break</code> должна находиться внутри блока кода. Технически, подойдет любой маркированный блок кода, например:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`label: {
     // ...

@@ -94,7 +94,7 @@ alert( arr ); // 'Я', 'изучаю', 'сложный', 'язык', 'JavaScript
 
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>В этом и в других методах массива допускается использование отрицательного индекса. Он позволяет начать отсчёт элементов с конца, как тут:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`let arr = [1, 2, 5];
 
@@ -388,7 +388,7 @@ alert(arr);  // *!*1, 2, 15*/!*`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>На самом деле от функции сравнения требуется любое положительное число, чтобы сказать 'больше', и отрицательное число, чтобы сказать 'меньше'.</p>
         <p>Это позволяет писать более короткие функции:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`let arr = [ 1, 2, 15 ];
 
@@ -400,7 +400,7 @@ alert(arr);  // *!*1, 2, 15*/!*`}
     </div>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Помните стрелочные функции? Можно использовать их здесь для того, чтобы сортировка выглядела более аккуратной:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 arr.sort( (a, b) =&gt; a - b );
             </code>
@@ -445,7 +445,7 @@ alert(arr); // Вася, Петя`}
     </pre>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Вызов <code className="fs-6">split(s)</code> с пустым аргументом <code className="fs-6">s</code> разбил бы строку на массив букв:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
             {`let str = 'тест';
 

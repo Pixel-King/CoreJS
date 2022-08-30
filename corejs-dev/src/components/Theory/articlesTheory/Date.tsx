@@ -64,14 +64,14 @@ const Date: React.FC =() => {
         <p>- Параметр <code className="fs-6">date</code> здесь представляет собой день месяца. Если параметр не задан, то принимается значение <em>1</em>.</p>
         <p>- Если параметры <code className="fs-6">hours/minutes/seconds/ms</code> отсутствуют, их значением становится <em>0</em>.</p>
         <p>Например:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 new Date(2011, 0, 1, 0, 0, 0, 0); // // 1 Jan 2011, 00:00:00 <br />
                 new Date(2011, 0, 1); // то же самое, так как часы и проч. равны 0
             </code>
         </pre>
         <p>Максимальная точность – 1 мс (до 1/1000 секунды):</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 let date = new Date(2011, 0, 1, 2, 3, 4, 567); <br />
                 alert( date ); // 1.01.2011, 02:03:04.567
@@ -102,7 +102,7 @@ const Date: React.FC =() => {
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Однако существуют и их UTC-варианты, возвращающие день, месяц, год для временной зоны UTC+0: <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear">getUTCFullYear()</a>, <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth">getUTCMonth()</a>, <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay">getUTCDay()</a>. Для их использования требуется после <code className="fs-6">&quot;get&quot;</code> подставить <code className="fs-6">&quot;UTC&quot;</code>.</p>
         <p>Если ваш местный часовой пояс смещён относительно UTC, то следующий код покажет разные часы:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 // текущая дата <br />
                 let date = new Date(); <br />

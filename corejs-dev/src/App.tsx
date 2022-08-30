@@ -47,7 +47,7 @@ const App: React.FC = () => {
         <main className='main'>
           <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="theory" element={<TheoryPage />} />
+            <Route path="theory/*" element={<TheoryPage />} />
             <Route path="tests" element={<TestPage />} />
             <Route path="statistics" element={<Statistics />} />
             <Route path='registraition' element={<Regestraition/>}/>
