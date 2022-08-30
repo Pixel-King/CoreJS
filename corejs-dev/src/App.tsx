@@ -55,7 +55,7 @@ class App extends React.Component {
         <main className='main'>
           <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="theory" element={<TheoryPage />} />
+            <Route path="theory/*" element={<TheoryPage />} />
             <Route path="tests" element={<TestPage />} />
             <Route path="statistics" element={<Statistics />} />
             <Route path='registraition' element={<Regestraition/>}/>

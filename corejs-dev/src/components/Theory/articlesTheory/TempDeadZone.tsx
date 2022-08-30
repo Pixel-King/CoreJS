@@ -153,7 +153,7 @@ console.log(privateScope.hiddenProperty); // error`}
 }`}
         </code>
     </pre>
-    <h2>Использование <code className="fs-6">let</code> в циклах for</h2>
+    <h2>Использование <code>let</code> в циклах for</h2>
     <p>Вы можете использовать ключевое слово <code className="fs-6">let</code> для привязки переменных к локальной области видимости цикла <code className="fs-6">for</code>. Разница с использованием <code className="fs-6">var</code> в заголовке цикла <code className="fs-6">for</code>, заключается в том, что переменные объявленные <code className="fs-6">var</code>, будут видны во всей функции, в которой находится этот цикл.</p>
     <pre className="text-bg-dark px-3 py-3">
         <code className="fs-6">

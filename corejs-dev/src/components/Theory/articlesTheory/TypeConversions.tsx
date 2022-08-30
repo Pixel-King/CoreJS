@@ -106,7 +106,7 @@ const TypeConversions: React.FC =() => {
     </pre>
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Заметим, что строчка с нулём <code className="fs-6">&quot;0&quot;</code> — это <code className="fs-6">true</code>. Некоторые языки (к примеру, PHP) воспринимают строку <code className="fs-6">&quot;0&quot;</code> как <code className="fs-6">false</code>. Но в JavaScript, если строка не пустая, то она всегда <code className="fs-6">true</code>.</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 alert( Boolean(&quot;0&quot;) ); // true <br />
                 alert( Boolean(&quot; &quot;) ); // пробел это тоже true (любая непустая строка это true)

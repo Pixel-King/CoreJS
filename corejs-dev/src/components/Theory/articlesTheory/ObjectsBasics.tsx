@@ -92,7 +92,7 @@ const ObjectsBasics: React.FC =() => {
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Объект, объявленный через <code className="fs-6">const</code>, <em>может</em> быть изменён.</p>
         <p>Например:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`const user = {`} <br />
                 {`    name: 'John'`} <br />
@@ -283,7 +283,7 @@ const ObjectsBasics: React.FC =() => {
         </code>
     </pre>
     <p>Есть небольшой подводный камень, связанный со специальным свойством <code className="fs-6">__proto__</code>. Мы не можем установить его в необъектное значение:</p>
-    <pre><code className="text-bg-dark px-3 py-3">let obj = {};
+    <pre className="text-bg-dark px-3 py-3"><code className="text-bg-dark px-3 py-3">let obj = {};
     obj.__proto__ = 5; // присвоим число
     alert(obj.__proto__); // [object Object], значение - это объект, т.е. не то, что мы ожидали
     </code></pre>
@@ -292,7 +292,7 @@ const ObjectsBasics: React.FC =() => {
     <h2 id="проверка-существования-свойства-оператор-in">Проверка существования свойства, оператор &quot;in&quot;</h2>
     <p>В отличие от многих других языков, особенность JavaScript-объектов в том, что можно получить доступ к любому свойству. Даже если свойства не существует - ошибки не будет!</p>
     <p>При обращении к свойству, которого нет, возвращается <code className="fs-6">undefined</code>. Это позволяет просто проверить существование свойства:</p>
-    <pre><code className="text-bg-dark px-3 py-3">let user = {};
+    <pre className="text-bg-dark px-3 py-3"><code className="text-bg-dark px-3 py-3">let user = {};
 
     alert( user.noSuchProperty === undefined ); // true означает &quot;свойства нет&quot;
     </code></pre>
@@ -397,7 +397,7 @@ for (let code in codes) {
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p>Термин &quot;целочисленное свойство&quot; означает строку, которая может быть преобразована в целое число и обратно без изменений.</p>
         <p>То есть, <code className="fs-6">&quot;49&quot;</code> - это целочисленное имя свойства, потому что если его преобразовать в целое число, а затем обратно в строку, то оно не изменится. А вот свойства <code className="fs-6">&quot;+49&quot;</code> или <code className="fs-6">&quot;1.2&quot;</code> таковыми не являются:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`// Math.trunc - встроенная функция, которая удаляет десятичную часть
 alert( String(Math.trunc(Number('49'))) ); // '49', то же самое ⇒ свойство целочисленное

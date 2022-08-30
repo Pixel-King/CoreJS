@@ -203,7 +203,7 @@ elem.addEventListener(..., true)`}
     <div className="fst-italic border-3 border-start border-warning px-3">
         <p><strong>На каждой фазе разные обработчики на одном элементе срабатывают в порядке назначения</strong></p>
         <p>Если у нас несколько обработчиков одного события, назначенных <code className="fs-6">addEventListener</code> на один элемент, в рамках одной фазы, то их порядок срабатывания – тот же, в котором они установлены:</p>
-        <pre>
+        <pre className="text-bg-dark px-3 py-3">
             <code className="fs-6">
                 {`elem.addEventListener("click", e => alert(1)); // всегда сработает перед следующим
 elem.addEventListener("click", e => alert(2));`}
