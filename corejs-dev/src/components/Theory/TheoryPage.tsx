@@ -51,6 +51,7 @@ import Iterable from "./articlesTheory/Iterable";
 import MapSet from "./articlesTheory/MapSet";
 import ObjectKeysValuesEntries from "./articlesTheory/ObjectKeysValuesEntries";
 import DestructuringAssignment from "./articlesTheory/DestructuringAssignment";
+import ModulesIntro from "./articlesTheory/ModulesIntro";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -61,6 +62,7 @@ import JsInBrowserArticlesList from "./articlesLists/JsInBrowserArticlesList";
 import PromisesArticlesList from "./articlesLists/PromisesArticlesList";
 
 import ProgressBar from "./progressBar";
+import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
 
 const TheoryPage: React.FC = () => {
     const loc = useLocation();
@@ -85,6 +87,7 @@ const TheoryPage: React.FC = () => {
                     <FunctionsArticleList />
                     <JsInBrowserArticlesList />
                     <PromisesArticlesList />
+                    <ModulesArticlesList />
                 </Nav>
             </div>
             <div className="articles-wrap">
@@ -145,6 +148,8 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/Promisification' element={ <Promisification /> } />
                     <Route path='articlesTheory/Microtasks' element={ <Microtasks /> } />
                     <Route path='articlesTheory/AsyncAwait' element={ <AsyncAwait /> } />
+
+                    <Route path='articlesTheory/ModulesIntro' element={ <ModulesIntro /> } />
                 </Routes>
             </div>
             {scrollButton}
