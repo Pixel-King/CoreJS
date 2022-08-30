@@ -41,6 +41,9 @@ const DataTypesArticleList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'MapSet-article'}>
             <Link to='./articlesTheory/MapSet' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/MapSet' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} MapSet`}>Map и Set</Link>
+        </Nav.Item>,
+        <Nav.Item key={'ObjectKeysValuesEntries-article'}>
+            <Link to='./articlesTheory/ObjectKeysValuesEntries' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/ObjectKeysValuesEntries' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} ObjectKeysValuesEntries`}>Object.keys, values, entries</Link>
         </Nav.Item>
     ];
 
