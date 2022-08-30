@@ -48,6 +48,7 @@ import Promisification from "./articlesTheory/Promisification";
 import Microtasks from "./articlesTheory/Microtasks";
 import AsyncAwait from "./articlesTheory/AsyncAwait";
 import Iterable from "./articlesTheory/Iterable";
+import MapSet from "./articlesTheory/MapSet";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -101,6 +102,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/TypeConversions' element={ <TypeConversions /> } />
                     <Route path='articlesTheory/SymbolType' element={ <SymbolType /> } />
                     <Route path='articlesTheory/Iterable' element={ <Iterable /> } />
+                    <Route path='articlesTheory/MapSet' element={ <MapSet /> } />
 
                     <Route path='articlesTheory/Variables' element={ <Variables /> } />
                     <Route path='articlesTheory/LetVarConst' element={ <LetVarConst/> }/>
