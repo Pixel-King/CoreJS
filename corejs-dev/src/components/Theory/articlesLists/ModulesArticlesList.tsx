@@ -8,6 +8,9 @@ const ModulesArticlesList: React.FC = () => {
     const body = isOpen && [
         <Nav.Item key={'ModulesIntro-article'}>
             <Link to='./articlesTheory/ModulesIntro' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/ModulesIntro' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} ModulesIntro`}>Модули, введение</Link>
+        </Nav.Item>,
+        <Nav.Item key={'ExportImport-article'}>
+            <Link to='./articlesTheory/ExportImport' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/ExportImport' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} ExportImport`}>Экспорт и импорт</Link>
         </Nav.Item>
     ];
 
