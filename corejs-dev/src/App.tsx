@@ -15,15 +15,8 @@ import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
 import logo from './logo2.png';
 
-class App extends React.Component {
-  constructor(props: themes) {
-    super(props)
-    this.state = {
-        theme: 'light'
-    }
-  }
-
-  render() {
+const App: React.FC = () => {
+  
     return (
       <div className='App'>
         <header>
@@ -75,7 +68,5 @@ class App extends React.Component {
       </div>
       );
   }
-  
-}
 
 export default App;
