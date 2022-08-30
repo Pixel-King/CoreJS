@@ -15,8 +15,8 @@
     border-radius: 15px;
     justify-content: space-between;
     padding: 2%;
-    box-shadow: 0 15px 30px 1px grey;
-	background: rgba(255, 255, 255, 0.90);
+    box-shadow: 0 15px 30px 1px var(--shadow-default);
+	background: var(--card-background-default);
 }
 
 .dev img {
