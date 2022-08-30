@@ -10,13 +10,13 @@ import SignInForm from './components/SignInForm/SignInForm';
 import 'bootstrap/dist/css/bootstrap.css';
 import Toggle from './components/Theme/Toggle';
 import Statistics from './components/Statistics/Statistics';
-import { themes } from './components/Theme/ThemeContext';
+import { themes, themesType } from './components/Theme/ThemeContext';
 import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
-import logo from './logo2.png';
+import logo from './logo3.png';
 
 class App extends React.Component {
-  constructor(props: themes) {
+  constructor(props: themesType) {
     super(props)
     this.state = {
         theme: 'light'
@@ -26,8 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <header>
-          <Navbar bg="dark" variant="dark">
+        <header className='header'>
+          <Navbar className='header-navbar'>
             <div className='header-container'>
               <Navbar.Brand>
                 <Link to="/" className='header-title'>
@@ -37,7 +37,7 @@ class App extends React.Component {
                   alt="logo" />  
                 </Link>
               </Navbar.Brand>
-              <Nav className='nav-link-container fs-5' variant="pils">
+              <Nav className='nav-link-container fs-5'>
                   <Link to="/" className='nav-link'>Home</Link>
                   <Link to="/theory" className='nav-link'>Theory</Link>
                   <Link to="/tests" className='nav-link'>Tests</Link>

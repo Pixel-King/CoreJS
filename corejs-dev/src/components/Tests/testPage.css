@@ -1,9 +1,11 @@
 .question-section {
     padding: 30px;
     text-align: left;
-    border: 3px solid #eee;
+    border: 3px solid var(--color-default);
     border-radius: 10px;
     margin: 2%;
+    transition-property: all;
+    transition-duration: 1s;
 }
 
 .question-content {
@@ -19,7 +21,6 @@
 
 .question-title {
     font-size: 20px;
-
 }
 
 .question-code {
@@ -78,10 +79,12 @@
     flex-direction: column;
     width: 100%;
     font-family: 'Poppins', sans-serif;
-    box-shadow: 0 15px 30px 1px grey;
-	background: rgba(255, 255, 255, 0.90);
+    box-shadow: 5px 10px 5px 1px var(--shadow-default);
+    background: var(--card-background-default);
     padding: 5%;
     border-radius: 15px;
+    transition-property: all;
+  transition-duration: 1s;
 }
 
 .test_description_text {

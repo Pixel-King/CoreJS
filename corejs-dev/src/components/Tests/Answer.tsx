@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { AnswerType } from "./textTest";
 import Button from 'react-bootstrap/Button';
+import CardTest from './CardTest';
 
 interface IProps {
+    
     answer: string,
     isCorrect: boolean,
 }
 
 type PropsType = {
+    
     answer: string,
     isCorrect: boolean,
 }
@@ -30,10 +33,12 @@ class Answer extends React.Component<IProps, IState> {
             this.setState({
                 color: 'success'
             });
+            return 1;
         } else {
             this.setState({
                 color: 'danger'
             });
+            return 0;
         }
     };
 
