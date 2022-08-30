@@ -53,6 +53,7 @@ import ObjectKeysValuesEntries from "./articlesTheory/ObjectKeysValuesEntries";
 import DestructuringAssignment from "./articlesTheory/DestructuringAssignment";
 import ModulesIntro from "./articlesTheory/ModulesIntro";
 import ExportImport from "./articlesTheory/ExportImport";
+import DynamicImport from "./articlesTheory/DynamicImport";
 
 import DataTypesArticleList from "./articlesLists/DataTypesArticlesList";
 import VariableArticlelList from "./articlesLists/VariablesArticlesList";
@@ -152,6 +153,7 @@ const TheoryPage: React.FC = () => {
 
                     <Route path='articlesTheory/ModulesIntro' element={ <ModulesIntro /> } />
                     <Route path='articlesTheory/ExportImport' element={ <ExportImport /> } />
+                    <Route path='articlesTheory/DynamicImport' element={ <DynamicImport /> } />
                 </Routes>
             </div>
             {scrollButton}

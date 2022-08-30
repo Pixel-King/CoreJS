@@ -11,6 +11,9 @@ const ModulesArticlesList: React.FC = () => {
         </Nav.Item>,
         <Nav.Item key={'ExportImport-article'}>
             <Link to='./articlesTheory/ExportImport' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/ExportImport' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} ExportImport`}>Экспорт и импорт</Link>
+        </Nav.Item>,
+        <Nav.Item key={'DynamicImport-article'}>
+            <Link to='./articlesTheory/DynamicImport' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/DynamicImport' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} DynamicImport`}>Динамические импорты</Link>
         </Nav.Item>
     ];
 
