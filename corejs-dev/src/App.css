@@ -1,19 +1,42 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #eafafb;
+  /* background-color: #eafafb; */
+  background-color: var(--body-background-default);
   /*background-image: url('./components/Home/assets/light.png'); */
-  background-image: url('./white-grey-scratone.png');
+  /* background-image: var(--body-background-dark-img); */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition-property: all;
+  transition-duration: 1s;
 }
-.header-wrap{
-  position: relative;
+
+.header {
+  background: var(--header-background-default);
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+
+.header-container {
+  margin: 0 2%;
   width: 100%;
-  height: 60px;
-  background-color: yellow;
-  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.nav-link-container {
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-default) !important;
+  transition-property: all;
+  transition-duration: 1s;
 }
 
 header {
@@ -30,7 +53,7 @@ header {
   content: "";
   height: 3px;
   width: 0%;
-  background-color: #04f9e9; 
+  background-color: var(--nav-link-default); 
   transition: width 0.4s ease-in-out; 
 }
 
@@ -40,7 +63,7 @@ width: 100%;
 }
 
 .navbar-nav a:hover {
-  color:#04f9e9;
+  color:var(--nav-link-defualt);
 }
 
 .hi{
@@ -58,16 +81,50 @@ width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #212529;
-  color: rgb(135 137 138);
+  background: var(--footer-background-default);
+  color: var(--text-default);
   padding: 1rem;
   gap: 10px;
+  transition-property: all;
+  transition-duration: 1s;
 }
 
 .main {
+  color: var(--text-default);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+.disabled {
+  visibility: hidden;
+}
+
+.toggleTheme button {
+  display: flex;
+  background: none;
+  border: none;
+  color: var(--toggle-default);
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+code {
+  color: #2913a3 !important;
+}
+
+.button_var {
+  background: var(--button-default);
+  color: var(--button-text-default);
+  border-radius: 5px;
+  border: none;
+}
+
+.button_var:hover {
+  background: var(--button-hover-default);
+  font-weight: bold;
 }

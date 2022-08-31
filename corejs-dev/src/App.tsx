@@ -10,18 +10,17 @@ import SignInForm from './components/SignInForm/SignInForm';
 import 'bootstrap/dist/css/bootstrap.css';
 import Toggle from './components/Theme/Toggle';
 import Statistics from './components/Statistics/Statistics';
-import { themes } from './components/Theme/ThemeContext';
 import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
-import logo from './logo2.png';
+import logo from './logo3.png';
 
 const App: React.FC = () => {
-  
+
     return (
       <div className='App'>
-        <header>
-          <Navbar bg="dark" variant="dark">
-            <Container>
+        <header className='header'>
+          <Navbar className='header-navbar'>
+            <div className='header-container'>
               <Navbar.Brand>
                 <Link to="/" className='header-title'>
                   <img
@@ -30,7 +29,7 @@ const App: React.FC = () => {
                   alt="logo" />  
                 </Link>
               </Navbar.Brand>
-              <Nav className='me-auto fs-5' variant="pils">
+              <Nav className='nav-link-container fs-5'>
                   <Link to="/" className='nav-link'>Home</Link>
                   <Link to="/theory" className='nav-link'>Theory</Link>
                   <Link to="/tests" className='nav-link'>Tests</Link>
@@ -42,7 +41,7 @@ const App: React.FC = () => {
                 {' '}
                 <Link to="/SignIn"><Button variant="outline-primary">Sign in</Button></Link>
               </div>
-            </Container>
+            </div>
           </Navbar>
         </header>
         <main className='main'>
@@ -68,5 +67,6 @@ const App: React.FC = () => {
       </div>
       );
   }
+
 
 export default App;
