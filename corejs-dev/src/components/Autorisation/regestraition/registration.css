@@ -1,4 +1,4 @@
-.registraition-wrap{
+.auth-wrap{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6,4 +6,34 @@
     border: 2px solid;
     padding: 30px;
     border-radius: 10px;
+}
+
+.success-wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.reg-form{
+    width: 200px;
+}
+.reg-form::before{
+    content: "Регистрация";
+    font-size: 2em;
+    background-color: #0d6efd;;
+    position: relative;
+    top: -10px;
+    color: #fff;
+    width: 96px;
+    left: -35px;
+    padding: 5px 44px;
+}
+.reg-err{
+    color: red;
+    margin: 3px 0;
+}
+.reg-err::first-letter{
+    text-transform: uppercase;
 }
