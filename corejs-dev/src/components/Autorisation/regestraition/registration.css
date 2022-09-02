@@ -17,7 +17,8 @@
 }
 
 .reg-form{
-    width: 200px;
+    width: 300px;
+    position: relative;
 }
 .reg-form::before{
     content: "Регистрация";
@@ -27,8 +28,15 @@
     top: -10px;
     color: #fff;
     width: 96px;
-    left: -35px;
-    padding: 5px 44px;
+    left: -32px;
+    padding: 5px 91px;
+}
+.reg-email,
+.reg-pas,
+.reg-username{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .reg-err{
     color: red;
