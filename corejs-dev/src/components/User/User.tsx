@@ -21,7 +21,7 @@ const User: React.FC = () => {
         <div className="user-img">
             <img src={userImg} className="u-img mr-2"></img>
         </div>
-        <div className="nav-item nav-link user-dropdown" onClick={()=>setShow(!show)}>
+        <div className="nav-item nav-link user-dropdown fs-5" onClick={()=>setShow(!show)}>
             {user.userName}
             {' '}
             {show? <>&#9650;</> : <>&#9660;</>}

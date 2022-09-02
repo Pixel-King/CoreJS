@@ -13,10 +13,10 @@ export const authSlice = createSlice({
     name: 'userAuth',
     initialState,
     reducers: {
-        initAuth: (state) => {
+        initAuth: (state): void => {
             state.auth = true;
         },
-        removeAuth: (state) => {
+        removeAuth: (state): void => {
             state.auth = false;
         }
     }

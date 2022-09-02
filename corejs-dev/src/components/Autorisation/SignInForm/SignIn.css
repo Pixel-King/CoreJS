@@ -7,8 +7,14 @@
     padding: 30px;
     border-radius: 10px;
 }
+@media screen and (max-width: 400px) {
+    .auth-wrap{
+        border: none;
+    }
+}
 .auth-form{
-    width: 200px;
+    width: 300px;
+    position: relative;
 }
 
 .auth-form::before{
@@ -19,6 +25,36 @@
     top: -10px;
     color: #fff;
     width: 141px;
-    left: -36px;
-    padding: 5px 40px;
+    left: -32px;
+    padding: 5px 86px;
+}
+.show-pas-img{
+    position: absolute;
+    top: 56px;
+    left: 268px;
+    cursor: pointer;
+}
+.auth-email,
+.auth-pas{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#auth-pas{
+    padding-right: 35px;
+}
+.wrong-input{
+    box-shadow: 0 0 10px var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+.success-input{
+    box-shadow: 0 0 10px var(--bs-success);
+    border-color: var(--bs-success);
+}
+.auth-err{
+    position: absolute;
+    color: var(--bs-danger);
+    font-size: .9em;
+    top: 85px;
+    left: 24px;
 }
