@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import { addStat } from "../articleStatistics";
 
 const DateArticlesList: React.FC = () => {
     const [isOpen, setOpenClose] = useState<boolean>(false);
     const loc = useLocation();
     const body = isOpen && [
         <Nav.Item key={'Date-article'}>
-            <Link to='./articlesTheory/Date' onClick={ () => scrollUp()} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Date' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Date`}>Дата и время</Link>
+            <Link to='./articlesTheory/Date' onClick={ () => { scrollUp(); addStat('/theory/articlesTheory/Date') }} className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Date' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Date`}>Дата и время</Link>
         </Nav.Item>
     ];
 
