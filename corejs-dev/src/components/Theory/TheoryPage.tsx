@@ -62,9 +62,12 @@ import DateArticlesList from "./articlesLists/DateArticlesList";
 import FunctionsArticleList from "./articlesLists/FunctionsArticleList";
 import JsInBrowserArticlesList from "./articlesLists/JsInBrowserArticlesList";
 import PromisesArticlesList from "./articlesLists/PromisesArticlesList";
+import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
 
 import ProgressBar from "./progressBar";
-import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
+import Modal from "./modalWindow";
+
+import { articleStats } from "./articleStatistics";
 
 const TheoryPage: React.FC = () => {
     const loc = useLocation();
@@ -73,10 +76,63 @@ const TheoryPage: React.FC = () => {
         <h2 key={'greeting-1'} className="text-center">Приветствуем Вас в теоретическом разделе проекта CoreJS!</h2>,
         <h2 key={'greeting-2'} className="text-center">Для начала работы выберите, пожалуйста, тему {`:)`}</h2>
     ]
+    const [isModal, setModal] = React.useState(false);
+    const bar = loc.pathname !== '/theory' && <ProgressBar />;
+    const tasks = loc.pathname !== '/theory' && <Button>Показать задания по теме</Button>;
 
     function scrollUp() {
         window.scrollBy(0, -window.pageYOffset);
     }
+
+    function scrollHandlerForModal () {
+        const windowScroll = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+        const statFromLS = localStorage.getItem('userStats');
+        if (statFromLS) {
+            const parsed: articleStats = JSON.parse(statFromLS);
+            const visited = parsed.articlesVisited;
+            const counter = parsed.articlesCount;
+
+            if ((windowScroll / windowHeight * 100) >= 95) {
+
+                const newVisited = visited.map((item) => {
+                    if (item.articlePath === loc.pathname) {
+                        if (item.articleModalShown === false) {
+                            setModal(true);
+                            return {
+                                articlePath: item.articlePath,
+                                articleModalShown: true,
+                            }
+                        } else {
+                            return {
+                                articlePath: item.articlePath,
+                                articleModalShown: item.articleModalShown,
+                            }
+                        }
+                    } else {
+                        return {
+                            articlePath: item.articlePath,
+                            articleModalShown: item.articleModalShown,
+                        }
+                    }
+                })
+
+                localStorage.setItem('userStats', JSON.stringify(
+                    {
+                        articlesVisited: newVisited,
+                        articlesCount: counter,
+                    }
+                ))
+            };
+        }
+        
+    }
+
+    React.useEffect(() => {
+        window.addEventListener("scroll", scrollHandlerForModal);
+        return () => window.removeEventListener("scroll", scrollHandlerForModal);
+    })
 
     return (
         <div className="theory-page-wrap d-flex flex-row">
@@ -93,7 +149,18 @@ const TheoryPage: React.FC = () => {
                 </Nav>
             </div>
             <div className="articles-wrap">
-                <ProgressBar />
+                <Modal
+                    key={'user-modal'}
+                    isVisible = { isModal }
+                    title="Не останавливайтесь на достигнутом!"
+                    content = { <p key={'modal-message'}>Вы могли бы получить + 10 очков прогресса за изучение статьи, если бы были зарегистрированы :(</p> }
+                    footer = { [
+                        <Button key={'modal-button-tasks'} style = {{marginRight: "20px"}} >Показать задания по теме</Button>,
+                        <Button key={'modal-button-close'} onClick = { () => setModal(false) }>Ок</Button>
+                    ] }
+                    onClose = { () => setModal(false) }
+                />
+                {bar}
                 <div className="mt-5">
                     {greeting}
                 </div>
@@ -155,6 +222,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/ExportImport' element={ <ExportImport /> } />
                     <Route path='articlesTheory/DynamicImport' element={ <DynamicImport /> } />
                 </Routes>
+                {tasks}
             </div>
             {scrollButton}
         </div> 
