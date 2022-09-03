@@ -58,6 +58,8 @@
   --button-text-light: #111;
   --button-text-default:var(--button-text-light);
 
+
+
 }
 
 body {
@@ -74,4 +76,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-bg-dark {
+  background-color: #609db2 !important;
 }

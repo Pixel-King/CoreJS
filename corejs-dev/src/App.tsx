@@ -30,10 +30,10 @@ const App: React.FC = () => {
                 </Link>
               </Navbar.Brand>
               <Nav className='nav-link-container fs-5'>
-                  <Link to="/" className='nav-link'>Home</Link>
-                  <Link to="/theory" className='nav-link'>Theory</Link>
-                  <Link to="/tests" className='nav-link'>Tests</Link>
-                  <Link to='/statistics' className='nav-link'>Statistics</Link>
+                  <Link to="/" className='nav-link'>Главная</Link>
+                  <Link to="/theory" className='nav-link'>Теория</Link>
+                  <Link to="/tests" className='nav-link'>Тесты</Link>
+                  <Link to='/statistics' className='nav-link'>Статистика</Link>
                   <Toggle />
               </Nav>
               <div className='account-buttons'>

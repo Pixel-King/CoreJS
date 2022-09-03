@@ -4,13 +4,15 @@ import Button from 'react-bootstrap/Button';
 import CardTest from './CardTest';
 
 interface IProps {
-    
+    id: number;
+    weight: number,
     answer: string,
     isCorrect: boolean,
 }
 
 type PropsType = {
-    
+    id: number;
+    weight: number,
     answer: string,
     isCorrect: boolean,
 }
@@ -28,12 +30,22 @@ class Answer extends React.Component<IProps, IState> {
         this.handleAnswerButtonClick = this.handleAnswerButtonClick.bind(this);
     }
 
-    handleAnswerButtonClick(isCorrect: boolean) {
+    handleAnswerButtonClick(isCorrect: boolean, weight: number) {
         if (isCorrect) {
             this.setState({
                 color: 'success'
             });
-            return 1;
+            const LS_tests_score = localStorage.getItem('tests_score');
+            const LS_tests_number = localStorage.getItem('tests_number');
+            if (LS_tests_score && LS_tests_number) {
+                const score = (Number(LS_tests_score) + weight).toString();
+                const number_tests = (Number(LS_tests_number) + 1).toString(); 
+                localStorage.setItem('tests_score', score);
+                localStorage.setItem('tests_number', number_tests)
+            } else {
+                localStorage.setItem('tests_score', weight.toString());
+                localStorage.setItem('tests_number', '1');
+            }
         } else {
             this.setState({
                 color: 'danger'
@@ -43,10 +55,10 @@ class Answer extends React.Component<IProps, IState> {
     };
 
     render(): React.ReactNode {
-        const {answer, isCorrect} = this.props;
+        const {answer, isCorrect, weight, id} = this.props;
         return (
             <Button onClick={
-                () => this.handleAnswerButtonClick(isCorrect)
+                () => this.handleAnswerButtonClick(isCorrect, weight)
             } className='button_answer' variant={this.state.color} >
                 {answer}
             </Button>
