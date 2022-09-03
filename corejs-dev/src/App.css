@@ -128,3 +128,7 @@ code {
   background: var(--button-hover-default);
   font-weight: bold;
 }
+
+input{
+  border-radius: 6px;   
+}
