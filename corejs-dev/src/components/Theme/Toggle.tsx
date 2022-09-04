@@ -40,6 +40,8 @@ class Toggle extends React.Component<IProps, IState> {
           'button-text',
           'text-hover',
           'border-gradient',
+          'burger',
+          'burger-gradient'
         ];
         components.forEach((component) => {
           root.style.setProperty(`--${component}-default`, `var(--${component}-${this.state.theme})`)

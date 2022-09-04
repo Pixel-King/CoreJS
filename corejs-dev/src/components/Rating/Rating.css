@@ -12,8 +12,8 @@
     border: 3px solid gray;
     border-radius: 15px;
     position: relative;
-    box-shadow: 0px 0px 20px gray;
-    background-color: white;
+    box-shadow: 0px 0px 20px var(--shadow-default);
+    background-color: var(--body-background-default);
     margin: 1rem;
     display: flex;
     align-items: center;
@@ -70,15 +70,15 @@
     position: absolute;
     top: 65%;
     right: 12%;
-    color: #000;
+    color: var(--text-default);
 }
 .rating{
-    color: #000;
+    color: var(--text-default);
     vertical-align: middle;
     letter-spacing: .2em;
 }
 .fire {
-    -box-box-shadow: 10px 10px 100px #09F;
+    box-shadow: 10px 10px 100px #09F;
     text-shadow:0 0 4px white, 0 -5px 4px #FFFF33, 2px -10px 6px #FFDD33, -2px -15px 11px #FF8800, 2px  -25px 18px #FF2200;  
     margin:0;
     padding:0;

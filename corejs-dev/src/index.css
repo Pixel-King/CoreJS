@@ -67,6 +67,17 @@
   --button-text-light: #111;
   --button-text-default:var(--button-text-light);
 
+  --burger-light: #022c68;
+  --burger-dark: #f4f4f4;
+  --burger-default:var(--burger-light);
+
+  --burger-gradient-light: linear-gradient(#609db2, #f4f4f4, #609db2);
+  --burger-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --burger-gradient-default: var(--burger-gradient-light);
+
+  --burgermenu-close: -100%;
+  --burgermenu-open: 0;
+  --burgermenu-default: var(--burgermenu-close);
 
 
 }

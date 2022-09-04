@@ -50,19 +50,7 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
                 if (sound) {
                     alarmCorrect.play();
                 }
-                //playSound();
 
-                const LS_tests_score = localStorage.getItem('tests_score');
-                const LS_tests_number = localStorage.getItem('tests_number');
-                if (LS_tests_score && LS_tests_number) {
-                    const score = (Number(LS_tests_score) + weight).toString();
-                    const number_tests = (Number(LS_tests_number) + 1).toString(); 
-                    localStorage.setItem('tests_score', score);
-                    localStorage.setItem('tests_number', number_tests)
-                } else {
-                    localStorage.setItem('tests_score', weight.toString());
-                    localStorage.setItem('tests_number', '1');
-                }
                 await axios.post(`${url}/users/updatepastest/${localStorage.userID}`,
                     {
                         rating: `${weight}`,

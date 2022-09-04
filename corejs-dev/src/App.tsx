@@ -21,6 +21,8 @@ import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
 import ToggleSound from './components/Sound/ToggleSound';
 import logoRSS from './rs_school_js.png';
+import Hamburger from './components/Hamburger/Hamburger';
+import HamburgerMenu from './components/Hamburger/HamburgerMenu';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -61,8 +63,10 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='header'>
+        <HamburgerMenu/>
         <Navbar className='header-navbar'>
           <div className='header-container'>
+            <Hamburger/>
             <Navbar.Brand>
               <Link to="/" className='header-title'>
                 <img
