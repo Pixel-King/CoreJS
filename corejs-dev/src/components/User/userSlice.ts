@@ -6,8 +6,9 @@ interface usersState {
     email: string,
     isAdmin: boolean,
     userName: string,
+    rating: "jun" | "mid" | "sen",
     token: string,
-    rating: string,
+    // rating: string,
     sound: boolean,
 }
   
@@ -16,7 +17,7 @@ const initialState: usersState = {
     email: '',
     isAdmin: false,
     userName: '',
-    rating: '',
+    rating: 'jun',
     token: '',
     sound: true,
 }
@@ -26,16 +27,17 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setState: (state, action) => {
-            const { email, role, token, id, userName, rating, sound } = action.payload
+            const { email, role, token, id, userName, rating } = action.payload
             state.id = id;
             state.email = email;
             state.isAdmin = role === "admin"? true: false;
             state.userName = userName;
             state.token = token;
-            state.rating = rating;
-            state.sound = sound;
-            localStorage.setItem("userID", id);
-            localStorage.setItem("token", token);
+            state.rating = +rating < 50 ? 'jun' : +rating < 150 ? 'mid' : 'sen';
+            if (token) {
+                localStorage.setItem("userID", id);
+                localStorage.setItem("token", token);
+            }
         }
     }
 });

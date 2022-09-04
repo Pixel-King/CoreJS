@@ -7,10 +7,14 @@ interface LoadProps {
     }
 }
 
-export default function Loading({ classStr }: LoadProps) {
+const Loading: React.FC<{width: string}> = ({width}) => {
     return(
         <>
-            <img src={loadImg} alt="load..." style={classStr}/>
+            <div className="modal-dialog modal-lg modal-dialog-centered">
+                <img src={loadImg} alt="load..." style={{"width": width}}/>
+            </div>
         </>
     );
 }
+
+export default Loading;

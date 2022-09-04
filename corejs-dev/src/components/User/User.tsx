@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { removeAuth } from "../Autorisation/SignInForm/authSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectUserState } from "./userSlice";
+import UserIcon from "./UserIcon/UserIcon";
 
 const User: React.FC = () => {
     const user = useAppSelector(selectUserState);
@@ -19,7 +20,7 @@ const User: React.FC = () => {
     return (<>
     <div className="user-wrap">
         <div className="user-img">
-            <img src={userImg} className="u-img mr-2"></img>
+            <UserIcon developer={user.rating}></UserIcon>
         </div>
         <div className="nav-item nav-link user-dropdown fs-5" onClick={()=>setShow(!show)}>
             {user.userName}
@@ -56,6 +57,8 @@ const User: React.FC = () => {
       <Modal.Footer>
         <Button variant="danger" onClick={()=>{
             dispatch(removeAuth());
+            localStorage.removeItem('userID');
+            localStorage.removeItem('token');
             history("/");
             setModalShow(false)}}>Я уверен! Выйти</Button>
         <Button variant="secondary" onClick={()=>setModalShow(false)}>Отмена</Button>

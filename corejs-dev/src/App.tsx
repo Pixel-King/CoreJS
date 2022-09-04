@@ -3,14 +3,14 @@ import './App.css';
 import axios, { AxiosError } from 'axios';
 import Home from './components/Home/Home';
 import TheoryPage from './components/Theory/TheoryPage';
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link, useNavigate, useLocation} from "react-router-dom";
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import TestPage from './components/Tests/testPage'; 
 import Regestraition from './components/Autorisation/regestraition/Regestraition';
 import SignInForm from './components/Autorisation/SignInForm/SignInForm';
 import 'bootstrap/dist/css/bootstrap.css';
 import Toggle from './components/Theme/Toggle';
-import Statistics from './components/Statistics/Statistics';
+import Statistics from './components/Rating/Rating';
 import Devs from './components/Developers/Developers';
 import TestsRender from './components/Tests/TestsRender';
 import logo from './logo3.png';
@@ -20,14 +20,17 @@ import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
 import ToggleSound from './components/Sound/ToggleSound';
+import logoRSS from './rs_school_js.png';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
+  const history = useNavigate();
+  let location = useLocation();
 
   React.useEffect(()=>{
-    authCheck()
-  }, [])
+    authCheck();
+  }, []);
 
   async function authCheck() {
     try {
@@ -40,16 +43,19 @@ const App: React.FC = () => {
           }
         }
         const res = await axios.get(`http://localhost:4200/users/${userID}`, config);
+        const body = res.data;
+        body.token = userToken;
         if (res.status === 200) {
           dispatch(initAuth());
-          dispatch(setState(res.data));
+          dispatch(setState(body));
+          if (location.pathname === '/SignIn') history("/my-profile");
         }
       }
     } catch (e: unknown) {
       const err = e as AxiosError;
       console.log(err);
+      if (!auth && location.pathname === '/my-profile') history("/SignIn");
     }
-
   }
 
   return (
@@ -103,8 +109,11 @@ const App: React.FC = () => {
       </main>
       <footer className='footer'>
         <div className='footer-container fs-5'>
+          <Link to="/Devs"><button className='dev-button'>Разработчики</button></Link>
           &copy; {new Date().getFullYear()}
-          <Link to="/Devs"><Button variant="outline-secondary">Developers</Button></Link>
+          <div className="footer-rss"><a href="https://rs.school/js/">
+                <img id="rss-img" src={logoRSS} alt="rss"></img>
+            </a></div>
         </div>
       </footer>
     </div>

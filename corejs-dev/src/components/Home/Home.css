@@ -47,6 +47,12 @@
     box-shadow: 5px 10px 5px 1px var(--shadow-default);
     transition-property: all;
     transition-duration: 1s;
+    scale: 1;
+}
+
+.card_home:hover {
+    scale: 1.05;
+    transition: scale .5s;
 }
 
 .card_link {
