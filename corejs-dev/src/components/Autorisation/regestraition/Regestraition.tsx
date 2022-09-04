@@ -5,7 +5,7 @@ import Loading from '../../Loading/Loading';
 import SuccessReg from './SuccessfulReg';
 import validator from "validator";
 import ShowPas from '../SignInForm/ShowPasSVG/ShowPas';
-import { Overlay } from 'react-bootstrap';
+import { Overlay, Spinner } from 'react-bootstrap';
 
 interface regBody {
     email: string,
@@ -104,7 +104,7 @@ const Regestraition: React.FC = () => {
                             defaultValue={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <span className="auth-err mx-3">{emailMesValid}</span>
+                        <span className="auth-err">{emailMesValid}</span>
                     </div>
                     <div 
                         className='reg-username'>
@@ -146,7 +146,7 @@ const Regestraition: React.FC = () => {
                         onClick={(e) => {
                             e.preventDefault();
                             regAsync(email, username, password);
-                    }}>{LoadingStatus ? <Loading classStr={{ "width": "35px" }} /> : "Подтвердить"}</button>
+                    }}>{LoadingStatus ? <Spinner animation="border" variant="primary" /> : "Подтвердить"}</button>
                 </form>
             </div>}
             {regStatus && <SuccessReg />}
