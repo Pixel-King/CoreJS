@@ -1,0 +1,99 @@
+.leaderboard-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating-card-1,
+.rating-card-2,
+.rating-card-3{
+    width: 300px;
+    height: 140px;
+    border: 3px solid gray;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0px 0px 20px gray;
+    background-color: white;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+}
+.rating-card-1{
+    border: 3px solid gold;
+    box-shadow: 0px 0px 20px gold;
+    color: gold;
+    scale: 1.5;
+    z-index: 5;
+    margin: 3rem;
+    animation: opas 2s;
+}
+.rating-card-2{
+    order: -1;
+    scale: 1.3;
+    border: 2px solid silver;
+    box-shadow: 0px 0px 20px silver;
+    color: silver;
+    z-index: 3;
+    animation: left-anim 1.5s;
+}
+.rating-card-3{
+    border: 2px solid #cd7f32;  
+    box-shadow: 0px 0px 20px #cd7f32;
+    color: #cd7f32;
+    z-index: 1;
+    scale: 1.1; 
+    animation: right-anim 1.5s ;
+}
+@media screen and (max-width: 500px) {
+    .rating-card-1{
+        scale: 1;
+    }
+    .rating-card-2{
+        scale: 1;
+    }
+    .rating-card-3{
+        scale: 1; 
+    }
+}
+.rating-card-1__text,
+.rating-card-2__text,
+.rating-card-3__text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+    font-size: 1.8rem;
+    font-family: 'Times New Roman', serif;
+}
+.rating-wrap{
+    position: absolute;
+    top: 65%;
+    right: 12%;
+    color: #000;
+}
+.rating{
+    color: #000;
+    vertical-align: middle;
+    letter-spacing: .2em;
+}
+.fire {
+    -box-box-shadow: 10px 10px 100px #09F;
+    text-shadow:0 0 4px white, 0 -5px 4px #FFFF33, 2px -10px 6px #FFDD33, -2px -15px 11px #FF8800, 2px  -25px 18px #FF2200;  
+    margin:0;
+    padding:0;
+}
+@keyframes opas {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes left-anim {
+    from {left: -200%;}
+    to {left: 0%;}
+}
+
+@keyframes right-anim {
+    from {right: -200%;}
+    to {right: 0%;}
+}
