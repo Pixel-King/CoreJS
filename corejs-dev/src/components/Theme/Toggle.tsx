@@ -37,7 +37,9 @@ class Toggle extends React.Component<IProps, IState> {
           'color',
           'button',
           'button-hover',
-          'button-text'
+          'button-text',
+          'text-hover',
+          'border-gradient',
         ];
         components.forEach((component) => {
           root.style.setProperty(`--${component}-default`, `var(--${component}-${this.state.theme})`)

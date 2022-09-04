@@ -17,7 +17,7 @@
     size: 1.5em;
 }
 .article-nav-link:hover{
-    color: black;
+    color: var(--text-hover-default);
 }
 .article-nav-link.active{
     color:black;
@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 .articles-nav-container-head:hover {
-    color: #dc3545;
+    color: var(--text-hover-default);
 }
 .progressBar {
     position: sticky;
@@ -50,6 +50,9 @@
     height: 5px;
 }
 
+.bg-info {
+    color: var(--text-hover-default);
+}
 
 .user-modal {
     position: fixed;

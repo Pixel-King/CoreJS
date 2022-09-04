@@ -7,15 +7,10 @@ import { useState } from "react";
 
 function CardTest(props: string) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
-    let questionsFilter = questions;
-    if (props === 'theory' || props === 'practice') {
-        questionsFilter = questions.filter((item) => item.type === props)
-    }
-    // console.log(currentQuestion);
-    // if (currentQuestion != 0 && currentQuestion != questionsFilter.length) {
-    //     btn_prev.classList.remove('disabled');
-    // }
+    //const [score, setScore] = useState(0);
+    let questionsFilter = questions.filter((item) => item.type === props);
+  
+    
     let classPrev = currentQuestion > 0 ? 'button_var btn_prev' : 'button_var btn_prev disabled';
     let classNext = currentQuestion < questionsFilter.length - 1 ? 'button_var btn_next' : 'button_var btn_next disabled';
 

@@ -76,15 +76,32 @@
     gap: 20px;
 }
 
+.testpage {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row-reverse;
+}
+
 .testpage_title {
-    margin: 5% 5% 0 5%;
+    margin: auto;
 }
 
 .testpage_content {
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin: 5%;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 10px;
+    padding: 8px;
+    border-right: 6px solid;
+    border-image: var(--border-gradient-default);
+    border-image-slice: 1;
+}
+
+.testpage_content a p:hover {
+   color: var(--text-hover-default);
 }
 
 .test_description {

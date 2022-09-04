@@ -22,6 +22,10 @@
   --text-light: rgb(61, 61, 62);
   --text-default: var(--text-light);
 
+  --text-hover-dark: #fff;
+  --text-hover-light: #348dab;
+  --text-hover-default: var(--text-hover-light);
+
   --color-dark: #eee;
   --color-light: #747375;
   --color-default:var(--color-light);
@@ -31,12 +35,17 @@
   --shadow-default: var(--shadow-light);
 
   --header-background-dark: #111 ;
-  --header-background-light: linear-gradient(#609db2, #f4f4f4); ;
+  --header-background-light: linear-gradient(#609db2, #f4f4f4); 
   --header-background-default: var(--header-background-light);
 
   --footer-background-dark: #111 ;
-  --footer-background-light: linear-gradient(#f4f4f4, #609db2); ;
+  --footer-background-light: linear-gradient(#f4f4f4, #609db2); 
   --footer-background-default: var(--footer-background-light);
+
+  --border-gradient-light: linear-gradient(#f4f4f4, #609db2, #f4f4f4);
+  --border-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --border-gradient-default: var(--border-gradient-light);
+
 
   --toggle-dark: rgb(231, 248, 2);
   --toggle-light: rgb(52, 6, 216);

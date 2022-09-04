@@ -6,8 +6,8 @@ export type AnswerType = {
 export type QuestionType = {
     id: number;
     question: string;
-    type: 'practice' | 'theory';
-    theme : string;
+    type: string;
+    //type : string;
     code?: string;
     complexity: number;
     answerOptions: AnswerType[],
@@ -18,8 +18,8 @@ export const questions: QuestionType[] = [
         id: 1,
         complexity: 3,
         question: 'Что будет в консоли?',
-        type: 'practice',
-        theme: 'variable',
+        //////type: 'practice',
+        type: 'variable',
         code: '<code>function sayHi() {<br /> &ensp; console.log(name);<br /> &ensp; console.log(age);<br /> &ensp; var name = "Vasya";<br /> &ensp; let age = 21;<br /> }<br /> sayHi();</code>',
         answerOptions: [
             {answer: 'Vasya и undefined', isCorrect: false },
@@ -31,8 +31,8 @@ export const questions: QuestionType[] = [
         id: 2,
         complexity: 3,
         question: 'Что будет в консоли?',
-        type: 'practice',
-        theme: 'variable',
+        //////type: 'practice',
+        type: 'variable',
         code: '<code>for (var i = 0; i < 3; i++) {<br />&ensp; setTimeout(()=> console.log(i), 1);<br /> }<br />for (let i = 0; i < 3; i++) {<br />&ensp; setTimeout(()=> console.log(i), 1);<br /> }</code>',
         answerOptions: [
             {answer: '0 1 2 и 0 1 2', isCorrect: false},
@@ -44,8 +44,8 @@ export const questions: QuestionType[] = [
         id: 3,
         complexity: 3,
         question: 'Что будет в консоли?',
-        type: 'practice',
-        theme: 'function',
+        //////type: 'practice',
+        type: 'function',
         code: '<code>const shape = {<br />&ensp; radius: 10, <br />&ensp; diameter() {<br />&ensp;  return this.radius * 2; <br /> } <br /> &ensp; perimeter: () => 2 * Math.PI * this.radius <br /> }; <br /> shape.diameter();<br />shape.perimeter();</code>',
         answerOptions: [
             {answer: '20 и 62.83185307179586', isCorrect: false},
@@ -57,8 +57,8 @@ export const questions: QuestionType[] = [
         id: 4,
         complexity: 2,
         question: 'Что будет в консоли?',
-        type: 'practice',
-        theme: 'data types',
+        //////type: 'practice',
+        type: 'data types',
         code: '<code>+true; <br />!"Lydia"</code>',
         answerOptions: [
             {answer: '1 и false', isCorrect: true},
@@ -70,8 +70,8 @@ export const questions: QuestionType[] = [
         id: 5,
         complexity: 1,
         question: 'Что получится, если сложить true + false?',
-        type: 'theory',
-        theme: 'data types',
+        ////type: 'theory',
+        type: 'data types',
         answerOptions: [
             {answer: '"truefalse"', isCorrect: false},
             {answer: '0', isCorrect: false},
@@ -83,8 +83,8 @@ export const questions: QuestionType[] = [
         id: 6,
         complexity: 2,
         question: `После выполнения этого кода --\r\n в каких объектах содержится свойство 'name'?`,
-        type: 'practice',
-        theme: 'other',
+        //////type: 'practice',
+        type: 'other',
         code: '<code>function User() { } <br/> let vasya = new User(); <br/>  vasya.__proto__.name = "Vasya";</code>',
         answerOptions: [
             {answer: 'vasya.__proto__ и User.__proto__', isCorrect: true},
@@ -96,8 +96,8 @@ export const questions: QuestionType[] = [
         id: 7,
         complexity: 1,
         question: 'Какой вариант подключения скрипта является корректным с точки зрения современного стандарта HTML?',
-        type: 'theory',
-        theme: 'other',
+        ////type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: '<script src="my.js"></script>', isCorrect: true},
             {answer: '<script src="my.js"/>', isCorrect: false},
@@ -107,8 +107,8 @@ export const questions: QuestionType[] = [
         id: 8,
         complexity: 1,
         question: 'Что такое ECMAScript?',
-        type: 'theory',
-        theme: 'other',
+        ////type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: 'Новый язык программирования', isCorrect: false},
             {answer: 'Переработанная реализация JavaScript', isCorrect: false},
@@ -118,8 +118,8 @@ export const questions: QuestionType[] = [
         id: 9,
         complexity: 2,
         question: 'Правда ли что `a == b`?',
-        type: 'theory',
-        theme: 'data types',
+        ////type: 'theory',
+        type: 'data types',
         code: '<code> a = [1, 2, 3]; <br/>  b = [1, 2, 3]; </code>',
         answerOptions: [
             {answer: 'Правда', isCorrect: false},
@@ -130,8 +130,8 @@ export const questions: QuestionType[] = [
         id: 10,
         complexity: 1,
         question: 'Какие конструкции для циклов есть в JavaScript?',
-        type: 'theory',
-        theme: 'loops and operators',
+        ////type: 'theory',
+        type: 'loops and operators',
         answerOptions: [
             {answer: 'Только две: `for` и `while`', isCorrect: false},
             {answer: 'Только одна: `for`', isCorrect: false},
@@ -141,8 +141,8 @@ export const questions: QuestionType[] = [
         id: 11,
         complexity: 1,
         question: 'Какой оператор из этих выполняет не только математические операции?',
-        type: 'theory',
-        theme: 'loops and operators',
+        ////type: 'theory',
+        type: 'loops and operators',
         answerOptions: [
             {answer: '*', isCorrect: false},
             {answer: '/', isCorrect: false},
@@ -154,8 +154,8 @@ export const questions: QuestionType[] = [
         id: 12,
         complexity: 2,
         question: 'Сработает ли вызов функции до объявления в этом коде:',
-        type: 'practice',
-        theme: 'function',
+        //////type: 'practice',
+        type: 'function',
         code: '<code>sayHi();<br/> function sayHi() { <br/> &ensp; alert("Hello");<br/> } </code>',
         answerOptions: [
             {answer: 'Да, сработает', isCorrect: true},
@@ -166,8 +166,8 @@ export const questions: QuestionType[] = [
         id: 13,
         complexity: 2,
         question: 'Сколько параметров можно передать функции?',
-        type: 'theory',
-        theme: 'function',
+        ////type: 'theory',
+        type: 'function',
         answerOptions: [
             {answer: 'Ровно столько, сколько указано в определении функции', isCorrect: false},
             {answer: 'Сколько указано в определении функции или меньше', isCorrect: false},
@@ -178,8 +178,8 @@ export const questions: QuestionType[] = [
         id: 14,
         complexity: 2,
         question: 'Что делает код?',
-        type: 'practice',
-        theme: 'loops and operators',
+        ////type: 'practice',
+        type: 'loops and operators',
         code: '<code> break me; </code>',
         answerOptions: [
             {answer: 'Ломает интерпретатор JavaScript', isCorrect: false},
@@ -191,8 +191,8 @@ export const questions: QuestionType[] = [
         id: 15,
         complexity: 2,
         question: 'Есть ли разница между выражениями?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         code: '<code> !!( a && b ) <br/> (a && b) </code>',
         answerOptions: [
             {answer: 'Да', isCorrect: true},
@@ -204,8 +204,8 @@ export const questions: QuestionType[] = [
         id: 16,
         complexity: 2,
         question: 'Чему равна длина `arr.length` массива `arr`?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         code: '<code> let arr = []; <br/> arr[1] = 1; <br/>  arr[3] = 33; </code>',
         answerOptions: [
             {answer: '0', isCorrect: false},
@@ -219,8 +219,8 @@ export const questions: QuestionType[] = [
         id: 17,
         complexity: 3,
         question: 'Чему равно `i` в конце кода?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: '<code> for (var i = 0; i < 10; i++) { <br/> &ensp;  console.log(i); <br/> } <br/> // i = ? </code>',
         answerOptions: [
             {answer: 'undefined', isCorrect: false},
@@ -233,8 +233,8 @@ export const questions: QuestionType[] = [
         id: 18,
         complexity: 3,
         question: 'Чему равно `i` в конце кода?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: '<code> for (let i = 0; i < 10; i++) { <br/> &ensp;  console.log(i); <br/> } <br/> // i = ? </code>',
         answerOptions: [
             {answer: 'undefined', isCorrect: false},
@@ -247,8 +247,8 @@ export const questions: QuestionType[] = [
         id: 19,
         complexity: 4,
         question: 'Что выведет `sayHi` при вызове через `setTimeout`?',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>  let name = "Вася";<br>
         function sayHi() {<br>
         &ensp;  alert(name);<br>
@@ -267,8 +267,8 @@ export const questions: QuestionType[] = [
         id: 20,
         complexity: 2,
         question: 'Существует ли такое значение `X`, которое после присваивания `a = X` вызов `alert(a == X)` выдаст `false`?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         code: `<code>  let a = X;<br>
         alert(a == X); // false
         </code>`,
@@ -282,8 +282,8 @@ export const questions: QuestionType[] = [
         id: 21,
         complexity: 2,
         question: 'Чему равна переменная `name`?',
-        type: 'theory',
-        theme: 'daya types',
+        //type: 'theory',
+        type: 'data types',
         code: `<code>  let name = "пупкин".replace("п", "д")
         </code>`,
         answerOptions: [
@@ -296,8 +296,8 @@ export const questions: QuestionType[] = [
         id: 22,
         complexity: 2,
         question: 'Каких операторов из этого списка нет в JavaScript?',
-        type: 'theory',
-        theme: 'loops and operators',
+        //type: 'theory',
+        type: 'loops and operators',
         answerOptions: [
             {answer: '*', isCorrect: false},
             {answer: '^', isCorrect: false},
@@ -312,8 +312,8 @@ export const questions: QuestionType[] = [
         id: 23,
         complexity: 2,
         question: 'Чему равно `a + b + c`?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         code: `<code>
         let a = 1;<br/>
         let b = { toString() {return '1'} };<br/>
@@ -329,8 +329,8 @@ export const questions: QuestionType[] = [
         id: 24,
         complexity: 1,
         question: 'Что делает оператор `===`?',
-        type: 'theory',
-        theme: 'loops and operators',
+        //type: 'theory',
+        type: 'loops and operators',
         answerOptions: [
             {answer: 'Сравнивает по ссылке, а не по значению', isCorrect: false},
             {answer: 'Сравнивает без приведения типа', isCorrect: true},
@@ -340,8 +340,8 @@ export const questions: QuestionType[] = [
         id: 25,
         complexity: 1,
         question: 'Что делает оператор `**`?',
-        type: 'theory',
-        theme: 'loops and operators',
+        //type: 'theory',
+        type: 'loops and operators',
         answerOptions: [
             {answer: 'Возводит в степень', isCorrect: true},
             {answer: 'Умножает число само на себя', isCorrect: false},
@@ -351,8 +351,8 @@ export const questions: QuestionType[] = [
         id: 26,
         complexity: 2,
         question: 'Какое из этих слов не имеет специального использования в JavaScript, никак не упомянуто в стандарте?',
-        type: 'theory',
-        theme: 'other',
+        //type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: 'this', isCorrect: false},
             {answer: 'instanceof', isCorrect: false},
@@ -365,8 +365,8 @@ export const questions: QuestionType[] = [
         id: 27,
         complexity: 2,
         question: 'Какая арифметическая операция приводит к ошибке в JavaScript?',
-        type: 'theory',
-        theme: 'other',
+        //type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: 'Деление на ноль', isCorrect: false},
             {answer: 'Умножение числа на строку', isCorrect: false},
@@ -377,8 +377,8 @@ export const questions: QuestionType[] = [
         id: 28,
         complexity: 3,
         question: 'Чему равно `0 || "" || 2 || undefined || true || falsе`?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: '0', isCorrect: false},
             {answer: ' "" ', isCorrect: false},
@@ -391,8 +391,8 @@ export const questions: QuestionType[] = [
         id: 29,
         complexity: 3,
         question: 'Чему равно `2 && 1 && null && 0 && undefined`?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: '2', isCorrect: false},
             {answer: '1', isCorrect: false},
@@ -405,8 +405,8 @@ export const questions: QuestionType[] = [
         id: 30,
         complexity: 3,
         question: 'Чему равно `0 || 1 && 2 || 3`?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: '0', isCorrect: false},
             {answer: '1', isCorrect: false}, 
@@ -419,8 +419,8 @@ export const questions: QuestionType[] = [
         id: 31,
         complexity: 2,
         question: 'Что выведет консоль?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         let str = "Hello"; <br />
         str.something = 5; <br />
@@ -434,8 +434,8 @@ export const questions: QuestionType[] = [
         id: 32,
         complexity: 2,
         question: 'Что выведет консоль?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         let arr = [1, 2, 3]; <br />
         arr.something = 5; <br/>
@@ -449,8 +449,8 @@ export const questions: QuestionType[] = [
         id: 33,
         complexity: 2,
         question: 'Что выведет консоль?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: `<code>
         console.log(str); // ? <br/>
         let str = "Hello";</code>`,
@@ -463,8 +463,8 @@ export const questions: QuestionType[] = [
         id: 34,
         complexity: 2,
         question: 'Что выведет консоль?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: `<code>
         console.log(str); // ? <br/>
         var str = "Hello";</code>`,
@@ -477,8 +477,8 @@ export const questions: QuestionType[] = [
         id: 35,
         complexity: 3,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: `<code>
         for (var i = 0; i < 10; i++) { <br/>
         &ensp;    setTimeout(function() { <br/>
@@ -497,8 +497,8 @@ export const questions: QuestionType[] = [
         id: 36,
         complexity: 3,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: `<code>
         for (let i = 0; i < 10; i++) { <br/>
         &ensp;    setTimeout(function() { <br/>
@@ -517,8 +517,8 @@ export const questions: QuestionType[] = [
         id: 37,
         complexity: 3,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'other',
+        ////type: 'practice',
+        type: 'other',
         code: `<code>
         function User() { } <br/>
         User.prototype = { admin: false }; <br/>
@@ -536,8 +536,8 @@ export const questions: QuestionType[] = [
         id: 38,
         complexity: 3,
         question: 'Чему равно `arr.length`?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         function MyArray() { } <br/>
         MyArray.prototype = []; <br/>
@@ -555,8 +555,8 @@ export const questions: QuestionType[] = [
         id: 39,
         complexity: 2,
         question: 'Какое будет выведено значение?',
-        type: 'practice',
-        theme: 'loops and operators',
+        ////type: 'practice',
+        type: 'loops and operators',
         code: `<code>
         let x = 5; <br/>
         alert(x++);
@@ -570,8 +570,8 @@ export const questions: QuestionType[] = [
         id: 40,
         complexity: 3,
         question: 'Выберите правильный вариант объявления массива, то есть такой, в результате которого мы получаем массив из двух чисел `1` и `2`.',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: 'new Array.prototype.constructor(1, 2)', isCorrect: false},
             {answer: 'new Array(1, 2)', isCorrect: false},
@@ -583,8 +583,8 @@ export const questions: QuestionType[] = [
         id: 41,
         complexity: 2,
         question: 'Чему равно это выражение?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: '<code> [].push(1,2).unshift(3).join() </code>',
         answerOptions: [
             {answer: '3,1', isCorrect: false},
@@ -596,8 +596,8 @@ export const questions: QuestionType[] = [
         id: 42,
         complexity: 2,
         question: 'Какие варианты вызова `try..catch` являются синтаксически верными в JavaScript?',
-        type: 'theory',
-        theme: 'other',
+        //type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: 'try { ... } catch { ... }', isCorrect: false},
             {answer: 'try { ... } finally { ... }', isCorrect: false},
@@ -608,8 +608,8 @@ export const questions: QuestionType[] = [
         id: 43,
         complexity: 1,
         question: ' Язык JavaScript является подвидом языка Java -- верно?',
-        type: 'theory',
-        theme: 'other',
+        //type: 'theory',
+        type: 'other',
         answerOptions: [
             {answer: 'Да', isCorrect: false},
             {answer: 'Нет', isCorrect: true},
@@ -619,8 +619,8 @@ export const questions: QuestionType[] = [
         id: 44,
         complexity: 4,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>
         f.call(f); <br/>
         
@@ -638,8 +638,8 @@ export const questions: QuestionType[] = [
         id: 45,
         complexity: 4,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>
         let f = function g() { return 23; }; <br/>
         alert(typeof g());
@@ -654,8 +654,8 @@ export const questions: QuestionType[] = [
         id: 46,
         complexity: 2,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         "use strict"; <br/>
 
@@ -672,8 +672,8 @@ export const questions: QuestionType[] = [
         id: 47,
         complexity: 3,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'variable',
+        ////type: 'practice',
+        type: 'variable',
         code: `<code>
         let y = 1; <br/>
         let x = y = 2; <br/>
@@ -689,8 +689,8 @@ export const questions: QuestionType[] = [
         id: 48,
         complexity: 4,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>
         f.call(null); <br/>
         function f() { <br/>
@@ -707,8 +707,8 @@ export const questions: QuestionType[] = [
         id: 49,
         complexity: 4,
         question: 'Чему будет равен `this`?',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>
         let user = { <br/>
         &ensp;    sayHi: function() { <br/>
@@ -727,8 +727,8 @@ export const questions: QuestionType[] = [
         id: 50,
         complexity: 2,
         question: 'Чему равна сумма `[] + 1 + 2`?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: '3', isCorrect: false},
             {answer: 'NaN', isCorrect: false},
@@ -745,8 +745,8 @@ export const questions: QuestionType[] = [
         &ensp;    alert(typeof f); <br/>
           }
         </code>`,
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         answerOptions: [
             {answer: 'undefined', isCorrect: true},
             {answer: 'function', isCorrect: false},
@@ -758,8 +758,8 @@ export const questions: QuestionType[] = [
         id: 52,
         complexity: 2,
         question: 'Верно ли, что `null == undefined`?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         answerOptions: [
             {answer: 'Да', isCorrect: true},
             {answer: 'Нет', isCorrect: false},
@@ -775,8 +775,8 @@ export const questions: QuestionType[] = [
           } <br/><br/>
           alert(f()(1));
         </code>`,
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         answerOptions: [
             {answer: '1', isCorrect: false},
             {answer: '6', isCorrect: false},
@@ -791,8 +791,8 @@ export const questions: QuestionType[] = [
         code: `<code>
         function F() {}
         </code>`,
-        type: 'theory',
-        theme: 'function',
+        //type: 'theory',
+        type: 'function',
         answerOptions: [
             {answer: 'Обычным объектом', isCorrect: true},
             {answer: 'Функцией', isCorrect: false},
@@ -807,8 +807,8 @@ export const questions: QuestionType[] = [
         alert(new F() instanceof F); <br/>
         alert(new F() instanceof Function); <br/>
         </code>`,
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         answerOptions: [
             {answer: 'false, false', isCorrect: false},
             {answer: 'false, true', isCorrect: true},
@@ -819,8 +819,8 @@ export const questions: QuestionType[] = [
         id: 56,
         complexity: 2,
         question: 'Чему равен `typeof null` в режиме строгом режиме?',
-        type: 'theory',
-        theme: 'data types',
+        //type: 'theory',
+        type: 'data types',
         answerOptions: [
             {answer: 'null', isCorrect: false},
             {answer: 'undefined', isCorrect: false},
@@ -831,8 +831,8 @@ export const questions: QuestionType[] = [
         id: 57,
         complexity: 2,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         alert("1"[0]);
         </code>`,
@@ -847,8 +847,8 @@ export const questions: QuestionType[] = [
         id: 58,
         complexity: 5,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         alert(20e-1['toString'](2));
         </code>`,
@@ -863,8 +863,8 @@ export const questions: QuestionType[] = [
         id: 59,
         complexity: 3,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         alert(+"Infinity");
         </code>`,
@@ -878,8 +878,8 @@ export const questions: QuestionType[] = [
         id: 60,
         complexity: 4,
         question: 'Что выведет этот код?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         let a = (1,5 - 1) * 2; <br/>
         alert(a);
@@ -896,8 +896,8 @@ export const questions: QuestionType[] = [
         id: 61,
         complexity: 4,
         question: 'Что выведет этот код? Посмотрите на него очень внимательно, в этом вопросе есть подвох.',
-        type: 'practice',
-        theme: 'function',
+        ////type: 'practice',
+        type: 'function',
         code: `<code>
         let a = [1, 2] <br/>
         (function() { alert(a) })()
@@ -912,8 +912,8 @@ export const questions: QuestionType[] = [
         id: 62,
         complexity: 2,
         question: 'Верно ли сравнение: "ёжик" > "яблоко"?',
-        type: 'practice',
-        theme: 'loops and operators',
+        ////type: 'practice',
+        type: 'loops and operators',
         answerOptions: [
             {answer: 'Да', isCorrect: true},
             {answer: 'Нет', isCorrect: false},
@@ -924,8 +924,8 @@ export const questions: QuestionType[] = [
         id: 63,
         complexity: 4,
         question: 'Какой результат будет у выражения ниже?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         null + {0:1}[0] + [,[1],][1][0]
         </code>`,
@@ -940,8 +940,8 @@ export const questions: QuestionType[] = [
         id: 64,
         complexity: 3,
         question: 'Какой результат будет у выражения ниже?',
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         code: `<code>
         let a = new Array(1,2), b = new Array(3);<br/>
         alert(a[0] + b[0]);
@@ -957,8 +957,8 @@ export const questions: QuestionType[] = [
         complexity: 3,
         question: `Яблоко стоит 1.15, апельсин стоит 2.30.
         Сколько стоят они вместе -- чему равна сумма '1.15 + 2.30' с точки зрения JavaScript?`,
-        type: 'practice',
-        theme: 'data types',
+        ////type: 'practice',
+        type: 'data types',
         answerOptions: [
             {answer: '345', isCorrect: false},
             {answer: '3.45', isCorrect: false},
@@ -969,8 +969,8 @@ export const questions: QuestionType[] = [
         id: 66,
         complexity: 2,
         question: `Может ли скрипт во время работы страницы подключить к ней другие внешние JS-файлы?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Да, но только один раз.', isCorrect: false},
             {answer: 'Да, но только до полной загрузки страницы.', isCorrect: false},
@@ -980,8 +980,8 @@ export const questions: QuestionType[] = [
         id: 67,
         complexity: 2,
         question: `Есть кнопка '<button id="elem"></button>', как показать в ней строку "<hello>"?`,
-        type: 'practice',
-        theme: 'browser',
+        ////type: 'practice',
+        type: 'browser',
         answerOptions: [
             {answer: 'elem.innerHTML = "<hello>"', isCorrect: false},
             {answer: 'elem.innerText = "<hello>"', isCorrect: false},
@@ -991,8 +991,8 @@ export const questions: QuestionType[] = [
         id: 68,
         complexity: 2,
         question: `Вызов setTimeout(func, 0) вызовет func...`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Сразу после `setTimeout`, до следующей строки кода.', isCorrect: false},
             {answer: 'Сразу после текущего скрипта, когда браузер сможет выполнить JavaScript.', isCorrect: false},
@@ -1003,8 +1003,8 @@ export const questions: QuestionType[] = [
         id: 69,
         complexity: 2,
         question: `Вызов setInterval(func, 100) вызовет func...`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Ровно каждые 100 мс.', isCorrect: false},
             {answer: 'Примерно каждые 100 мс.', isCorrect: false},
@@ -1014,8 +1014,8 @@ export const questions: QuestionType[] = [
         id: 70,
         complexity: 3,
         question: `Браузер вызывает setInterval и setTimeout гораздо реже, чем обычно, если...`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Вкладка, в которой работает JavaScript, не видна и находится в фоновом режиме.', isCorrect: false},
             {answer: 'Посетитель зашёл с ноутбука, с питанием от батареи.', isCorrect: false},
@@ -1025,8 +1025,8 @@ export const questions: QuestionType[] = [
         id: 71,
         complexity: 1,
         question: `Какое событие из этого списка не существует?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'onmousescroll', isCorrect: true},
             {answer: 'onclick', isCorrect: false},
@@ -1039,8 +1039,8 @@ export const questions: QuestionType[] = [
         id: 72,
         complexity: 1,
         question: `Какое событие не может быть вызвано кликом мыши?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'onfocus', isCorrect: false},
             {answer: 'onclick', isCorrect: false},
@@ -1052,8 +1052,8 @@ export const questions: QuestionType[] = [
         complexity: 2,
         question: `Можно ли инициировать DOM-событие из JavaScript?
         Например, сэмулировать клик мышкой на элементе, чтобы JavaScript-код кликнул за пользователя, и сработали соответствующие обработчики.`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Да, можно', isCorrect: true},
             {answer: 'Нет, нельзя', isCorrect: false},
@@ -1067,8 +1067,8 @@ export const questions: QuestionType[] = [
         input.setAttribute('checked', 'checked'); <br/>
         // input.checked = ?
         </code>`,
-        type: 'practice',
-        theme: 'browser',
+        ////type: 'practice',
+        type: 'browser',
         answerOptions: [
             {answer: ' "checked" ', isCorrect: false},
             {answer: ' "true" ', isCorrect: false},
@@ -1078,8 +1078,8 @@ export const questions: QuestionType[] = [
         id: 75,
         complexity: 2,
         question: `Как получить HTML-содержимое DOM-элемента elem?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: ' elem.html ', isCorrect: false},
             {answer: ' elem.content ', isCorrect: false},
@@ -1089,8 +1089,8 @@ export const questions: QuestionType[] = [
         id: 76,
         complexity: 2,
         question: `Можно ли из JavaScript получить содержимое комментария?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Да, комментарий -- DOM-узел, который можно получить.', isCorrect: true},
             {answer: 'Нет, комментарии есть в HTML, но отсутствуют в DOM.', isCorrect: false},
@@ -1100,8 +1100,8 @@ export const questions: QuestionType[] = [
         id: 77,
         complexity: 2,
         question: `Что будет, если вызвать document.write(str) после загрузки страницы?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Строка `str` допишется в конец документа.', isCorrect: false},
             {answer: 'Содержимое документа будет полностью заменено на строку `str`.', isCorrect: true},
@@ -1111,8 +1111,8 @@ export const questions: QuestionType[] = [
         id: 78,
         complexity: 3,
         question: `При каком условии elem.scrollHeight == elem.clientHeight?`,
-        type: 'theory',
-        theme: 'browser',
+        //type: 'theory',
+        type: 'browser',
         answerOptions: [
             {answer: 'Содержимое элемента полностью прокручено вниз.', isCorrect: false},
             {answer: 'Страница прокручена так, что элемент полностью видим и находится в границах окна.', isCorrect: false},
