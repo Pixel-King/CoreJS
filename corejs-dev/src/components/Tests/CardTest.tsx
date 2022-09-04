@@ -4,6 +4,7 @@ import { questions } from './textTest';
 import { Button } from "react-bootstrap";
 import Answer from "./Answer";
 import { useState } from "react";
+import { FiBell, FiBellOff } from 'react-icons/fi';
 
 function CardTest(props: string) {
     const [currentQuestion, setCurrentQuestion] = useState(0);

@@ -21,6 +21,10 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.question-sound {
+    grid-area: A;
+}
+
 .question-number {
     text-align: center;
     grid-area: B;

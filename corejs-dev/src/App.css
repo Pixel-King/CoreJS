@@ -132,3 +132,9 @@ code {
 input{
   border-radius: 6px;   
 }
+
+.soundIcon {
+  display: flex;
+  color: var(--button-default);
+  padding: 0 5px;
+}

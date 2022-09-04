@@ -19,6 +19,7 @@ import { initAuth, selectAuth } from './components/Autorisation/SignInForm/authS
 import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
+import ToggleSound from './components/Sound/ToggleSound';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -70,6 +71,7 @@ const App: React.FC = () => {
               <Link to="/tests" className='nav-link'>Тесты</Link>
               <Link to='/statistics' className='nav-link'>Статистика</Link>
               <Toggle />
+              <ToggleSound />
             </Nav>
             { auth ?
             <User/> :

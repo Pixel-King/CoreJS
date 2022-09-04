@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { AnswerType } from "./textTest";
 import Button from 'react-bootstrap/Button';
 import CardTest from './CardTest';
@@ -6,13 +6,8 @@ import axios, { AxiosError } from 'axios';
 //import useSound from 'use-sound';
 import correctSound from '../../sound/correct-answer-sound.mp3';
 import wrongSound from '../../sound/wrong-sound.mp3';
-
-interface IProps {
-    id: number;
-    weight: number,
-    answer: string,
-    isCorrect: boolean,
-}
+import { useAppSelector } from "../../app/hooks";
+import { selectSound } from "../Sound/ToggleSoundSlice";
 
 type PropsType = {
     id: number;
@@ -25,19 +20,23 @@ interface IState {
   color: string;
 }
 
-class Answer extends React.Component<IProps, IState> {
-    constructor(props: PropsType) {
-        super(props)
-        this.state = {
-            color: 'light',
-        };
-        this.handleAnswerButtonClick = this.handleAnswerButtonClick.bind(this);
-    }
+// class Answer extends React.Component<IProps, IState> {
+//     constructor(props: PropsType) {
+//         super(props)
+//         this.state = {
+//             color: 'light',
+//         };
+//         this.handleAnswerButtonClick = this.handleAnswerButtonClick.bind(this);
+//     }
+const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
+    const [state, setState] = useState('light');
+    const sound = useAppSelector(selectSound);
 
-    async handleAnswerButtonClick(isCorrect: boolean, weight: number, id: number) {
+    async function handleAnswerButtonClick(isCorrect: boolean, weight: number, id: number) {
         //const [playSound] = useSound(correctSound);
         const alarmCorrect = new Audio(correctSound);
         const alarmWrong = new Audio(wrongSound);
+
         try {
             const url = 'http://localhost:4200';
             const userToken = localStorage.token;
@@ -47,10 +46,10 @@ class Answer extends React.Component<IProps, IState> {
                 }
             }
             if (isCorrect) {
-                this.setState({
-                    color: 'success'
-                });
-                alarmCorrect.play();
+                setState( 'success');
+                if (sound) {
+                    alarmCorrect.play();
+                }
                 //playSound();
 
                 const LS_tests_score = localStorage.getItem('tests_score');
@@ -73,10 +72,10 @@ class Answer extends React.Component<IProps, IState> {
                     config
                 );
             } else {
-                this.setState({
-                    color: 'danger'
-                });
-                alarmWrong.play();
+                setState('danger');
+                if (sound) {
+                    alarmWrong.play();
+                }
                 return 0;
             }
         } catch (e: unknown) {
@@ -85,16 +84,15 @@ class Answer extends React.Component<IProps, IState> {
         }
     };
 
-    render(): React.ReactNode {
-        const {answer, isCorrect, weight, id} = this.props;
         return (
-            <Button onClick={
-                () => this.handleAnswerButtonClick(isCorrect, weight, id)
-            } className='button_answer' variant={this.state.color} >
+            <Button 
+            onClick={async () => await handleAnswerButtonClick(isCorrect, weight, id)} 
+            className='button_answer' 
+            variant={state} >
                 {answer}
             </Button>
         )
     }
-}
+
 
 export default Answer;
