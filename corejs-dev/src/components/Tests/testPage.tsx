@@ -6,19 +6,57 @@ import './testPage.css'
 import CardTest from './CardTest';
 import { Routes, Route, Link} from "react-router-dom";
 import TestsRender from './TestsRender';
-
+import { useAppSelector } from '../../app/hooks';
+import { selectAuth } from '../Autorisation/SignInForm/authSlice';
 
 
 const TestPage: React.FC = () => {
-    
+    //const auth = useAppSelector(selectAuth);
+    const auth = useAppSelector(selectAuth);
     return (
         <div className='testpage'>
-            <div className='testpage_title fs-2'>
-                <h1>Проходите тесты, чтобы проверить свой уровень знаний</h1>
-                <p> Для авторизованных пользователей доступен просмотр прогресса на вкладке "Статистика"</p>
+            <div className='testpage_title fs-5'>
+                <h3>Проходите тесты, чтобы проверить свой уровень знаний</h3>
+                {auth ?
+                    <p>Посмотреть свой прогресс можно на вкладке "Статистика"</p>
+                    : <p> Для авторизованных пользователей доступен просмотр прогресса на вкладке "Статистика"</p>
+                }
             </div>
             <div className='testpage_content'>
-                <div className='test_description'>
+                <Link to='/testsdatatypes' className='nav-link'>
+                    <div>
+                        Типы данных
+                    </div> 
+                </Link>
+            
+                <Link to='/testsvariable' className='nav-link'>
+                    <div>
+                        Переменные
+                    </div> 
+                </Link>
+                <Link to='/testsoperators' className='nav-link'>
+                    <div>
+                        Операторы и циклы
+                    </div> 
+                </Link>
+                <Link to='/testsfunction' className='nav-link'>
+                    <div>
+                        Функции
+                    </div> 
+                </Link>
+                <Link to='/testsbrowser' className='nav-link'>
+                    <div>
+                        JS в браузере
+                    </div> 
+                </Link>
+                <Link to='/testsother' className='nav-link'>
+                    <div>
+                        Другое
+                    </div> 
+                </Link>
+
+
+                {/* <div className='test_description'>
                     <p className='test_description_text'>
                         Здесь Вы можете пройти тест по практическим вопросам из разряда "Что выведет консоль?"
                     </p>
@@ -41,7 +79,7 @@ const TestPage: React.FC = () => {
                     <Link to='/testsmix' className='nav-link'>
                         <Button className='btn-dark fs-5 btn_tests' variant='dark'>Начать</Button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     )

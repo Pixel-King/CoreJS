@@ -65,18 +65,18 @@ const App: React.FC = () => {
               </Link>
             </Navbar.Brand>
             <Nav className='nav-link-container fs-5'>
-              <Link to="/" className='nav-link'>Home</Link>
-              <Link to="/theory" className='nav-link'>Theory</Link>
-              <Link to="/tests" className='nav-link'>Tests</Link>
-              <Link to='/statistics' className='nav-link'>Statistics</Link>
+              <Link to="/" className='nav-link'>Главная</Link>
+              <Link to="/theory" className='nav-link'>Теория</Link>
+              <Link to="/tests" className='nav-link'>Тесты</Link>
+              <Link to='/statistics' className='nav-link'>Статистика</Link>
               <Toggle />
             </Nav>
             { auth ?
             <User/> :
             <div className='account-buttons'>
-              <Link to="/registraition"><Button variant="primary">Registration</Button></Link>
+              <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
               {' '}
-              <Link to="/SignIn"><Button variant="outline-primary">Sign in</Button></Link>
+              <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>
             </div>}
           </div>
         </Navbar>
@@ -90,9 +90,12 @@ const App: React.FC = () => {
           <Route path='registraition' element={<Regestraition/>}/>
           <Route path='SignIn' element={<SignInForm/>}/>
           <Route path='Devs' element={<Devs/>}/>
-          <Route path='teststheory' element={ <TestsRender type='theory'/> } />
-          <Route path='testspractice' element={ <TestsRender type='practice'/> } />
-          <Route path='testsmix' element={ <TestsRender type='mix'/> } />
+          <Route path='testsdatatypes' element={ <TestsRender type='data types'/> } />
+          <Route path='testsvariable' element={ <TestsRender type='variable'/> } />
+          <Route path='testsoperators' element={ <TestsRender type='loops and operators'/> } />
+          <Route path='testsfunction' element={ <TestsRender type='function'/> } />
+          <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
+          <Route path='testsother' element={ <TestsRender type='other'/> } />
           { auth && <Route path='my-profile' element={ <Profile/> } />}
         </Routes>
       </main>

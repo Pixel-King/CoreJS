@@ -4,6 +4,7 @@ import { Nav, Col, Row, Tab } from 'react-bootstrap';
 import { Routes, Route, Link, useLocation} from "react-router-dom";
 import { useState } from "react";
 import { getValue } from "@testing-library/user-event/dist/utils";
+import axios, { AxiosError } from 'axios';
 import DataTypes from "./articlesTheory/DataTypes";
 import Numbers from "./articlesTheory/Numbers";
 import Strings from "./articlesTheory/Strings";
@@ -18,7 +19,7 @@ import Functions from "./articlesTheory/Functions";
 import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 import ArrowFunctions from "./articlesTheory/ArrowFunctions";
 import Button from 'react-bootstrap/Button';
-import Date from "./articlesTheory/Date";
+import DateTime from "./articlesTheory/Date";
 import ObjectsBasics from "./articlesTheory/ObjectsBasics";
 import ObjectsCopy from "./articlesTheory/ObjectsCopy";
 import ObjectMethods from "./articlesTheory/ObjectMethods";
@@ -67,9 +68,11 @@ import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
 import ProgressBar from "./progressBar";
 import Modal from "./modalWindow";
 
-import { articleStats } from "./articleStatistics";
+import { useAppSelector } from "../../app/hooks";
+import { selectAuth } from "../Autorisation/SignInForm/authSlice";
 
 const TheoryPage: React.FC = () => {
+    const auth = useAppSelector(selectAuth);
     const loc = useLocation();
     const scrollButton = <Button variant="outline-danger position-fixed bottom-0 end-0 mx-3 my-3" onClick={scrollUp}>В начало ↑</Button>;
     const greeting = loc.pathname === '/theory' && [
@@ -84,49 +87,57 @@ const TheoryPage: React.FC = () => {
         window.scrollBy(0, -window.pageYOffset);
     }
 
-    function scrollHandlerForModal () {
-        const windowScroll = document.documentElement.scrollTop;
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-        const statFromLS = localStorage.getItem('userStats');
-        if (statFromLS) {
-            const parsed: articleStats = JSON.parse(statFromLS);
-            const visited = parsed.articlesVisited;
-            const counter = parsed.articlesCount;
-
-            if ((windowScroll / windowHeight * 100) >= 95) {
-
-                const newVisited = visited.map((item) => {
-                    if (item.articlePath === loc.pathname) {
-                        if (item.articleModalShown === false) {
-                            setModal(true);
-                            return {
-                                articlePath: item.articlePath,
-                                articleModalShown: true,
-                            }
+    async function scrollHandlerForModal () {
+        try {
+            const url = 'http://localhost:4200';
+            const userToken = localStorage.token;
+            const config = {
+                headers: {
+                    Authorization:`Bearer ${userToken}`,
+                }
+            };
+            
+            const userId = localStorage.getItem('userID');
+            if (userId) {
+                const windowScroll = document.documentElement.scrollTop;
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+                if ((windowScroll / windowHeight * 100) >= 95) {
+                    const resp = await axios.get(`${url}/users/${userId}`, config);
+                    const currentStat = await resp.data;
+                    const passedArticles = currentStat.readedArticle;
+                    if (!passedArticles.some((item: { rating: string; date: string; articleId: string }) => {
+                        if (item.articleId === loc.pathname) {
+                            return true;
                         } else {
-                            return {
-                                articlePath: item.articlePath,
-                                articleModalShown: item.articleModalShown,
-                            }
+                            return false;
+                        }
+                    })) {
+                        if (auth) {
+                            await axios.post(`${url}/users/updaterarticle/${userId}`,
+                                {
+                                    rating: "10",
+                                    date: (new Date()).toISOString().split('T')[0],
+                                    artId: loc.pathname,
+                                },
+                                config
+                            );
+                            setModal(true);
                         }
                     } else {
-                        return {
-                            articlePath: item.articlePath,
-                            articleModalShown: item.articleModalShown,
-                        }
+                        return;
                     }
-                })
+    
+                };
+            } else {
+                return;
+            }
 
-                localStorage.setItem('userStats', JSON.stringify(
-                    {
-                        articlesVisited: newVisited,
-                        articlesCount: counter,
-                    }
-                ))
-            };
+            
+        } catch (e: unknown) {
+            const err = e as AxiosError;
+            console.log(err);
         }
-        
     }
 
     React.useEffect(() => {
@@ -153,11 +164,8 @@ const TheoryPage: React.FC = () => {
                     key={'user-modal'}
                     isVisible = { isModal }
                     title="Не останавливайтесь на достигнутом!"
-                    content = { <p key={'modal-message'}>Вы могли бы получить + 10 очков прогресса за изучение статьи, если бы были зарегистрированы :(</p> }
-                    footer = { [
-                        <Button key={'modal-button-tasks'} style = {{marginRight: "20px"}} >Показать задания по теме</Button>,
-                        <Button key={'modal-button-close'} onClick = { () => setModal(false) }>Ок</Button>
-                    ] }
+                    content = { <p key={'modal-message'}>Вы получили +10 очков прогресса за изучение статьи :)</p> }
+                    footer = { <Button key={'modal-button-close'} onClick = { () => setModal(false) }>Ок</Button> }
                     onClose = { () => setModal(false) }
                 />
                 {bar}
@@ -190,7 +198,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/SwitchCase' element={ <SwitchCase /> } />
                     <Route path='articlesTheory/Loops' element={ <Loops /> } />
 
-                    <Route path='articlesTheory/Date' element={ <Date /> } />
+                    <Route path='articlesTheory/Date' element={ <DateTime /> } />
 
                     <Route path='articlesTheory/Functions' element={ <Functions /> } />
                     <Route path='articlesTheory/FunctionExpressions' element={ <FunctionExpressions/> }/>

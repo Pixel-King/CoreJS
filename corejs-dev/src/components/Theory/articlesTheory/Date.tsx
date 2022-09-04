@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Date: React.FC =() => {
+const DateTime: React.FC =() => {
     return (
     <>
     
@@ -408,4 +408,4 @@ const Date: React.FC =() => {
     );
 }
 
-export default Date;
+export default DateTime;
