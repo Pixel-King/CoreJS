@@ -68,11 +68,7 @@ import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
 import ProgressBar from "./progressBar";
 import Modal from "./modalWindow";
 
-import { useAppSelector } from "../../app/hooks";
-import { selectAuth } from "../Autorisation/SignInForm/authSlice";
-
 const TheoryPage: React.FC = () => {
-    const auth = useAppSelector(selectAuth);
     const loc = useLocation();
     const scrollButton = <Button variant="outline-danger position-fixed bottom-0 end-0 mx-3 my-3" onClick={scrollUp}>В начало ↑</Button>;
     const greeting = loc.pathname === '/theory' && [
@@ -80,70 +76,74 @@ const TheoryPage: React.FC = () => {
         <h2 key={'greeting-2'} className="text-center">Для начала работы выберите, пожалуйста, тему {`:)`}</h2>
     ]
     const [isModal, setModal] = React.useState(false);
+    const [isFired, setFired] = React.useState(false);
     const bar = loc.pathname !== '/theory' && <ProgressBar />;
-    const tasks = loc.pathname !== '/theory' && <Button>Показать задания по теме</Button>;
 
     function scrollUp() {
         window.scrollBy(0, -window.pageYOffset);
     }
 
-    async function scrollHandlerForModal () {
-        try {
-            const url = 'http://localhost:4200';
-            const userToken = localStorage.token;
-            const config = {
-                headers: {
-                    Authorization:`Bearer ${userToken}`,
-                }
-            };
-            
-            const userId = localStorage.getItem('userID');
-            if (userId) {
-                const windowScroll = document.documentElement.scrollTop;
-                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
-                if ((windowScroll / windowHeight * 100) >= 95) {
-                    const resp = await axios.get(`${url}/users/${userId}`, config);
-                    const currentStat = await resp.data;
-                    const passedArticles = currentStat.readedArticle;
-                    if (!passedArticles.some((item: { rating: string; date: string; articleId: string }) => {
-                        if (item.articleId === loc.pathname) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    })) {
-                        if (auth) {
-                            await axios.post(`${url}/users/updaterarticle/${userId}`,
-                                {
-                                    rating: "10",
-                                    date: (new Date()).toISOString().split('T')[0],
-                                    artId: loc.pathname,
-                                },
-                                config
-                            );
-                            setModal(true);
-                        }
-                    } else {
-                        return;
-                    }
-    
-                };
-            } else {
-                return;
-            }
+    function fireHandler () {
+        const windowScroll = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            
-        } catch (e: unknown) {
-            const err = e as AxiosError;
-            console.log(err);
+        if ((windowScroll / windowHeight * 100) >= 95) {
+            setFired(true);
         }
     }
 
     React.useEffect(() => {
-        window.addEventListener("scroll", scrollHandlerForModal);
-        return () => window.removeEventListener("scroll", scrollHandlerForModal);
-    })
+        window.addEventListener("scroll", fireHandler);
+        return () => window.removeEventListener("scroll", fireHandler);
+    });
+
+    React.useEffect(() => {
+        if (isFired) {
+            if (loc.pathname !== '/theory') {
+                (async () => {
+                    const userId = localStorage.getItem('userID');
+                    if (userId) {
+                        const url = 'http://localhost:4200';
+                        const userToken = localStorage.token;
+                        const config = {
+                            headers: {
+                                'Authorization':`Bearer ${userToken}`,
+                            }
+                        };
+                        const resp = await axios.get(`${url}/users/${userId}`, config);
+                        if (resp.status === 200) {
+                            const currentStat = await resp.data;
+                            const passedArticles = currentStat.readedArticle;
+                            if (!passedArticles.some((item: { date: string; articleId: string }) => {
+                                if (item.articleId === loc.pathname) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            })) {
+                                await axios.post(`${url}/users/updaterarticle/${userId}`,
+                                    {
+                                        rating: "10",
+                                        date: (new Date()).toISOString().split('T')[0],
+                                        artId: loc.pathname,
+                                    },
+                                    config
+                                );
+                                setModal(true);  
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                    
+                })()
+            }
+        }
+    }, [isFired]);
+
+    React.useEffect(() => {
+        setFired(false);
+    }, [loc]);
 
     return (
         <div className="theory-page-wrap d-flex flex-row">
@@ -230,7 +230,6 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/ExportImport' element={ <ExportImport /> } />
                     <Route path='articlesTheory/DynamicImport' element={ <DynamicImport /> } />
                 </Routes>
-                {tasks}
             </div>
             {scrollButton}
         </div> 
