@@ -5,6 +5,9 @@ import { selectUserState } from '../User/userSlice';
 import './Profile.css';
 import ProfileImg from './ProfileImg/ProfileImg';
 import { Spinner } from 'react-bootstrap';
+import ProgressChart from './ProgressChart/ProgressChart';
+import RangeProgress from './RangeBar/RangeProgress';
+import PieCharts from './PieChart/PieChart';
 
 interface userBody{
     id: string;
@@ -23,8 +26,9 @@ const Profile = () => {
     const [email, setEmail] = useState<string>('');
     const [NickName, setNickName] = useState<string>('');
     const [rang, setRang] = useState<string>('');
-    const [rangProgress, setRangProgres] = useState('');
+    const [rangProgress, setRangProgres] = useState<number>(0);
     const [passedTests, setPasedTest] = useState<{ date: string, testId: string}[]>([]);
+    const [articles, setArticles] = useState<{ date: string, articleId: string}[]>([]);
 
     useEffect(()=>{
         getUserAsync();
@@ -43,7 +47,9 @@ const Profile = () => {
             setEmail(data.email);
             setNickName(data.userName);
             setRang(+data.rating < 50 ? "Junior" : +data.rating < 150 ? "Middle" : "Senior");
+            setRangProgres(+data.rating < 50 ? +data.rating * 50 / 100 : +data.rating < 150 ? +data.rating - 50 : 100);
             setPasedTest(data.passedTests);
+            setArticles(data.readedArticle);
             setLoading(false);
         } catch (e: unknown) {
             const err = e as AxiosError;
@@ -74,7 +80,19 @@ const Profile = () => {
                     </div>
                 </section>
                 <section className='user-stat__wrap'>
-                    
+                    <div className='bar-chart'>
+                        <h3 className='mb-5'>Статистика за последнюю неделю:</h3>
+                        <ProgressChart tests={passedTests} articles={articles}></ProgressChart>
+                    </div>
+                        <div className="range-progres">
+                            <h3 className='mb-4'>Прогресс ранга:</h3>
+                            <RangeProgress 
+                                progres={rangProgress}
+                                tests={passedTests.length}
+                                art={articles.length}
+                                text={rang === "Junior"? "Middle": "Вы достигли макс. ранга!"}
+                            />
+                        </div>
                 </section>
             </div>}
             {loading && <Spinner animation="border" variant="primary" />}

@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+@media screen and (max-width: 1024px) {
+    .leaderboard-wrap{
+        margin: 3rem;
+    }
+}
+
 .rating-card-1,
 .rating-card-2,
 .rating-card-3{
