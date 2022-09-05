@@ -47,14 +47,10 @@ function CardTest(props: string) {
     
     useEffect(()=>{
         passed()
-        console.log(currentQuestion, questionsFilter[currentQuestion].id)
         return function cleanup() {
             setStatus
         }
-    } 
-    
-
-    )
+    })
 
     let questionsFilter = questions.filter((item) => item.type === props);
   

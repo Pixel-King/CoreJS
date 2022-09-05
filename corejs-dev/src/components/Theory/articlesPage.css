@@ -5,6 +5,11 @@
 }
 .nav-item{
     margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
 }
 .articles-nav {
     display: flex;
