@@ -19,6 +19,10 @@ import { initAuth, selectAuth } from './components/Autorisation/SignInForm/authS
 import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
+import ToggleSound from './components/Sound/ToggleSound';
+import logoRSS from './rs_school_js.png';
+import Hamburger from './components/Hamburger/Hamburger';
+import HamburgerMenu from './components/Hamburger/HamburgerMenu';
 import ChangeProfile from './components/ChangeProfile/ChangeProfile';
 
 const App: React.FC = () => {
@@ -60,8 +64,10 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='header'>
+        
         <Navbar className='header-navbar'>
           <div className='header-container'>
+            <Hamburger/>
             <Navbar.Brand>
               <Link to="/" className='header-title'>
                 <img
@@ -71,18 +77,19 @@ const App: React.FC = () => {
               </Link>
             </Navbar.Brand>
             <Nav className='nav-link-container fs-5'>
-              <Link to="/" className='nav-link'>Home</Link>
-              <Link to="/theory" className='nav-link'>Theory</Link>
-              <Link to="/tests" className='nav-link'>Tests</Link>
-              <Link to='/statistics' className='nav-link'>Statistics</Link>
+              <Link to="/" className='nav-link'>Главная</Link>
+              <Link to="/theory" className='nav-link'>Теория</Link>
+              <Link to="/tests" className='nav-link'>Тесты</Link>
+              <Link to='/statistics' className='nav-link'>Статистика</Link>
               <Toggle />
+              <ToggleSound />
             </Nav>
             { auth ?
             <User/> :
             <div className='account-buttons'>
-              <Link to="/registraition"><Button variant="primary">Registration</Button></Link>
+              <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
               {' '}
-              <Link to="/SignIn"><Button variant="outline-primary">Sign in</Button></Link>
+              <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>
             </div>}
           </div>
         </Navbar>
@@ -96,17 +103,23 @@ const App: React.FC = () => {
           <Route path='registraition' element={<Regestraition/>}/>
           <Route path='SignIn' element={<SignInForm/>}/>
           <Route path='Devs' element={<Devs/>}/>
-          <Route path='teststheory' element={ <TestsRender type='theory'/> } />
-          <Route path='testspractice' element={ <TestsRender type='practice'/> } />
-          <Route path='testsmix' element={ <TestsRender type='mix'/> } />
+          <Route path='testsdatatypes' element={ <TestsRender type='data types'/> } />
+          <Route path='testsvariable' element={ <TestsRender type='variable'/> } />
+          <Route path='testsoperators' element={ <TestsRender type='loops and operators'/> } />
+          <Route path='testsfunction' element={ <TestsRender type='function'/> } />
+          <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
+          <Route path='testsother' element={ <TestsRender type='other'/> } />
           { auth && <Route path='my-profile' element={ <Profile/> } />}
           { auth && <Route path='change' element={ <ChangeProfile/> } />}
         </Routes>
       </main>
       <footer className='footer'>
         <div className='footer-container fs-5'>
+          <Link to="/Devs"><button className='dev-button'>Разработчики</button></Link>
           &copy; {new Date().getFullYear()}
-          <Link to="/Devs"><Button variant="outline-secondary">Developers</Button></Link>
+          <div className="footer-rss"><a href="https://rs.school/js/">
+                <img id="rss-img" src={logoRSS} alt="rss"></img>
+            </a></div>
         </div>
       </footer>
     </div>

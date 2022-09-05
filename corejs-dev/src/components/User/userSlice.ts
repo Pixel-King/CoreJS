@@ -8,6 +8,8 @@ interface usersState {
     userName: string,
     rating: "jun" | "mid" | "sen",
     token: string,
+    // rating: string,
+    sound: boolean,
 }
   
 const initialState: usersState = {
@@ -17,6 +19,7 @@ const initialState: usersState = {
     userName: '',
     rating: 'jun',
     token: '',
+    sound: true,
 }
 
 export const userSlice = createSlice({
@@ -43,8 +46,9 @@ export const userSlice = createSlice({
                 state.userName = userName;
             }
         }
+        },
     }
-});
+);
 
 export const { setState, setEmailAndUsername } = userSlice.actions
 

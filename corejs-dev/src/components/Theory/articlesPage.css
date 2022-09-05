@@ -6,6 +6,10 @@
 .nav-item{
     margin: 10px;
 }
+.articles-nav {
+    display: flex;
+    flex-direction: column;
+}
 .nav.articles-nav{
     width: 200px;
     user-select: none;
@@ -17,7 +21,7 @@
     size: 1.5em;
 }
 .article-nav-link:hover{
-    color: black;
+    color: var(--text-hover-default);
 }
 .article-nav-link.active{
     color:black;
@@ -35,12 +39,13 @@
 
 .theory-page-wrap {
     width: 100%;
+    flex-direction: row;
 }
 .articles-nav-container-head {
     cursor: pointer;
 }
 .articles-nav-container-head:hover {
-    color: #dc3545;
+    color: var(--text-hover-default);
 }
 .progressBar {
     position: sticky;
@@ -50,6 +55,9 @@
     height: 5px;
 }
 
+.bg-info {
+    color: var(--text-hover-default);
+}
 
 .user-modal {
     position: fixed;
@@ -133,3 +141,36 @@
       transform: translateY(0);
     }
 }
+
+@media screen and (max-width: 800px) {
+  
+    .articles-wrap img {
+      width: 50%;
+    }
+
+  }
+
+@media screen and (max-width: 500px) {
+    .nav.articles-nav {
+        width: 100%;
+    }
+
+    .articles-nav-wrap {
+        width: 100%;
+    }
+    
+    .theory-page-wrap {
+        font-size: small !important;
+        flex-direction: column;
+    }
+    .articles-nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .articles-wrap {
+        width: 100%;
+    }
+  }
