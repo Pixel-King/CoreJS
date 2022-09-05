@@ -156,6 +156,10 @@ input{
 }
 
 @media screen and (max-width: 430px) {
+
+  .account-buttons a button {
+    font-size: 13px !important;
+  }
   
   .footer-container {
     flex-direction: column;
