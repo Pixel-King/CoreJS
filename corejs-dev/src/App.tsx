@@ -23,6 +23,7 @@ import ToggleSound from './components/Sound/ToggleSound';
 import logoRSS from './rs_school_js.png';
 import Hamburger from './components/Hamburger/Hamburger';
 import HamburgerMenu from './components/Hamburger/HamburgerMenu';
+import ChangeProfile from './components/ChangeProfile/ChangeProfile';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -109,6 +110,7 @@ const App: React.FC = () => {
           <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
           <Route path='testsother' element={ <TestsRender type='other'/> } />
           { auth && <Route path='my-profile' element={ <Profile/> } />}
+          { auth && <Route path='change' element={ <ChangeProfile/> } />}
         </Routes>
       </main>
       <footer className='footer'>

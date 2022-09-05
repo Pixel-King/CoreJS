@@ -18,7 +18,7 @@ const textCards: CardType[] = [
     }, {
         'id': '3',
         'title': 'Статистика',
-        'textRU': 'Вы можете отслеживать свой прогресс обучения, посмотрев статистику - сколько пройденных тем, правильных и неправильных ответов в тестах, сколько тем еще необходимо изучить',
+        'textRU': 'В разделе "Статистика" показан рейтинг пользователей. Вы можете отслеживать свой прогресс обучения, посмотрев статистику в виде графика в личном кабинете.',
         'textEN': '...',
         'path': '/statistics',
         'imgsrc': 'https://e7.pngegg.com/pngimages/1023/217/png-clipart-customer-experience-computer-icons-computer-software-marketing-purple-text.png',

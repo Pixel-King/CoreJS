@@ -38,11 +38,19 @@ export const userSlice = createSlice({
                 localStorage.setItem("userID", id);
                 localStorage.setItem("token", token);
             }
+        },
+        setEmailAndUsername: (state, action) => {
+            const { email, userName } = action.payload
+            if (email && userName) {
+                state.email = email;
+                state.userName = userName;
+            }
         }
+        },
     }
-});
+);
 
-export const { setState } = userSlice.actions
+export const { setState, setEmailAndUsername } = userSlice.actions
 
 export const selectUserState = (state: RootState) => state.users
 

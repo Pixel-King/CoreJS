@@ -5,6 +5,9 @@ body {
 .burger {
     z-index: 11;
 }
+.burger-wrap {
+    display: none;
+}
 
 .burger1 {
     opacity: var(--span2-default);
@@ -84,6 +87,9 @@ body {
 
   
   @media screen and (max-width: 770px) {
+    .burger-wrap {
+        display: block;
+    }
   
     .nav-link-container {
       display: none !important;
