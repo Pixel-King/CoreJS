@@ -8,6 +8,7 @@ import correctSound from '../../sound/correct-answer-sound.mp3';
 import wrongSound from '../../sound/wrong-sound.mp3';
 import { useAppSelector } from "../../app/hooks";
 import { selectSound } from "../Sound/ToggleSoundSlice";
+import { selectAuth } from "../Autorisation/SignInForm/authSlice";
 
 type PropsType = {
     id: number;
@@ -22,9 +23,13 @@ interface IState {
 
 const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
     const [state, setState] = useState('light');
+    const sound = useAppSelector(selectSound);
     const auth = useAppSelector(selectAuth);
 
     async function handleAnswerButtonClick(isCorrect: boolean, weight: number, id: number) {
+        //const [playSound] = useSound(correctSound);
+        const alarmCorrect = new Audio(correctSound);
+        const alarmWrong = new Audio(wrongSound);
 
         try {
             if (isCorrect) {
@@ -36,20 +41,11 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
                     }
                 };
 
-                const LS_tests_score = localStorage.getItem('tests_score');
-                const LS_tests_number = localStorage.getItem('tests_number');
-
                 setState( 'success');
-
-                if (LS_tests_score && LS_tests_number) {
-                    const score = (Number(LS_tests_score) + weight).toString();
-                    const number_tests = (Number(LS_tests_number) + 1).toString(); 
-                    localStorage.setItem('tests_score', score);
-                    localStorage.setItem('tests_number', number_tests)
-                } else {
-                    localStorage.setItem('tests_score', weight.toString());
-                    localStorage.setItem('tests_number', '1');
+                if (sound) {
+                    alarmCorrect.play();
                 }
+
                 if (auth) {
                     const userId = localStorage.getItem('userID');
                     const resp = await axios.get(`${url}/users/${userId}`, config);
@@ -74,6 +70,9 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
                 }
             } else {
                 setState('danger');
+                if (sound) {
+                    alarmWrong.play();
+                }
                 return 0;
             }
         } catch (e: unknown) {
