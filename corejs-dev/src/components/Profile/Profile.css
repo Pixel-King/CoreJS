@@ -4,6 +4,7 @@
     position: relative;
     display: flex;
     align-items: flex-start;
+    margin: 1rem;
 }
 
 .p-r{
@@ -26,8 +27,8 @@
     border-radius: 10px;
 }
 .user-stat__wrap{
-    width: calc(100% - 350px);
-    height: 800px;
+    width: calc(100% - 400px);
+    height: 100%;
 }
 .profile-img{
     height: auto;
@@ -65,8 +66,41 @@
     from, to { border-color: transparent }
     50% { border-color: var(--color-default); }
   }
+.rang-material-stat__wrap{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.bar-chart{
+  height: 400px;
+  padding: 1rem 4rem;
+}
+.range-progres{
+    position: relative;
+    left: -20%;
+    margin-top: 8rem;
+}
+.range-progres__text{
+    position: absolute;
+    font-size: .9rem;
+    scale: 1.7;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -25%);
+}
+.circular-progres{
+    position: relative;
+    width: 15rem;
+    margin: 0 auto;
+}
+.all-materila{
+    position: absolute;
+    right: -60%;
+    text-align: left;
+    font-size: 1.2rem;
+}
 
-@media screen and (max-width: 1025px) and (min-width: 668px) {
+@media screen and (max-width: 1025px) and (min-width: 700px) {
     .user-profile__wrap{
         display: block;
     }
@@ -95,9 +129,16 @@
         left: 0%;
         transform: translateX(0%);
     }
+    .bar-chart{
+        margin-top: 1rem;
+    }
+    .range-progres {
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+    }
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 700px) {
     .user-profile__wrap{
         display: block;
     }
@@ -108,5 +149,30 @@
     }
     .user-inf{
         text-align: center;
+    }
+    .user-stat__wrap{
+        width: 100%;
+        margin-top: 3rem;
+    }
+    .bar-chart{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        height: 300px;
+        padding: 1rem 2rem;
+    }
+    .rang-material-stat__wrap {
+        flex-direction: column;
+    }
+    .range-progres{
+        margin: 2rem auto;
+        left: 0;
+        padding-top: 2.5rem;
+    }
+    .all-materila {
+        position: absolute;
+        right: 20%;
+        top: 65%;
+        text-align: center;
+        font-size: 1rem;
     }
 }
