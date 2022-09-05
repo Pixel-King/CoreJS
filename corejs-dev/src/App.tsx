@@ -20,6 +20,7 @@ import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
 import ChangeProfile from './components/ChangeProfile/ChangeProfile';
+import { dbHostURL } from './dburl';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -41,7 +42,7 @@ const App: React.FC = () => {
             Authorization: `Bearer ${userToken}`
           }
         }
-        const res = await axios.get(`http://localhost:4200/users/${userID}`, config);
+        const res = await axios.get(`${dbHostURL}/users/${userID}`, config);
         const body = res.data;
         body.token = userToken;
         if (res.status === 200) {

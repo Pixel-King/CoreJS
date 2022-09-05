@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useAppSelector } from '../../../app/hooks';
+import { dbHostURL } from '../../../dburl';
 import { selectUserState } from '../../User/userSlice';
 
 const ResetProgresForm: React.FC = () =>{
@@ -15,7 +16,7 @@ const ResetProgresForm: React.FC = () =>{
                 }
               }
 
-            const res = await axios.post(`http://localhost:4200/users/resetprogress/${user.id}`, config);
+            const res = await axios.post(`${dbHostURL}/users/resetprogress/${user.id}`, config);
         } catch (e: unknown) {
             const err = e as AxiosError;
             console.error(err);
