@@ -8,6 +8,7 @@ import correctSound from '../../sound/correct-answer-sound.mp3';
 import wrongSound from '../../sound/wrong-sound.mp3';
 import { useAppSelector } from "../../app/hooks";
 import { selectSound } from "../Sound/ToggleSoundSlice";
+import { selectAuth } from "../Autorisation/SignInForm/authSlice";
 
 type PropsType = {
     id: number;
@@ -20,17 +21,10 @@ interface IState {
   color: string;
 }
 
-// class Answer extends React.Component<IProps, IState> {
-//     constructor(props: PropsType) {
-//         super(props)
-//         this.state = {
-//             color: 'light',
-//         };
-//         this.handleAnswerButtonClick = this.handleAnswerButtonClick.bind(this);
-//     }
 const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
     const [state, setState] = useState('light');
     const sound = useAppSelector(selectSound);
+    const auth = useAppSelector(selectAuth);
 
     async function handleAnswerButtonClick(isCorrect: boolean, weight: number, id: number) {
         //const [playSound] = useSound(correctSound);
@@ -38,27 +32,42 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
         const alarmWrong = new Audio(wrongSound);
 
         try {
-            const url = 'http://localhost:4200';
-            const userToken = localStorage.token;
-            const config = {
-                headers: {
-                    Authorization:`Bearer ${userToken}`,
-                }
-            }
             if (isCorrect) {
+                const url = 'http://localhost:4200';
+                const userToken = localStorage.token;
+                const config = {
+                    headers: {
+                        'Authorization':`Bearer ${userToken}`,
+                    }
+                };
+
                 setState( 'success');
                 if (sound) {
                     alarmCorrect.play();
                 }
 
-                await axios.post(`${url}/users/updatepastest/${localStorage.userID}`,
-                    {
-                        rating: `${weight}`,
-                        date: `${(new Date()).getDate()}.${(new Date()).getMonth() + 1}.${(new Date()).getFullYear()}`,
-                        testId: `${id}`,
-                    },
-                    config
-                );
+                if (auth) {
+                    const userId = localStorage.getItem('userID');
+                    const resp = await axios.get(`${url}/users/${userId}`, config);
+                    const currentStat = await resp.data;
+                    const passedTests = currentStat.passedTests;
+                    if (!passedTests.some((item: { date: string; testId: string }) => {
+                        if (item.testId === `${id}`) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    })) {
+                        await axios.post(`${url}/users/updatepastest/${localStorage.userID}`,
+                            {
+                                rating: `${weight}`,
+                                date: (new Date()).toISOString().split('T')[0],
+                                testId: `${id}`,
+                            },
+                            config
+                        );
+                    }
+                }
             } else {
                 setState('danger');
                 if (sound) {
@@ -72,15 +81,15 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
         }
     };
 
-        return (
-            <Button 
-            onClick={async () => await handleAnswerButtonClick(isCorrect, weight, id)} 
-            className='button_answer' 
-            variant={state} >
-                {answer}
-            </Button>
-        )
-    }
+    return (
+        <Button 
+        onClick={async () => await handleAnswerButtonClick(isCorrect, weight, id)} 
+        className='button_answer' 
+        variant={state} >
+            {answer}
+        </Button>
+    )
+}
 
 
 export default Answer;

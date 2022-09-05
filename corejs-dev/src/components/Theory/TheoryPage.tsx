@@ -4,6 +4,7 @@ import { Nav, Col, Row, Tab } from 'react-bootstrap';
 import { Routes, Route, Link, useLocation} from "react-router-dom";
 import { useState } from "react";
 import { getValue } from "@testing-library/user-event/dist/utils";
+import axios, { AxiosError } from 'axios';
 import DataTypes from "./articlesTheory/DataTypes";
 import Numbers from "./articlesTheory/Numbers";
 import Strings from "./articlesTheory/Strings";
@@ -18,7 +19,7 @@ import Functions from "./articlesTheory/Functions";
 import FunctionExpressions from "./articlesTheory/FunctionExpressions";
 import ArrowFunctions from "./articlesTheory/ArrowFunctions";
 import Button from 'react-bootstrap/Button';
-import Date from "./articlesTheory/Date";
+import DateTime from "./articlesTheory/Date";
 import ObjectsBasics from "./articlesTheory/ObjectsBasics";
 import ObjectsCopy from "./articlesTheory/ObjectsCopy";
 import ObjectMethods from "./articlesTheory/ObjectMethods";
@@ -67,8 +68,6 @@ import ModulesArticlesList from "./articlesLists/ModulesArticlesList";
 import ProgressBar from "./progressBar";
 import Modal from "./modalWindow";
 
-import { articleStats } from "./articleStatistics";
-
 const TheoryPage: React.FC = () => {
     const loc = useLocation();
     const scrollButton = <Button variant="outline-danger position-fixed bottom-0 end-0 mx-3 my-3" onClick={scrollUp}>В начало ↑</Button>;
@@ -77,62 +76,74 @@ const TheoryPage: React.FC = () => {
         <h2 key={'greeting-2'} className="text-center">Для начала работы выберите, пожалуйста, тему {`:)`}</h2>
     ]
     const [isModal, setModal] = React.useState(false);
+    const [isFired, setFired] = React.useState(false);
     const bar = loc.pathname !== '/theory' && <ProgressBar />;
-    const tasks = loc.pathname !== '/theory' && <Button>Показать задания по теме</Button>;
 
     function scrollUp() {
         window.scrollBy(0, -window.pageYOffset);
     }
 
-    function scrollHandlerForModal () {
+    function fireHandler () {
         const windowScroll = document.documentElement.scrollTop;
         const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-        const statFromLS = localStorage.getItem('userStats');
-        if (statFromLS) {
-            const parsed: articleStats = JSON.parse(statFromLS);
-            const visited = parsed.articlesVisited;
-            const counter = parsed.articlesCount;
-
-            if ((windowScroll / windowHeight * 100) >= 95) {
-
-                const newVisited = visited.map((item) => {
-                    if (item.articlePath === loc.pathname) {
-                        if (item.articleModalShown === false) {
-                            setModal(true);
-                            return {
-                                articlePath: item.articlePath,
-                                articleModalShown: true,
-                            }
-                        } else {
-                            return {
-                                articlePath: item.articlePath,
-                                articleModalShown: item.articleModalShown,
-                            }
-                        }
-                    } else {
-                        return {
-                            articlePath: item.articlePath,
-                            articleModalShown: item.articleModalShown,
-                        }
-                    }
-                })
-
-                localStorage.setItem('userStats', JSON.stringify(
-                    {
-                        articlesVisited: newVisited,
-                        articlesCount: counter,
-                    }
-                ))
-            };
+        if ((windowScroll / windowHeight * 100) >= 95) {
+            setFired(true);
         }
-        
     }
 
     React.useEffect(() => {
-        window.addEventListener("scroll", scrollHandlerForModal);
-        return () => window.removeEventListener("scroll", scrollHandlerForModal);
-    })
+        window.addEventListener("scroll", fireHandler);
+        return () => window.removeEventListener("scroll", fireHandler);
+    });
+
+    React.useEffect(() => {
+        if (isFired) {
+            if (loc.pathname !== '/theory') {
+                (async () => {
+                    const userId = localStorage.getItem('userID');
+                    if (userId) {
+                        const url = 'http://localhost:4200';
+                        const userToken = localStorage.token;
+                        const config = {
+                            headers: {
+                                'Authorization':`Bearer ${userToken}`,
+                            }
+                        };
+                        const resp = await axios.get(`${url}/users/${userId}`, config);
+                        if (resp.status === 200) {
+                            const currentStat = await resp.data;
+                            const passedArticles = currentStat.readedArticle;
+                            if (!passedArticles.some((item: { date: string; articleId: string }) => {
+                                if (item.articleId === loc.pathname) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            })) {
+                                await axios.post(`${url}/users/updaterarticle/${userId}`,
+                                    {
+                                        rating: "10",
+                                        date: (new Date()).toISOString().split('T')[0],
+                                        artId: loc.pathname,
+                                    },
+                                    config
+                                );
+                                setModal(true);  
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                    
+                })()
+            }
+        }
+    }, [isFired]);
+
+    React.useEffect(() => {
+        setFired(false);
+    }, [loc]);
 
     return (
         <div className="theory-page-wrap d-flex">
@@ -153,11 +164,8 @@ const TheoryPage: React.FC = () => {
                     key={'user-modal'}
                     isVisible = { isModal }
                     title="Не останавливайтесь на достигнутом!"
-                    content = { <p key={'modal-message'}>Вы могли бы получить + 10 очков прогресса за изучение статьи, если бы были зарегистрированы :(</p> }
-                    footer = { [
-                        <Button key={'modal-button-tasks'} style = {{marginRight: "20px"}} >Показать задания по теме</Button>,
-                        <Button key={'modal-button-close'} onClick = { () => setModal(false) }>Ок</Button>
-                    ] }
+                    content = { <p key={'modal-message'}>Вы получили +10 очков прогресса за изучение статьи :)</p> }
+                    footer = { <Button key={'modal-button-close'} onClick = { () => setModal(false) }>Ок</Button> }
                     onClose = { () => setModal(false) }
                 />
                 {bar}
@@ -190,7 +198,7 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/SwitchCase' element={ <SwitchCase /> } />
                     <Route path='articlesTheory/Loops' element={ <Loops /> } />
 
-                    <Route path='articlesTheory/Date' element={ <Date /> } />
+                    <Route path='articlesTheory/Date' element={ <DateTime /> } />
 
                     <Route path='articlesTheory/Functions' element={ <Functions /> } />
                     <Route path='articlesTheory/FunctionExpressions' element={ <FunctionExpressions/> }/>
@@ -222,7 +230,6 @@ const TheoryPage: React.FC = () => {
                     <Route path='articlesTheory/ExportImport' element={ <ExportImport /> } />
                     <Route path='articlesTheory/DynamicImport' element={ <DynamicImport /> } />
                 </Routes>
-                {tasks}
             </div>
             {scrollButton}
         </div> 
