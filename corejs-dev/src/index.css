@@ -83,7 +83,7 @@
   --burgermenu-open: 0;
   --burgermenu-default: var(--burgermenu-close);
 
-  --scroll-close: scroll;
+  --scroll-close: visible;
   --scroll-open: hidden;
   --scroll-default: var(--scroll-close);
 
