@@ -4,19 +4,10 @@ import Button from 'react-bootstrap/Button';
 import CardTest from './CardTest';
 import axios, { AxiosError } from 'axios';
 //import useSound from 'use-sound';
-// import correctSound from '../../sound/correct-answer-sound.mp3';
-// import wrongSound from '../../sound/wrong-sound.mp3';
+import correctSound from '../../sound/correct-answer-sound.mp3';
+import wrongSound from '../../sound/wrong-sound.mp3';
 import { useAppSelector } from "../../app/hooks";
-import { selectAuth } from "../Autorisation/SignInForm/authSlice";
-// import { selectSound } from "../Sound/ToggleSoundSlice";
-
-
-interface IProps {
-    id: number;
-    weight: number,
-    answer: string,
-    isCorrect: boolean,
-}
+import { selectSound } from "../Sound/ToggleSoundSlice";
 
 type PropsType = {
     id: number;

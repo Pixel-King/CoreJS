@@ -19,6 +19,10 @@ import { initAuth, selectAuth } from './components/Autorisation/SignInForm/authS
 import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
+import ToggleSound from './components/Sound/ToggleSound';
+import logoRSS from './rs_school_js.png';
+import Hamburger from './components/Hamburger/Hamburger';
+import HamburgerMenu from './components/Hamburger/HamburgerMenu';
 import ChangeProfile from './components/ChangeProfile/ChangeProfile';
 
 const App: React.FC = () => {
@@ -60,8 +64,10 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='header'>
+        
         <Navbar className='header-navbar'>
           <div className='header-container'>
+            <Hamburger/>
             <Navbar.Brand>
               <Link to="/" className='header-title'>
                 <img
@@ -76,6 +82,7 @@ const App: React.FC = () => {
               <Link to="/tests" className='nav-link'>Тесты</Link>
               <Link to='/statistics' className='nav-link'>Статистика</Link>
               <Toggle />
+              <ToggleSound />
             </Nav>
             { auth ?
             <User/> :
@@ -108,8 +115,11 @@ const App: React.FC = () => {
       </main>
       <footer className='footer'>
         <div className='footer-container fs-5'>
+          <Link to="/Devs"><button className='dev-button'>Разработчики</button></Link>
           &copy; {new Date().getFullYear()}
-          <Link to="/Devs"><Button variant="outline-secondary">Developers</Button></Link>
+          <div className="footer-rss"><a href="https://rs.school/js/">
+                <img id="rss-img" src={logoRSS} alt="rss"></img>
+            </a></div>
         </div>
       </footer>
     </div>

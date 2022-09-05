@@ -4,6 +4,7 @@ import { questions } from './textTest';
 import { Button } from "react-bootstrap";
 import Answer from "./Answer";
 import { useState } from "react";
+import { FiBell, FiBellOff } from 'react-icons/fi';
 
 function CardTest(props: string) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -57,10 +58,10 @@ function CardTest(props: string) {
         <div className='question-section' key={questionsFilter[currentQuestion].id}>
             <div className="question-content">
                 <div className="question-header">
-                    <div className="question-number fs-5">
+                    <div className="question-number">
                         Вопрос {currentQuestion+1}/{questionsFilter.length}
                     </div>
-                    <div className="question-complexity fs-5">
+                    <div className="question-complexity">
                         Сложность: {questionsFilter[currentQuestion].complexity}
                     </div>
                 </div>

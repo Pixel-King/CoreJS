@@ -21,15 +21,21 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.question-sound {
+    grid-area: A;
+}
+
 .question-number {
     text-align: center;
     grid-area: B;
+    font-size: 20px;
 }
 
 .question-complexity {
     text-align: end;
     grid-area: C;
     padding-left: 10px;
+    font-size: 20px;
 }
 
 .question-title {
@@ -89,13 +95,19 @@
 
 .testpage_content {
     display: flex;
+    font-size: 20px;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    margin: 0 10px;
+    padding: 8px;
+    border-right: 6px solid;
+    border-image: var(--border-gradient-default);
+    border-image-slice: 1;
 }
 
-.testpage_content a:hover {
-    font-weight: bold;
+.testpage_content a p:hover {
+   color: var(--text-hover-default);
 }
 
 .test_description {
@@ -119,4 +131,10 @@
 
 .btn_tests {
     width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .question-title, .question-complexity, .question-number, code, .button_answer {
+        font-size: small !important;
+    }
 }

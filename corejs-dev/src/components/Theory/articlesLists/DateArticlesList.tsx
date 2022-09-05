@@ -7,7 +7,7 @@ const DateArticlesList: React.FC = () => {
     const loc = useLocation();
     const body = isOpen && [
         <Nav.Item key={'Date-article'}>
-            <Link to='./articlesTheory/Date' onClick={ () => scrollUp() } className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Date' ? 'bg-danger bg-opacity-10 border border-danger rounded fw-semibold' : ''} Date`}>Дата и время</Link>
+            <Link to='./articlesTheory/Date' onClick={ () => scrollUp() } className={`article-nav-link d-block ${loc.pathname === '/theory/articlesTheory/Date' ? 'bg-info bg-opacity-10 border border-info rounded fw-semibold' : ''} Date`}>Дата и время</Link>
         </Nav.Item>
     ];
 

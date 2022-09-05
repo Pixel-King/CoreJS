@@ -24,35 +24,35 @@ const TestPage: React.FC = () => {
             </div>
             <div className='testpage_content'>
                 <Link to='/testsdatatypes' className='nav-link'>
-                    <div>
+                    <p>
                         Типы данных
-                    </div> 
+                    </p> 
                 </Link>
             
                 <Link to='/testsvariable' className='nav-link'>
-                    <div>
+                    <p>
                         Переменные
-                    </div> 
+                    </p> 
                 </Link>
                 <Link to='/testsoperators' className='nav-link'>
-                    <div>
+                    <p>
                         Операторы и циклы
-                    </div> 
+                    </p> 
                 </Link>
                 <Link to='/testsfunction' className='nav-link'>
-                    <div>
+                    <p>
                         Функции
-                    </div> 
+                    </p> 
                 </Link>
                 <Link to='/testsbrowser' className='nav-link'>
-                    <div>
+                    <p>
                         JS в браузере
-                    </div> 
+                    </p> 
                 </Link>
                 <Link to='/testsother' className='nav-link'>
-                    <div>
+                    <p>
                         Другое
-                    </div> 
+                    </p> 
                 </Link>
 
 

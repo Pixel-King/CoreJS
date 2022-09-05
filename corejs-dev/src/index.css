@@ -7,9 +7,13 @@
 } */
 
 :root {
-  --body-background-dark: #1f2023;
-  --body-background-light: #f4f4f4;
+  --body-background-dark: rgb(31, 32, 35);
+  --body-background-light: rgb(244, 244, 244);
   --body-background-default: var(--body-background-light);
+
+  --overlay-dark: rgba(31, 32, 35, 0.8);
+  --overlay-light: rgba(244, 244, 244, 0.8);
+  --overlay-default: var(--overlay-light);
 
   --body-background-dark-img: url('./components/Home/assets/dark.jpg');
   --body-background-light-img: url('./white-grey-scratone.png');
@@ -22,6 +26,10 @@
   --text-light: rgb(61, 61, 62);
   --text-default: var(--text-light);
 
+  --text-hover-dark: #fff;
+  --text-hover-light: #348dab;
+  --text-hover-default: var(--text-hover-light);
+
   --color-dark: #eee;
   --color-light: #747375;
   --color-default:var(--color-light);
@@ -31,12 +39,17 @@
   --shadow-default: var(--shadow-light);
 
   --header-background-dark: #111 ;
-  --header-background-light: linear-gradient(#609db2, #f4f4f4); ;
+  --header-background-light: linear-gradient(#609db2, #f4f4f4); 
   --header-background-default: var(--header-background-light);
 
   --footer-background-dark: #111 ;
-  --footer-background-light: linear-gradient(#f4f4f4, #609db2); ;
+  --footer-background-light: linear-gradient(#f4f4f4, #609db2); 
   --footer-background-default: var(--footer-background-light);
+
+  --border-gradient-light: linear-gradient(#f4f4f4, #609db2, #f4f4f4);
+  --border-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --border-gradient-default: var(--border-gradient-light);
+
 
   --toggle-dark: rgb(231, 248, 2);
   --toggle-light: rgb(52, 6, 216);
@@ -58,6 +71,43 @@
   --button-text-light: #111;
   --button-text-default:var(--button-text-light);
 
+  --burger-light: #022c68;
+  --burger-dark: #f4f4f4;
+  --burger-default:var(--burger-light);
+
+  --burger-gradient-light: linear-gradient(#609db2, #f4f4f4, #609db2);
+  --burger-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --burger-gradient-default: var(--burger-gradient-light);
+
+  --burgermenu-close: -100%;
+  --burgermenu-open: 0;
+  --burgermenu-default: var(--burgermenu-close);
+
+  --scroll-close: scroll;
+  --scroll-open: hidden;
+  --scroll-default: var(--scroll-close);
+
+  --span1-close: rotate(0);
+  --span1-open: rotate(45deg);
+  --span1-default: var(--span1-close);
+
+  --span1-x-close: translate(0);
+  --span1-x-open: translate(20px, 0);
+  --span1-x-default: var(--span1-x-close);
+
+
+  --span2-close: 1;
+  --span2-open: 0;
+  --span2-default: var(--span2-close);
+
+  --span3-close: rotate(0);
+  --span3-open: rotate(-45deg);
+  --span3-default: var(--span3-close);
+
+  --span3-y-close: translate(0);
+  --span3-y-open: translate(14px, 7px);
+  --span3-y-default: var(--span3-y-close);
+
 }
 
 body {
@@ -74,4 +124,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-bg-dark {
+  background-color: #609db2 !important;
 }

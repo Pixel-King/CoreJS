@@ -146,9 +146,9 @@ const TheoryPage: React.FC = () => {
     }, [loc]);
 
     return (
-        <div className="theory-page-wrap d-flex flex-row">
+        <div className="theory-page-wrap d-flex">
             <div className="articles-nav-wrap">
-                <Nav className="articles-nav flex-column">
+                <Nav className="articles-nav">
                     <DataTypesArticleList />
                     <VariableArticlelList />
                     <ConditionsComparisonLoopsArticlesList />
