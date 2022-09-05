@@ -63,7 +63,7 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='header'>
-        <HamburgerMenu/>
+        
         <Navbar className='header-navbar'>
           <div className='header-container'>
             <Hamburger/>

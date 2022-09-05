@@ -155,3 +155,12 @@ input{
   height: 40px;
   padding: 0 10px;
 }
+
+@media screen and (max-width: 430px) {
+  
+  .footer-container {
+    flex-direction: column;
+    gap:5px;
+  }
+}
+

@@ -1,5 +1,21 @@
+body {
+    overflow: var(--scroll-default);
+}
+
 .burger {
     z-index: 11;
+}
+
+.burger1 {
+    opacity: var(--span2-default);
+    transition-property: all;
+    transition-duration: .5s;
+}
+
+.burger2 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
 }
 
 .burger:hover {
@@ -10,6 +26,18 @@
 .span-burger {
     display: none;
 }  
+
+.burgermenu-overlay {
+    position: fixed;
+    top: 0;
+    background: var(--overlay-default);
+    z-index: 9;
+    left: var(--burgermenu-default);
+    transition-property: all;
+    transition-duration: 1s;
+    width: 100%;
+    height: 100vh;
+}
 
 .header-navbar-burger {
     position: fixed;
@@ -23,6 +51,7 @@
     background: var(--burger-gradient-default);
     z-index: 10;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -34,12 +63,29 @@
     align-items: center;
 }
 
+.span-burger1 {
+    transform: var(--span1-default) var(--span1-x-default);
+    transition-property: all;
+    transition-duration: .25s;
+}
+
+.span-burger2 {
+    opacity: var(--span2-default);
+    transition-property: all;
+    transition-duration: .25s;
+}
+
+.span-burger3 {
+    transform: var(--span3-default) var(--span3-y-default);
+    transition-property: all;
+    transition-duration: .25s;
+}
 
 
   
   @media screen and (max-width: 770px) {
   
-    .nav-link-container, .account-buttons {
+    .nav-link-container {
       display: none !important;
     }
 
@@ -48,6 +94,7 @@
         width: 30px;
         height: 3px;
         margin-bottom: 7px;
+        border: 1px;
         background-color: var(--burger-default);
     }
   }

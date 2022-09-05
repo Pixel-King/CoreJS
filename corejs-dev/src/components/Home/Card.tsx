@@ -8,7 +8,7 @@ import { CardType } from "./types/types";
 function OneCard(props: CardType) {
     return (
       <Link to={props.path} className='card_link'>
-        <Card className='card_home' style={{ width: '20rem', height: '100%', opacity: 0.9 }}>
+        <Card className='card_home' style={{ height: '100%', opacity: 0.9 }}>
           <Card.Body>
             <Card.Title className="card_title text-uppercase">{props.title}</Card.Title>
             <Card.Text className="homecard_text">

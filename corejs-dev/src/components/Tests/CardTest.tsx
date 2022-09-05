@@ -58,10 +58,10 @@ function CardTest(props: string) {
         <div className='question-section' key={questionsFilter[currentQuestion].id}>
             <div className="question-content">
                 <div className="question-header">
-                    <div className="question-number fs-5">
+                    <div className="question-number">
                         Вопрос {currentQuestion+1}/{questionsFilter.length}
                     </div>
-                    <div className="question-complexity fs-5">
+                    <div className="question-complexity">
                         Сложность: {questionsFilter[currentQuestion].complexity}
                     </div>
                 </div>

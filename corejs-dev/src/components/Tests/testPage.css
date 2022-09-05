@@ -28,12 +28,14 @@
 .question-number {
     text-align: center;
     grid-area: B;
+    font-size: 20px;
 }
 
 .question-complexity {
     text-align: end;
     grid-area: C;
     padding-left: 10px;
+    font-size: 20px;
 }
 
 .question-title {
@@ -129,4 +131,10 @@
 
 .btn_tests {
     width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .question-title, .question-complexity, .question-number, code, .button_answer {
+        font-size: small !important;
+    }
 }
