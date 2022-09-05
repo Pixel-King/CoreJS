@@ -19,6 +19,7 @@ import { initAuth, selectAuth } from './components/Autorisation/SignInForm/authS
 import User from './components/User/User';
 import Profile from './components/Profile/Profile';
 import { setState } from './components/User/userSlice';
+import ChangeProfile from './components/ChangeProfile/ChangeProfile';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -102,6 +103,7 @@ const App: React.FC = () => {
           <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
           <Route path='testsother' element={ <TestsRender type='other'/> } />
           { auth && <Route path='my-profile' element={ <Profile/> } />}
+          { auth && <Route path='change' element={ <ChangeProfile/> } />}
         </Routes>
       </main>
       <footer className='footer'>

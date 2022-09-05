@@ -1,7 +1,11 @@
 .auth-wrap{
+    max-width: 100%;
+    width: 364px;
     border: 2px solid;
     padding: 30px;
     border-radius: 10px;
+    margin-left: auto!important;
+    margin-right: auto!important;
 }
 
 .success-wrap{

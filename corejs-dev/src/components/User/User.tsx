@@ -33,6 +33,7 @@ const User: React.FC = () => {
                 "top": "90%",
                 }}>
             <Link to='/my-profile' className="dropdown-item" >Мой профиль</Link>
+            <Link to='/change' className="dropdown-item" >Изм. профиль</Link>
             <Dropdown.Divider />
             <Dropdown.Item eventKey="2" onClick={()=>setModalShow(true)}>Выйти</Dropdown.Item>
         </Dropdown.Menu>
