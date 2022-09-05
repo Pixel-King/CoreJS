@@ -46,7 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@types/react-bootstrap": "^0.32.30",
     "@types/react-router-dom": "^5.3.3",
     "@types/validator": "^13.7.6"
   }
