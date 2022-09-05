@@ -103,7 +103,7 @@ const TheoryPage: React.FC = () => {
                 (async () => {
                     const userId = localStorage.getItem('userID');
                     if (userId) {
-                        const url = 'http://localhost:4200';
+                        const url = 'https://corejs-server.herokuapp.com';
                         const userToken = localStorage.token;
                         const config = {
                             headers: {

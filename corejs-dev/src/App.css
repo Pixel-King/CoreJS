@@ -3,8 +3,6 @@
   min-height: 100vh;
   /* background-color: #eafafb; */
   background-color: var(--body-background-default);
-  /*background-image: url('./components/Home/assets/light.png'); */
-  /* background-image: var(--body-background-dark-img); */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -136,7 +134,7 @@ code {
 
 .button_var:hover {
   background: var(--color-default);
-  font-weight: bold;
+
 }
 
 input{

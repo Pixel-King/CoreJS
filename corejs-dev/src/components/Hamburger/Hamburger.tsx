@@ -61,7 +61,7 @@ const Hamburger: React.FC = () => {
                     <div className='user-burger'>
                         { auth ?
                             <User/> :
-                            <div className='account-buttons'>
+                            <div className='account-buttons' onClick={burgerHandler}>
                             <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
                             {' '}
                             <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>

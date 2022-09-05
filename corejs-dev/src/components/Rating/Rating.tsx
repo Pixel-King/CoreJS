@@ -21,7 +21,7 @@ const Statistics: React.FC = () => {
     async function getUserAsync() {
         try{
             setLoading(true);
-            const res = await axios.get(`http://localhost:4200/users`);
+            const res = await axios.get(`https://corejs-server.herokuapp.com/users`);
             const body: resBody[] = res.data;
             setUser(body.sort((el1, el2)=>+el2.rating - +el1.rating).filter((el, idx) => idx < 3));
             setLoading(false);

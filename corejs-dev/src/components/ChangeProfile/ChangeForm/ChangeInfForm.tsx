@@ -39,7 +39,7 @@ const ChangeInfForm: React.FC = () =>{
                   Authorization: `Bearer ${user.token}`
                 }
               }
-            const res = await axios.post(`http://localhost:4200/users/changeinf/${user.id}`, body, config);
+            const res = await axios.post(`https://corejs-server.herokuapp.com/users/changeinf/${user.id}`, body, config);
             const resData = res.data;
             dispatch(setEmailAndUsername(resData));
         } catch (e: unknown) {

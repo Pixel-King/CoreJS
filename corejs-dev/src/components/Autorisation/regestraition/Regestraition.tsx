@@ -61,7 +61,7 @@ const Regestraition: React.FC = () => {
             const body: regBody = {
                 email, userName, password
             }
-            const res = await axios.post('http://localhost:4200/auth/signup', body);
+            const res = await axios.post('https://corejs-server.herokuapp.com/auth/signup', body);
             if (res.status === 201) {
                 setRegStatus(true)
             }

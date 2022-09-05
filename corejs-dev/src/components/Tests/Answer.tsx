@@ -33,7 +33,7 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
 
         try {
             if (isCorrect) {
-                const url = 'http://localhost:4200';
+                const url = 'https://corejs-server.herokuapp.com';
                 const userToken = localStorage.token;
                 const config = {
                     headers: {
