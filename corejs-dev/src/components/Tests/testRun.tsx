@@ -57,10 +57,6 @@ const RunTest:React.FC = () =>{
         // ]);
     }, []);
 
-    useEffect(()=>{
-        if (testIsFinis) {}
-    }, [testIsFinis]);
-
     async function getQuestAsync() {
         try {
             setLoading(true);
