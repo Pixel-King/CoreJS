@@ -79,15 +79,15 @@ const TestPage: React.FC = () => {
         <div className='testpage'>
             {user.isAdmin && <div className='test-button-group'>
                 <Button variant="primary" onClick={()=>setShowAddTestModal(true)}>Добавить</Button>
-                <Button variant="warning" onClick={()=>setShowChangeTestModal(true)}>Изменить</Button>
-                <Button variant="danger" onClick={()=>delTest()}>Удалить</Button>
+                <Button variant="warning" disabled={point.id?false : true} onClick={()=>setShowChangeTestModal(true)}>Изменить</Button>
+                <Button variant="danger" disabled={point.id?false : true} onClick={()=>delTest()}>Удалить</Button>
             </div>
             }
             <div className='testpage_title fs-5'>
                     {tests.map((el, idx)=>{
                         return (
                             <>
-                            <div key={el.name} className='testCard' onClick={()=>setPoint(
+                            <div key={el.name} className={`testCard ${point.id === el.id ? "point": ""}`} onClick={()=>setPoint(
                                 {
                                     id: el.id,
                                     rating: el.rating,

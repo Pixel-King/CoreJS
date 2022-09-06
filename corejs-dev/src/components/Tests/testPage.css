@@ -90,6 +90,9 @@
     transition-property: all;
     transition-duration: 1s;
 }
+.point{
+    box-shadow: 0px 0px 20px var(--color-default);
+}
 .test-button-group{
     position: absolute;
     margin-top: 2rem;
