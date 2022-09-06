@@ -11,8 +11,8 @@ import { selectSound } from "../Sound/ToggleSoundSlice";
 import { selectAuth } from "../Autorisation/SignInForm/authSlice";
 
 type PropsType = {
-    id: number;
-    weight: number,
+    id: string;
+    weight: string,
     answer: string,
     isCorrect: boolean,
 }
@@ -26,14 +26,14 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
     const sound = useAppSelector(selectSound);
     const auth = useAppSelector(selectAuth);
 
-    async function handleAnswerButtonClick(isCorrect: boolean, weight: number, id: number) {
+    async function handleAnswerButtonClick(isCorrect: boolean, weight: string, id: string) {
         //const [playSound] = useSound(correctSound);
         const alarmCorrect = new Audio(correctSound);
         const alarmWrong = new Audio(wrongSound);
 
         try {
             if (isCorrect) {
-                const url = 'http://localhost:4200';
+                const url = 'https://corejs-server.herokuapp.com/';
                 const userToken = localStorage.token;
                 const config = {
                     headers: {
@@ -48,7 +48,7 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
 
                 if (auth) {
                     const userId = localStorage.getItem('userID');
-                    const resp = await axios.get(`${url}/users/${userId}`, config);
+                    const resp = await axios.get(`${url}users/${userId}`, config);
                     const currentStat = await resp.data;
                     const passedTests = currentStat.passedTests;
                     if (!passedTests.some((item: { date: string; testId: string }) => {
@@ -58,7 +58,7 @@ const Answer: React.FC<PropsType> = ({id, weight, answer, isCorrect}) => {
                             return false;
                         }
                     })) {
-                        await axios.post(`${url}/users/updatepastest/${localStorage.userID}`,
+                        await axios.post(`${url}users/updatepastest/${localStorage.userID}`,
                             {
                                 rating: `${weight}`,
                                 date: (new Date()).toISOString().split('T')[0],
