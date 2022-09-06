@@ -116,7 +116,6 @@ function CardTest(props: string) {
     let questionsFilter = questions.content;
     //let questionsFilter = questions.filter((item) => item.type === props);
   
-    
     let classPrev = currentQuestion > 0 ? 'button_var btn_prev' : 'button_var btn_prev disabled';
     let classNext = currentQuestion < questionsFilter.length - 1 ? 'button_var btn_next' : 'button_var btn_next disabled';
 
@@ -157,7 +156,6 @@ function CardTest(props: string) {
     }
 
     document.addEventListener('keyup', (event) => {
-        //console.log(event);
         if (event.code === 'ArrowRight') {
             if (currentQuestion === questionsFilter.length - 1) {
                 setCurrentQuestion(currentQuestion);
