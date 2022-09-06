@@ -30,31 +30,31 @@ const RunTest:React.FC = () =>{
         if (!test.testId) {
             history('/tests');
         } else {
-            getQuestAsync();
+            // getQuestAsync();
         }
         // ЭТО МОЖНО ИСПОЛЬЗОВАТЬ ТОЛЬКО ДЛЯ ПРОВЕРКИ РАБОТОСПОСОБНОСТИ, ВОПРОСЫ К ТЕСТАМ ГРУЗЯТСЯ с БД (33 строка)
-        // setQuest([ 
-        //     {
-        //     text: "А почему так? Метод find ищет один (первый попавшийся) элемент, на котором функция-колбэк вернёт trueНа тот случай, если найденных элементов может быть много, предусмотрен метод arr.filter(fn)Синтаксис этого метода схож с find, но filter возвращает массив из всех подходящих элементов:",
-        //     code: '<span>12341234sdfasdf</span>',
-        //     answers: [
-        //         {isCorrect: false, answer: '1'},
-        //         {isCorrect: true, answer: '1'},
-        //         {isCorrect: false, answer: '1'},
-        //         {isCorrect: false, answer: '1'},
-        //         ]
-        //     },
-        //     {
-        //     text: "А мб так так?",
-        //     code: '<span>12341234sdfasdf</span>',
-        //     answers: [
-        //         {isCorrect: true, answer: '2'},
-        //         {isCorrect: false, answer: '2'},
-        //         {isCorrect: false, answer: '2'},
-        //         {isCorrect: false, answer: '2'},
-        //         ]
-        //     },
-        // ]);
+        setQuest([ 
+            {
+            text: "А почему так? Метод find ищет один (первый попавшийся) элемент, на котором функция-колбэк вернёт trueНа тот случай, если найденных элементов может быть много, предусмотрен метод arr.filter(fn)Синтаксис этого метода схож с find, но filter возвращает массив из всех подходящих элементов:",
+            code: '<span>12341234sdfasdf</span>',
+            answers: [
+                {isCorrect: false, answer: '1'},
+                {isCorrect: true, answer: '1'},
+                {isCorrect: false, answer: '1'},
+                {isCorrect: false, answer: '1'},
+                ]
+            },
+            {
+            text: "А мб так так?",
+            code: '<span>12341234sdfasdf</span>',
+            answers: [
+                {isCorrect: true, answer: '2'},
+                {isCorrect: false, answer: '2'},
+                {isCorrect: false, answer: '2'},
+                {isCorrect: false, answer: '2'},
+                ]
+            },
+        ]);
     }, []);
 
     async function getQuestAsync() {
@@ -116,7 +116,7 @@ const RunTest:React.FC = () =>{
             
         } catch (e: unknown) {
             const err = e as AxiosError;
-            console.log(err.message);
+            console.error(err.message);
         }
     }
 
