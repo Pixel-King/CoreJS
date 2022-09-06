@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 import './Rating.css'
 import { Spinner } from 'react-bootstrap';
 import Medal from './Medal/Medal';
+import { dbHostURL } from '../../dburl';
 
 interface resBody{
     id: string;
@@ -21,7 +22,7 @@ const Statistics: React.FC = () => {
     async function getUserAsync() {
         try{
             setLoading(true);
-            const res = await axios.get(`https://corejs-server.herokuapp.com/users`);
+            const res = await axios.get(`${dbHostURL}/users`);
             const body: resBody[] = res.data;
             setUser(body.sort((el1, el2)=>+el2.rating - +el1.rating).filter((el, idx) => idx < 3));
             setLoading(false);

@@ -1,0 +1,1 @@
+export const dbHostURL: string = 'https://corejs-server.herokuapp.com';

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setState } from "../../User/userSlice";
 import validator from "validator";
 import ShowPas from "./ShowPasSVG/ShowPas";
+import { dbHostURL } from "../../../dburl";
 
 const SignInForm: React.FC = () => {
   const [modalShow, setModalShow] = React.useState(false);
@@ -53,7 +54,7 @@ const SignInForm: React.FC = () => {
 
   async function authAsync() {
     try {
-      const res = await axios.post('https://corejs-server.herokuapp.com/auth/login', { email, password });
+      const res = await axios.post(`${dbHostURL}/auth/login`, { email, password });
       if (res.status === 201) {
         dispatch(initAuth());
         setModalShow(true);

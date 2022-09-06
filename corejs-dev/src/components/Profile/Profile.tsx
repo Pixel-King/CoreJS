@@ -8,6 +8,7 @@ import { Spinner } from 'react-bootstrap';
 import ProgressChart from './ProgressChart/ProgressChart';
 import RangeProgress from './RangeBar/RangeProgress';
 import PieCharts from './PieChart/PieChart';
+import { dbHostURL } from '../../dburl';
 
 interface userBody{
     id: string;
@@ -42,12 +43,12 @@ const Profile = () => {
                   Authorization: `Bearer ${user.token}`
                 }
               }
-            const res = await axios.get(`https://corejs-server.herokuapp.com/users/${user.id}`, config);
+            const res = await axios.get(`${dbHostURL}/users/${user.id}`, config);
             const data: userBody = res.data;
             setEmail(data.email);
             setNickName(data.userName);
-            setRang(+data.rating < 50 ? "Junior" : +data.rating < 150 ? "Middle" : "Senior");
-            setRangProgres(+data.rating < 50 ? +data.rating * 50 / 100 : +data.rating < 150 ? +data.rating - 50 : 100);
+            setRang(+data.rating < 100 ? "Junior" : +data.rating < 300 ? "Middle" : "Senior");
+            setRangProgres(+data.rating < 100 ? +data.rating : +data.rating < 300 ? (+data.rating - 100)/2 : 100);
             setPasedTest(data.passedTests);
             setArticles(data.readedArticle);
             setLoading(false);
@@ -90,7 +91,7 @@ const Profile = () => {
                                 progres={rangProgress}
                                 tests={passedTests.length}
                                 art={articles.length}
-                                text={rang === "Junior"? "Middle": "Вы достигли макс. ранга!"}
+                                text={rang === "Junior"? "Middle": rang === "Middle"? "Senior" : "Вы достигли макс. ранга!"}
                             />
                         </div>
                 </section>
