@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { dbHostURL } from '../../../dburl';
 import { selectUserState } from '../../User/userSlice';
 import { setEmailAndUsername } from "../../User/userSlice";
 
@@ -39,7 +40,7 @@ const ChangeInfForm: React.FC = () =>{
                   Authorization: `Bearer ${user.token}`
                 }
               }
-            const res = await axios.post(`https://corejs-server.herokuapp.com/users/changeinf/${user.id}`, body, config);
+            const res = await axios.post(`${dbHostURL}/users/changeinf/${user.id}`, body, config);
             const resData = res.data;
             dispatch(setEmailAndUsername(resData));
         } catch (e: unknown) {

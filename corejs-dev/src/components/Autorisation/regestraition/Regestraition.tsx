@@ -6,6 +6,7 @@ import SuccessReg from './SuccessfulReg';
 import validator from "validator";
 import ShowPas from '../SignInForm/ShowPasSVG/ShowPas';
 import { Overlay, Spinner } from 'react-bootstrap';
+import { dbHostURL } from '../../../dburl';
 
 interface regBody {
     email: string,
@@ -61,7 +62,7 @@ const Regestraition: React.FC = () => {
             const body: regBody = {
                 email, userName, password
             }
-            const res = await axios.post('https://corejs-server.herokuapp.com/auth/signup', body);
+            const res = await axios.post(`${dbHostURL}/auth/signup`, body);
             if (res.status === 201) {
                 setRegStatus(true)
             }

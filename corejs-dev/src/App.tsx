@@ -24,6 +24,7 @@ import logoRSS from './rs_school_js.png';
 import Hamburger from './components/Hamburger/Hamburger';
 import HamburgerMenu from './components/Hamburger/HamburgerMenu';
 import ChangeProfile from './components/ChangeProfile/ChangeProfile';
+import { dbHostURL } from './dburl';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -45,7 +46,7 @@ const App: React.FC = () => {
             Authorization: `Bearer ${userToken}`
           }
         }
-        const res = await axios.get(`https://corejs-server.herokuapp.com/users/${userID}`, config);
+        const res = await axios.get(`${dbHostURL}/users/${userID}`, config);
         const body = res.data;
         body.token = userToken;
         if (res.status === 200) {
