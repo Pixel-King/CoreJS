@@ -67,7 +67,6 @@ function CardTest(props: string) {
                 const resp = await axios.get(`${url}users/${userId}`, config);
                 const currentStat = await resp.data;
                 const passedTests = currentStat.passedTests;
-                console.log(passedTests)
                 passedTests.forEach((test: Test) => {
                     if (test.testId === String(questionsFilter[currentQuestion].questId)) {
                         setStatus('Пройдено')
@@ -89,28 +88,32 @@ function CardTest(props: string) {
 
     React.useEffect(() => {
         ( async () => {
-            const allTests = await axios.get(`${url}tests`);
-            const allTestsData: testsType = await allTests.data;
-            console.log(allTestsData);
-            const filteredAllTestsData = allTestsData.filter((test) => {
-                if (test.type === props) {
-                    return true;
+            try {
+                const allTests = await axios.get(`${url}tests`);
+                const allTestsData: testsType = await allTests.data;
+                if (allTestsData.length !== 0) {
+                    const filteredAllTestsData = allTestsData.filter((test) => {
+                        if (test.type === props) {
+                            return true;
+                        }
+                    });
+                    const ID = filteredAllTestsData[0]!.id;
+                    complexity = filteredAllTestsData[0]!.rating;
+                    const questResp = await axios.get(`${url}tests/questions/${ID}`);
+                    const questData = await questResp.data;
+                    setQuestions({
+                        isLoaded: true,
+                        content: questData
+                    });
                 }
-            });
-            console.log(filteredAllTestsData);
-            const ID = filteredAllTestsData[0]!.id;
-            complexity = filteredAllTestsData[0]!.rating;
-            const questResp = await axios.get(`${url}tests/questions/${ID}`);
-            const questData = await questResp.data;
-            setQuestions({
-                isLoaded: true,
-                content: questData
-            });
+            } catch (e) {
+                console.error(e);
+            }
+            
         })();
     }, [])
 
     let questionsFilter = questions.content;
-    console.log(questionsFilter);
     //let questionsFilter = questions.filter((item) => item.type === props);
   
     let classPrev = currentQuestion > 0 ? 'button_var btn_prev' : 'button_var btn_prev disabled';
@@ -175,7 +178,7 @@ function CardTest(props: string) {
         }
     }, {once: true})
 
-    const body = questions.isLoaded ?
+    const body = questions.isLoaded && (questionsFilter.length !== 0) ?
         <div className='question-section' key={questionsFilter[currentQuestion].questId}>
             <div className="question-content">
                 <div className="question-header">
