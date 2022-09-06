@@ -53,7 +53,7 @@ const SignInForm: React.FC = () => {
 
   async function authAsync() {
     try {
-      const res = await axios.post('http://localhost:4200/auth/login', { email, password });
+      const res = await axios.post('https://corejs-server.herokuapp.com/auth/login', { email, password });
       if (res.status === 201) {
         dispatch(initAuth());
         setModalShow(true);

@@ -45,7 +45,7 @@ const App: React.FC = () => {
             Authorization: `Bearer ${userToken}`
           }
         }
-        const res = await axios.get(`http://localhost:4200/users/${userID}`, config);
+        const res = await axios.get(`https://corejs-server.herokuapp.com/users/${userID}`, config);
         const body = res.data;
         body.token = userToken;
         if (res.status === 200) {

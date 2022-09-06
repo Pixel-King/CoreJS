@@ -103,14 +103,14 @@ const TheoryPage: React.FC = () => {
                 (async () => {
                     const userId = localStorage.getItem('userID');
                     if (userId) {
-                        const url = 'http://localhost:4200';
+                        const url = 'https://corejs-server.herokuapp.com/';
                         const userToken = localStorage.token;
                         const config = {
                             headers: {
                                 'Authorization':`Bearer ${userToken}`,
                             }
                         };
-                        const resp = await axios.get(`${url}/users/${userId}`, config);
+                        const resp = await axios.get(`${url}users/${userId}`, config);
                         if (resp.status === 200) {
                             const currentStat = await resp.data;
                             const passedArticles = currentStat.readedArticle;
@@ -121,7 +121,7 @@ const TheoryPage: React.FC = () => {
                                     return false;
                                 }
                             })) {
-                                await axios.post(`${url}/users/updaterarticle/${userId}`,
+                                await axios.post(`${url}users/updaterarticle/${userId}`,
                                     {
                                         rating: "10",
                                         date: (new Date()).toISOString().split('T')[0],

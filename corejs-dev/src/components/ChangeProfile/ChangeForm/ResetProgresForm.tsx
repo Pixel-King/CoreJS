@@ -15,7 +15,7 @@ const ResetProgresForm: React.FC = () =>{
                 }
               }
 
-            const res = await axios.post(`http://localhost:4200/users/resetprogress/${user.id}`, config);
+            const res = await axios.post(`https://corejs-server.herokuapp.com/users/resetprogress/${user.id}`, config);
         } catch (e: unknown) {
             const err = e as AxiosError;
             console.error(err);

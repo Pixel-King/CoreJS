@@ -36,7 +36,7 @@ const ChangeProfile: React.FC = () =>{
                   Authorization: `Bearer ${user.token}`
                 }
               }
-            const res = await axios.get(`http://localhost:4200/users/${user.id}`, config);
+            const res = await axios.get(`https://corejs-server.herokuapp.com/users/${user.id}`, config);
             const data: userBody = res.data;
             setLoading(false);
         } catch (e: unknown) {
