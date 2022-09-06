@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import Toggle from '../Theme/Toggle';
 import ToggleSound from '../Sound/ToggleSound';
 import './hamburger.css';
-
+import { useAppSelector } from '../../app/hooks';
+import { selectAuth } from '../Autorisation/SignInForm/authSlice';
+import User from '../User/User';
+import { Button } from 'react-bootstrap';
 
 const Hamburger: React.FC = () => {
+    const auth = useAppSelector(selectAuth);
     const [open, setOpen] = useState<boolean>(false);
     const root = document.querySelector(':root') as HTMLElement;
     const components: string[] = [
@@ -20,7 +24,6 @@ const Hamburger: React.FC = () => {
     const overlay = document.querySelector('.burgermenu-overlay') as HTMLElement;
     
     document.addEventListener('click', (event) => {
-        console.log(open)
         if (event.target == overlay) {
             burgerHandler();
         }
@@ -55,6 +58,16 @@ const Hamburger: React.FC = () => {
                     <span className='span-burger span-burger3' />
                 </div>
                 <div className='nav-link-container-burger fs-5'>
+                    <div className='user-burger'>
+                        { auth ?
+                            <User/> :
+                            <div className='account-buttons' onClick={burgerHandler}>
+                            <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
+                            {' '}
+                            <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>
+                        </div>}
+                    </div>
+                    
                 <Link to="/" className='nav-link' onClick={burgerHandler}>Главная</Link>
                 <Link to="/theory" className='nav-link' onClick={burgerHandler}>Теория</Link>
                 <Link to="/tests" className='nav-link' onClick={burgerHandler}>Тесты</Link>

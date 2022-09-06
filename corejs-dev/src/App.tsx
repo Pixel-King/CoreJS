@@ -85,13 +85,15 @@ const App: React.FC = () => {
               <Toggle />
               <ToggleSound />
             </Nav>
-            { auth ?
-            <User/> :
-            <div className='account-buttons'>
-              <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
-              {' '}
-              <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>
-            </div>}
+            <div className='user-header'>
+              { auth ?
+              <User/> :
+              <div className='account-buttons'>
+                <Link to="/registraition"><Button variant="primary">Регистрация</Button></Link>
+                {' '}
+                <Link to="/SignIn"><Button variant="outline-primary">Войти</Button></Link>
+              </div>}
+            </div>
           </div>
         </Navbar>
       </header>
