@@ -1,86 +1,137 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { questions } from './textTest';
 import Button from 'react-bootstrap/Button';
 import './testPage.css'
 import CardTest from './CardTest';
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link, useNavigate} from "react-router-dom";
 import TestsRender from './TestsRender';
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectAuth } from '../Autorisation/SignInForm/authSlice';
+import axios, { AxiosError } from 'axios';
+import { dbHostURL } from '../../dburl';
+import { selectUserState } from '../User/userSlice';
+import { selectTestState, setTestId } from './testSlice';
+import AddTest from './Modal/Addtest';
+import ChangeTestModal from './Modal/ChangeTestModal';
 
+interface testBody{
+    id: string;
+    rating: string;
+    name: string;
+    type: string;
+    topic: string;
+}
 
 const TestPage: React.FC = () => {
     //const auth = useAppSelector(selectAuth);
     const auth = useAppSelector(selectAuth);
+    const user = useAppSelector(selectUserState);
+    const [tests, setTests] = useState<testBody[] | []>([]);
+    const [point, setPoint] = useState<testBody>({
+        id: '',
+        rating: '',
+        name: '',
+        type: '',
+        topic: '',
+    });
+    const [showAddTestModal, setShowAddTestModal] = useState<boolean>(false);
+    const [showChangeTestModal, setShowChangeTestModal] = useState<boolean>(false);
+
+    const dispatch = useAppDispatch();
+    const history = useNavigate();
+
+    useEffect(()=>{
+        getAllTests();
+    }, []);
+
+    async function delTest() {
+        try {
+            let config = {
+                headers: {
+                  Authorization: `Bearer ${user.token}`
+                }
+              }
+            await axios.delete(`${dbHostURL}/tests/${point.id}`, config);
+            getAllTests();
+        } catch (e: unknown) {
+            const err = e as AxiosError
+            console.error(err.message);
+        }
+    }
+
+    async function getAllTests() {
+        try {
+            const res = await axios.get(`${dbHostURL}/tests`);
+            setTests(res.data);
+        } catch (e: unknown) {
+            const err = e as AxiosError
+            console.error(err.message);
+        }
+    }
+
+    function testRunClick(testId: string) {
+        dispatch(setTestId(testId));
+        history('/run-test');
+    }
+
     return (
         <div className='testpage'>
+            {user.isAdmin && <div className='test-button-group'>
+                <Button variant="primary" onClick={()=>setShowAddTestModal(true)}>Добавить</Button>
+                <Button variant="warning" onClick={()=>setShowChangeTestModal(true)}>Изменить</Button>
+                <Button variant="danger" onClick={()=>delTest()}>Удалить</Button>
+            </div>
+            }
             <div className='testpage_title fs-5'>
-                <h3>Проходите тесты, чтобы проверить свой уровень знаний</h3>
-                {auth ?
-                    <p>Посмотреть свой прогресс можно на вкладке "Статистика"</p>
-                    : <p> Для авторизованных пользователей доступен просмотр прогресса на вкладке "Статистика"</p>
-                }
+                    {tests.map((el, idx)=>{
+                        return (
+                            <>
+                            <div key={el.name} className='testCard' onClick={()=>setPoint(
+                                {
+                                    id: el.id,
+                                    rating: el.rating,
+                                    name: el.name,
+                                    type: el.type,
+                                    topic: el.topic,
+                                }
+                            )}>
+                                <div className='test-card__title'>
+                                    <div>Название:</div>
+                                    <h5>{el.name}</h5>
+                                </div>
+                                <div className='test-card__type'>
+                                    <div>Тема:</div>
+                                    <div>{el.topic}</div>
+                                </div>
+                                <div className='test-card__type'>
+                                    <div>Тип:</div>
+                                    <div>{el.type}</div>
+                                </div>
+                                <div className='test-card__rate'>
+                                    <div>Сложность:</div>
+                                    <div>{el.rating}</div>
+                                </div>
+                                {user.isAdmin && <Button variant='warning'>Изменить <br />вопросы</Button>}
+                                <Button 
+                                    variant='primary' 
+                                    value={el.id} 
+                                    onClick={()=>testRunClick(el.id)}
+                                >Пройти тест</Button>
+                            </div>
+                            </>
+                        )
+                    })}
             </div>
-            <div className='testpage_content'>
-                <Link to='/testsdatatypes' className='nav-link'>
-                    <p>
-                        Типы данных
-                    </p> 
-                </Link>
-            
-                <Link to='/testsvariable' className='nav-link'>
-                    <p>
-                        Переменные
-                    </p> 
-                </Link>
-                <Link to='/testsoperators' className='nav-link'>
-                    <p>
-                        Операторы и циклы
-                    </p> 
-                </Link>
-                <Link to='/testsfunction' className='nav-link'>
-                    <p>
-                        Функции
-                    </p> 
-                </Link>
-                <Link to='/testsbrowser' className='nav-link'>
-                    <p>
-                        JS в браузере
-                    </p> 
-                </Link>
-                <Link to='/testsother' className='nav-link'>
-                    <p>
-                        Другое
-                    </p> 
-                </Link>
-
-
-                {/* <div className='test_description'>
-                    <p className='test_description_text'>
-                        Здесь Вы можете пройти тест по практическим вопросам из разряда "Что выведет консоль?"
-                    </p>
-                    <Link to='/testspractice' className='nav-link'>
-                        <Button className='btn-dark fs-5 btn_tests' variant='dark'>Начать</Button>
-                    </Link>
-                </div>
-                <div className='test_description'>
-                    <p className='test_description_text'>
-                        Здесь Вы можете пройти теоретические вопросы на знание особенностей языка
-                    </p>
-                    <Link to='/teststheory' className='nav-link'>
-                        <Button className='btn-dark fs-5 btn_tests' variant='dark'>Начать</Button>
-                    </Link>
-                </div>
-                <div className='test_description'>
-                    <p className='test_description_text'>
-                        Здесь Вы найдете микс из вопросов по теории и практике
-                    </p>
-                    <Link to='/testsmix' className='nav-link'>
-                        <Button className='btn-dark fs-5 btn_tests' variant='dark'>Начать</Button>
-                    </Link>
-                </div> */}
-            </div>
+            <AddTest show={showAddTestModal} onHide={()=>setShowAddTestModal(false)}></AddTest>
+            <ChangeTestModal 
+                show={showChangeTestModal} 
+                onHide={()=>{
+                    setShowChangeTestModal(false);
+                    getAllTests();
+                    }}
+                test={point}
+            />
         </div>
     )
 }
