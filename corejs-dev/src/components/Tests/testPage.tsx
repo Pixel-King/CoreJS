@@ -96,7 +96,6 @@ const TestPage: React.FC = () => {
     }
 
     useEffect(()=>{
-        console.log(sort);
         switch (sort) {
             case '2':
                 setTests(tests.sort((first, second) => second.name.localeCompare(first.name)));
@@ -121,8 +120,8 @@ const TestPage: React.FC = () => {
                         aria-label="Default select example">
                       <option value="1">от A до Я</option>
                       <option value="2">от Я до А</option>
-                      <option value="3">Сначала сложные</option>
-                      <option value="4">Сначала легкие</option>
+                      <option value="3">Сначала легкие</option>
+                      <option value="4">Сначала сложные</option>
                     </Form.Select>
             {user.isAdmin && <div className='test-button-group'>
                 <Button variant="primary" onClick={()=>setShowAddTestModal(true)}>Добавить</Button>
