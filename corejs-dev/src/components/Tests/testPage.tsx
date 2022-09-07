@@ -49,7 +49,7 @@ const TestPage: React.FC = () => {
 
     useEffect(()=>{
         getAllTests();
-    }, [delTest, showAddTestModal, showChangeTestModal])
+    }, [delTest, showAddTestModal, showChangeTestModal, sort])
 
     async function delTest() {
         try {
@@ -68,7 +68,22 @@ const TestPage: React.FC = () => {
     async function getAllTests() {
         try {
             const res = await axios.get(`${dbHostURL}/tests`);
-            setTests(res.data);
+            const allTests: any[] = res.data;
+            switch (sort) {
+                case '2':
+                    setTests(allTests.sort((first, second) => second.name.localeCompare(first.name)));
+                    break;
+                case '3':
+                    setTests(allTests.sort((first, second) => +first.rating - +second.rating ));
+                    break;
+                case '4':
+                    setTests(allTests.sort((first, second) => +second.rating - +first.rating ));
+                    break;
+                default:
+                    setTests(allTests.sort((first, second) =>`${first.name}`.localeCompare(`${second.name}`)));
+                    break;
+            }
+            setTests(allTests);
         } catch (e: unknown) {
             const err = e as AxiosError
             console.error(err.message);
