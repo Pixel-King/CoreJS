@@ -156,7 +156,7 @@ const TestPage: React.FC = () => {
                                         value={el.id} 
                                         onClick={()=>testRunClick(el.id)}
                                     >Пройти тест</Button>
-                                {user.isAdmin && <Button variant='outline-primary' className='mr-2'>Изменить вопросы</Button>}
+                                {user.isAdmin && <Button variant='outline-primary' className='mr-2' onClick={() => runQuestionsChange(el.id)}>Изменить вопросы</Button>}
                                 </div>
 
                             </div>

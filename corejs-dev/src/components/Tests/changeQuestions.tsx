@@ -154,7 +154,7 @@ const ChangeQuest: React.FC = () => {
     return (
         <div className='change-quests-wrap container-md'>
             <div className={`change-quests-button-block-${test.testId} position-sticky`}>
-                { questions.content.length !== 0 && <button className='change-quests-button-new btn btn-primary m-2' onClick={ clickOnCreateHandler }>Создать вопрос</button> }
+                <button className='change-quests-button-new btn btn-primary m-2' onClick={ clickOnCreateHandler }>Создать вопрос</button>
                 <button className='change-quests-button-new btn btn-warning m-2' onClick={discardHandler}>Назад</button>
             </div>
             {
