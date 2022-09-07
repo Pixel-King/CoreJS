@@ -12,6 +12,9 @@ import TestQuest from './TestQuestion';
 import { selectTestState } from './testSlice';
 import { AnswerType, QuestionType } from './textTest';
 import { questions } from './textTest';
+import correctSound from '../../sound/correct-answer-sound.mp3';
+import wrongSound from '../../sound/wrong-sound.mp3';
+import { selectSound } from '../Sound/ToggleSoundSlice';
 
 const RunTest:React.FC = () =>{
     const [loading, setLoading] = useState<boolean>(false);
@@ -21,6 +24,9 @@ const RunTest:React.FC = () =>{
     const [counter, setCounter] = useState<number>(0);
     const [countCorrectAns, setCountCorrectAns] = useState<number>(0);
 
+    const alarmCorrect = new Audio(correctSound);
+    const alarmWrong = new Audio(wrongSound);
+    const sound = useAppSelector(selectSound);
     const test = useAppSelector(selectTestState);
     const user = useAppSelector(selectUserState);
     const auth = useAppSelector(selectAuth);
@@ -82,7 +88,14 @@ const RunTest:React.FC = () =>{
     function increment(yes: boolean) {
         setUserReplied(true);
         if (yes) {
+            if (sound) {
+                alarmCorrect.play();
+            }
             setCountCorrectAns(countCorrectAns + 1); 
+        } else {
+            if (sound) {
+                alarmWrong.play();
+            }
         }
     }
 
