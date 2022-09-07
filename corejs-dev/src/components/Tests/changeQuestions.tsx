@@ -1,7 +1,9 @@
 import axios from 'axios';
 import * as React from 'react';
+import { Accordion } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
+import { dbHostURL } from '../../dburl';
 import testSlice, { selectTestState } from './testSlice';
 
 type questionsStateType = {
@@ -47,7 +49,6 @@ const ChangeQuest: React.FC = () => {
     const [isEdit, setEdit] = React.useState('');
     const [isPosting, setPosting] = React.useState(false);
 
-    const url = 'https://corejs-server.herokuapp.com/';
     const userToken = localStorage.token;
     const config = {
         headers: {
@@ -58,7 +59,7 @@ const ChangeQuest: React.FC = () => {
     React.useEffect(() => {
         ( async () => {
             try {
-                const quests = await axios.get(`${url}tests/questions/${test.testId || localStorage.getItem('testId')}`, config);
+                const quests = await axios.get(`${dbHostURL}/tests/questions/${test.testId || localStorage.getItem('testId')}`, config);
                 const questsData: questionsType[] = await quests.data;
                 if (questsData.length !== 0) {
                     setQuestions({
@@ -74,7 +75,7 @@ const ChangeQuest: React.FC = () => {
 
     async function deleteHandler(idForDelete: string) {
         try {
-            const del = await axios.delete(`${url}tests/questions/${idForDelete}`, config);
+            const del = await axios.delete(`${dbHostURL}/tests/questions/${idForDelete}`, config);
             if (del.status === 200) {
                 console.log('deleted');
                 location.reload();
@@ -136,7 +137,7 @@ const ChangeQuest: React.FC = () => {
                             "complexity": + complexity,
                             "answers": changedAnswers,
                         }
-                    const updateQuery = await axios.post(`${url}tests/questions/change/${isEdit}`, body, config);
+                    const updateQuery = await axios.post(`${dbHostURL}/tests/questions/change/${isEdit}`, body, config);
                     if (updateQuery.status === 201) {
                         setPosting(false);
                         setEdit('');
@@ -157,12 +158,15 @@ const ChangeQuest: React.FC = () => {
                 { questions.content.length !== 0 && <button className='change-quests-button-new btn btn-primary m-2' onClick={ clickOnCreateHandler }>Создать вопрос</button> }
                 <button className='change-quests-button-new btn btn-warning m-2' onClick={discardHandler}>Назад</button>
             </div>
+            <Accordion>
             {
                 questions.content.map((el, index) => {
                     return (
-                        <div key={el.questId} id={el.questId} className={ `change-quest-${el.questId}  border border-4 rounded mt-2 mb-2` }>
-                            <h3>Вопрос <small className="text-muted">{`${index + 1}`}</small></h3>
-                            <div className={ `change-quest-text-${el.questId} m-2 p-2` }>
+                        <Accordion.Item eventKey={`${index}`}>
+                            <Accordion.Header><h3>Вопрос <small className="text-muted">{`${index + 1}`}</small></h3></Accordion.Header>
+                                <Accordion.Body>
+                                <div key={el.questId} id={el.questId} className={ `change-quest-${el.questId}  border border-4 rounded mt-2 mb-2` }>
+                                <div className={ `change-quest-text-${el.questId} m-2 p-2` }>
                                 <p>Текст вопроса:</p>
                                 <textarea id={`${el.questId}-text`} disabled={ isEdit === el.questId ? false : true } className='question-text form-control' defaultValue={ el.text }></textarea>
                             </div>
@@ -195,10 +199,14 @@ const ChangeQuest: React.FC = () => {
                             <button key={`cancel-button-${el.questId}`} className={`btn btn-primary m-2 ${isEdit === el.questId ? '' : 'disabled'}`} disabled={isPosting} onClick={ () => setEdit('') }>Отмена</button>
                             <button key={`edit-button-${el.questId}`} className='btn btn-warning m-2' disabled={ isEdit === el.questId ? true : false } onClick={ () => setEdit(el.questId) }>Редактировать вопрос</button>
                             <button key={`delete-button-${el.questId}`} className='btn btn-danger m-2' disabled={ isEdit === el.questId ? true : false } onClick={ () => deleteHandler(el.questId) }>Удалить вопрос</button>
-                        </div>
+
+                                </div>
+                                </Accordion.Body>                                    
+                        </Accordion.Item>
                     )
                 })
-            }
+            }       
+            </Accordion>
         </div>
     )
 }

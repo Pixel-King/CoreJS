@@ -14,7 +14,7 @@ import { selectUserState } from '../User/userSlice';
 import { selectTestState, setTestId } from './testSlice';
 import AddTest from './Modal/Addtest';
 import ChangeTestModal from './Modal/ChangeTestModal';
-import { Form } from 'react-bootstrap';
+import { Form, Pagination } from 'react-bootstrap';
 
 interface testBody{
     id: string;
@@ -38,6 +38,7 @@ const TestPage: React.FC = () => {
     });
     const [showAddTestModal, setShowAddTestModal] = useState<boolean>(false);
     const [showChangeTestModal, setShowChangeTestModal] = useState<boolean>(false);
+    const [activePage, setActivePage] = useState(1);
     const [sort, setSort] = useState<string>('az');
 
     const dispatch = useAppDispatch();
@@ -81,13 +82,12 @@ const TestPage: React.FC = () => {
         history('/run-test');
     }
 
-<<<<<<< HEAD
     function runQuestionsChange(testId: string) {
         dispatch(setTestId(testId));
         localStorage.setItem('testId', testId);
         history('/change-test-questions');
     }
-=======
+
     useEffect(()=>{
         console.log(sort);
         switch (sort) {
@@ -105,7 +105,6 @@ const TestPage: React.FC = () => {
                 break;
         }
     }, [sort]);
->>>>>>> origin/dev_yar
 
     return (
         <div className='testpage'>
@@ -131,11 +130,7 @@ const TestPage: React.FC = () => {
                     {tests.map((el, idx)=>{
                         return (
                             <>
-<<<<<<< HEAD
                             <div key={el.name} className={`testCard  ${point.id === el.id ? 'shadow-lg' : ''}`} onClick={()=>setPoint(
-=======
-                            <div key={el.name} className={`testCard ${point.id === el.id ? "point": ""}`} onClick={()=>setPoint(
->>>>>>> origin/dev_yar
                                 {
                                     id: el.id,
                                     rating: el.rating,
@@ -156,32 +151,24 @@ const TestPage: React.FC = () => {
                                     <div className='fs-5'>Сложность:</div>
                                     <h5>{el.rating}</h5>
                                 </div>
-<<<<<<< HEAD
-                                <div className='test-card__rate'>
-                                    <div>Сложность:</div>
-                                    <div>{el.rating}</div>
-                                </div>
-                                { user.isAdmin && <Button onClick={() => runQuestionsChange(el.id)} variant={`warning`} disabled={ point.id === el.id ? false : true }>Изменить <br />вопросы</Button>}
-                                <Button 
-                                    variant='primary ' 
-                                    value={el.id} 
-                                    onClick={()=>testRunClick(el.id)}
-                                >Пройти тест</Button>
-=======
                                 <div className='test-button_group'>
                                 <Button 
                                         variant='primary' 
                                         value={el.id} 
                                         onClick={()=>testRunClick(el.id)}
                                     >Пройти тест</Button>
-                                {user.isAdmin && <Button variant='outline-primary' className='mr-2'>Изменить вопросы</Button>}
+                                {user.isAdmin && <Button variant='outline-primary' onClick={() => runQuestionsChange(el.id)} className='mr-2'>Изменить вопросы</Button>}
                                 </div>
 
->>>>>>> origin/dev_yar
                             </div>
                             </>
                         )
                     })}
+            </div>
+            <div>
+                <Pagination>
+
+                </Pagination>
             </div>
             <AddTest show={showAddTestModal} onHide={()=>setShowAddTestModal(false)}></AddTest>
             <ChangeTestModal 
