@@ -36,7 +36,6 @@ const ModulesArticlesList: React.FC = () => {
                 const resp = await axios.get(`${url}/users/${userId}`, config);
                 const currentStat = await resp.data;
                 const readedArticle = currentStat.readedArticle;
-                console.log(readedArticle)
                 readedArticle.forEach((article: Article) => {
                     if (article.articleId.includes('ModulesIntro')) {
                         setStatusModulesIntro(`&#10003;`)

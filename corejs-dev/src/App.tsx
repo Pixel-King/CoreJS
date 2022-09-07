@@ -25,6 +25,9 @@ import Hamburger from './components/Hamburger/Hamburger';
 import HamburgerMenu from './components/Hamburger/HamburgerMenu';
 import ChangeProfile from './components/ChangeProfile/ChangeProfile';
 import { dbHostURL } from './dburl';
+import RunTest from './components/Tests/testRun';
+import ChangeQuest from './components/Tests/changeQuestions';
+import AddQuest from './components/Tests/addQuestion';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -65,7 +68,6 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='header'>
-        
         <Navbar className='header-navbar'>
           <div className='header-container'>
             <Hamburger/>
@@ -112,6 +114,9 @@ const App: React.FC = () => {
           <Route path='testsfunction' element={ <TestsRender type='function'/> } />
           <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
           <Route path='testsother' element={ <TestsRender type='other'/> } />
+          <Route path='run-test' element={ <RunTest/>} />
+          <Route path='change-test-questions' element={ <ChangeQuest/>} />
+          <Route path='create-question' element={ <AddQuest/>} />
           { auth && <Route path='my-profile' element={ <Profile/> } />}
           { auth && <Route path='change' element={ <ChangeProfile/> } />}
         </Routes>

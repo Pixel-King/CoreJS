@@ -23,7 +23,7 @@
     width: 400px;
     display: flex;
     flex-direction: column;
-    box-shadow: 20px 20px 20px -9px var(--color-default);
+    box-shadow: 20px 20px 20px -9px var(--text-default);
     border-radius: 10px;
 }
 .user-stat__wrap{
