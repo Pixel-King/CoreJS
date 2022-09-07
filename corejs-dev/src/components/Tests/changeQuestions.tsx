@@ -141,7 +141,6 @@ const ChangeQuest: React.FC = () => {
                     if (updateQuery.status === 201) {
                         setPosting(false);
                         setEdit('');
-                        console.log('success');
                     } else {
                         setEdit('');
                     }

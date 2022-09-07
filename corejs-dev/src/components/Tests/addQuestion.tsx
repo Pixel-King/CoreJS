@@ -86,13 +86,12 @@ const AddQuest: React.FC = () => {
                             "complexity": + complexityRangeValue,
                             "answers": changedAnswers,
                         }
-                    console.log(body);
                     const createQuery = await axios.post(`${url}tests/questions/${localStorage.getItem('testId')}`, body, config);
                     if (createQuery.status === 201) {
                         setProcessing(false);
-                        console.log('success');
+                        history('/change-test-questions');
                     } else {
-                        setProcessing(false);;
+                        setProcessing(false);
                     }
                 }
             }
