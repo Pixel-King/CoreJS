@@ -12,6 +12,9 @@ import TestQuest from './TestQuestion';
 import { selectTestState } from './testSlice';
 import { AnswerType, QuestionType } from './textTest';
 import { questions } from './textTest';
+import correctSound from '../../sound/correct-answer-sound.mp3';
+import wrongSound from '../../sound/wrong-sound.mp3';
+import { selectSound } from '../Sound/ToggleSoundSlice';
 
 const RunTest:React.FC = () =>{
     const [loading, setLoading] = useState<boolean>(false);
@@ -21,6 +24,9 @@ const RunTest:React.FC = () =>{
     const [counter, setCounter] = useState<number>(0);
     const [countCorrectAns, setCountCorrectAns] = useState<number>(0);
 
+    const alarmCorrect = new Audio(correctSound);
+    const alarmWrong = new Audio(wrongSound);
+    const sound = useAppSelector(selectSound);
     const test = useAppSelector(selectTestState);
     const user = useAppSelector(selectUserState);
     const auth = useAppSelector(selectAuth);
@@ -32,7 +38,8 @@ const RunTest:React.FC = () =>{
         } else {
             // getQuestAsync();
         }
-        setQuest([
+        // ЭТО МОЖНО ИСПОЛЬЗОВАТЬ ТОЛЬКО ДЛЯ ПРОВЕРКИ РАБОТОСПОСОБНОСТИ, ВОПРОСЫ К ТЕСТАМ ГРУЗЯТСЯ с БД (33 строка)
+        setQuest([ 
             {
             text: "А почему так? Метод find ищет один (первый попавшийся) элемент, на котором функция-колбэк вернёт trueНа тот случай, если найденных элементов может быть много, предусмотрен метод arr.filter(fn)Синтаксис этого метода схож с find, но filter возвращает массив из всех подходящих элементов:",
             code: '<span>12341234sdfasdf</span>',
@@ -55,10 +62,6 @@ const RunTest:React.FC = () =>{
             },
         ]);
     }, []);
-
-    useEffect(()=>{
-        if (testIsFinis) {}
-    }, [testIsFinis]);
 
     async function getQuestAsync() {
         try {
@@ -85,7 +88,14 @@ const RunTest:React.FC = () =>{
     function increment(yes: boolean) {
         setUserReplied(true);
         if (yes) {
+            if (sound) {
+                alarmCorrect.play();
+            }
             setCountCorrectAns(countCorrectAns + 1); 
+        } else {
+            if (sound) {
+                alarmWrong.play();
+            }
         }
     }
 
@@ -119,7 +129,7 @@ const RunTest:React.FC = () =>{
             
         } catch (e: unknown) {
             const err = e as AxiosError;
-            console.log(err.message);
+            console.error(err.message);
         }
     }
 

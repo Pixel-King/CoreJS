@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
-import React, { useState, useEffect } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Button, Modal, Overlay } from 'react-bootstrap';
 import { useAppSelector } from '../../../app/hooks';
 import { dbHostURL } from '../../../dburl';
 import { selectUserState } from '../../User/userSlice';
@@ -24,6 +24,7 @@ const ChangeTestModal: React.FC<{show: boolean, onHide: ()=>void, test: testBody
     const [resMes, setResMas] = useState<string>('');
 
     const user = useAppSelector(selectUserState);
+    const target = useRef(null);
 
     useEffect(()=>{
         setName(props.test.name);
@@ -68,7 +69,7 @@ const ChangeTestModal: React.FC<{show: boolean, onHide: ()=>void, test: testBody
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Изменить тест:
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -79,7 +80,7 @@ const ChangeTestModal: React.FC<{show: boolean, onHide: ()=>void, test: testBody
                 <input type="text" value={topic} onChange={(e)=>setTopic(e.target.value)}/>
                 <label htmlFor="" >Тип:</label>
                 <input type="text" value={type} onChange={(e)=>setType(e.target.value)}/>
-                <label>Сложность:</label>
+                <label>Сложность:{rating}</label>
                 <input type="range"
                     min={0}
                     max={10}
@@ -90,9 +91,27 @@ const ChangeTestModal: React.FC<{show: boolean, onHide: ()=>void, test: testBody
             </div>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={()=>ChangeTestAsync()}>Добавить</Button>
+            <Button ref={target} variant="warning" onClick={()=>ChangeTestAsync()}>Изменить</Button>
             <Button onClick={props.onHide}>Отмена</Button>
         </Modal.Footer>
+        <Overlay target={target.current} show={resMes ? true : false} placement="left">
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            style={{
+              position: 'absolute',
+              backgroundColor: 'rgba(255, 193, 7, 0.85)',
+              padding: '2px 10px',
+              color: 'white',
+              zIndex: '10000',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            {resMes}
+          </div>
+        )}
+      </Overlay>
       </Modal>
     );
 }

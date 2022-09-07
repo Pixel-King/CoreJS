@@ -15,16 +15,11 @@ const AnswerNotFounModal: React.FC = () =>{
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Modal heading
+              Упс!
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
-            </p>
+            <h2>Вопросов по этому тесту нету(</h2>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={()=>history('/tests')}>Close</Button>
