@@ -72,7 +72,14 @@ const TestPage: React.FC = () => {
 
     function testRunClick(testId: string) {
         dispatch(setTestId(testId));
+        localStorage.setItem('testId', testId);
         history('/run-test');
+    }
+
+    function runQuestionsChange(testId: string) {
+        dispatch(setTestId(testId));
+        localStorage.setItem('testId', testId);
+        history('/change-test-questions');
     }
 
     return (
@@ -87,7 +94,7 @@ const TestPage: React.FC = () => {
                     {tests.map((el, idx)=>{
                         return (
                             <>
-                            <div key={el.name} className='testCard' onClick={()=>setPoint(
+                            <div key={el.name} className={`testCard  ${point.id === el.id ? 'shadow-lg' : ''}`} onClick={()=>setPoint(
                                 {
                                     id: el.id,
                                     rating: el.rating,
@@ -112,9 +119,9 @@ const TestPage: React.FC = () => {
                                     <div>Сложность:</div>
                                     <div>{el.rating}</div>
                                 </div>
-                                {user.isAdmin && <Button variant='warning'>Изменить <br />вопросы</Button>}
+                                { user.isAdmin && <Button onClick={() => runQuestionsChange(el.id)} variant={`warning`} disabled={ point.id === el.id ? false : true }>Изменить <br />вопросы</Button>}
                                 <Button 
-                                    variant='primary' 
+                                    variant='primary ' 
                                     value={el.id} 
                                     onClick={()=>testRunClick(el.id)}
                                 >Пройти тест</Button>
