@@ -14,7 +14,7 @@ import { selectUserState } from '../User/userSlice';
 import { selectTestState, setTestId } from './testSlice';
 import AddTest from './Modal/Addtest';
 import ChangeTestModal from './Modal/ChangeTestModal';
-import { Form, Pagination } from 'react-bootstrap';
+import { Form, Pagination, Spinner } from 'react-bootstrap';
 
 interface testBody{
     id: string;
@@ -28,6 +28,7 @@ const TestPage: React.FC = () => {
     //const auth = useAppSelector(selectAuth);
     const auth = useAppSelector(selectAuth);
     const user = useAppSelector(selectUserState);
+    const [loading, setLoading] = useState<boolean>(true);
     const [tests, setTests] = useState<testBody[] | []>([]);
     const [point, setPoint] = useState<testBody>({
         id: '',
@@ -50,7 +51,11 @@ const TestPage: React.FC = () => {
 
     useEffect(()=>{
         getAllTests();
-    }, [delTest, showAddTestModal, showChangeTestModal, sort])
+    }, [sort]);
+
+    useEffect(()=>{
+        getAllTests();
+    }, [showAddTestModal, showChangeTestModal]);
 
     async function delTest() {
         try {
@@ -60,6 +65,7 @@ const TestPage: React.FC = () => {
                 }
               }
             await axios.delete(`${dbHostURL}/tests/${point.id}`, config);
+            await getAllTests();
         } catch (e: unknown) {
             const err = e as AxiosError
             console.error(err.message);
@@ -68,23 +74,28 @@ const TestPage: React.FC = () => {
 
     async function getAllTests() {
         try {
+            setLoading(true);
             const res = await axios.get(`${dbHostURL}/tests`);
-            const allTests: any[] = res.data;
+            const allTests: testBody[] = res.data;
             switch (sort) {
                 case '2':
                     setTests(allTests.sort((first, second) => second.name.localeCompare(first.name)));
+                    setLoading(false);
                     break;
                 case '3':
                     setTests(allTests.sort((first, second) => +first.rating - +second.rating ));
+                    setLoading(false);
                     break;
                 case '4':
                     setTests(allTests.sort((first, second) => +second.rating - +first.rating ));
                     break;
                 default:
+                    setLoading(false);
                     setTests(allTests.sort((first, second) =>`${first.name}`.localeCompare(`${second.name}`)));
                     break;
             }
             setTests(allTests);
+            setLoading(false);
         } catch (e: unknown) {
             const err = e as AxiosError
             console.error(err.message);
@@ -97,22 +108,22 @@ const TestPage: React.FC = () => {
         history('/run-test');
     }
 
-    useEffect(()=>{
-        switch (sort) {
-            case '2':
-                setTests(tests.sort((first, second) => second.name.localeCompare(first.name)));
-                break;
-            case '3':
-                setTests(tests.sort((first, second) => +first.rating - +second.rating ));
-                break;
-            case '4':
-                setTests(tests.sort((first, second) => +second.rating - +first.rating ));
-                break;
-            default:
-                setTests(tests.sort((first, second) =>`${first.name}`.localeCompare(`${second.name}`)));
-                break;
-        }
-    }, [sort]);
+    // useEffect(()=>{
+    //     switch (sort) {
+    //         case '2':
+    //             setTests(tests.sort((first, second) => second.name.localeCompare(first.name)));
+    //             break;
+    //         case '3':
+    //             setTests(tests.sort((first, second) => +first.rating - +second.rating ));
+    //             break;
+    //         case '4':
+    //             setTests(tests.sort((first, second) => +second.rating - +first.rating ));
+    //             break;
+    //         default:
+    //             setTests(tests.sort((first, second) =>`${first.name}`.localeCompare(`${second.name}`)));
+    //             break;
+    //     }
+    // }, [sort]);
 
     function runQuestionsChange(testId: string) {
         dispatch(setTestId(testId));
@@ -140,8 +151,8 @@ const TestPage: React.FC = () => {
             </div>
  
             
-            <div className='testpage_title fs-5'>
-                    {tests.map((el, idx)=>{
+            {tests.length && <div className='testpage_title fs-5'>
+                     <>{ tests.map((el, idx)=>{
                         return (
                             <>
                             <div key={el.name} className={`testCard ${point.id === el.id ? "point": ""}`} onClick={()=>setPoint(
@@ -178,8 +189,13 @@ const TestPage: React.FC = () => {
                             </>
                         )
                     })}
+                    </>
+            
+                    {loading && <Spinner animation="border" variant="primary"/>}
             </div>
+            }
             <div>
+                
                 <Pagination>
 
                 </Pagination>

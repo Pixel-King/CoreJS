@@ -16,7 +16,7 @@ const PassedTestModal: React.FC<{show: boolean, onHide:()=>void, persent: string
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>Процент правильных ответов: {" " + props.persent}. {+props.persent < 70? "Попробуй еще раз!": "Успех!"}</h3>
+            <h3>Процент правильных ответов: {" " + Math.ceil(+props.persent) }. {+props.persent < 70? "Попробуй еще раз!": "Успех!"}</h3>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={()=>props.onHide()}>Закрыть</Button>

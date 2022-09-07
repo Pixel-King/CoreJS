@@ -6,7 +6,7 @@ import { dbHostURL } from '../../../dburl';
 import { selectUserState } from '../../User/userSlice';
 
 const AddTest: React.FC<{show: boolean, onHide: ()=>void}> = (props) =>{
-    const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
     const [name, setName] = useState<string>('');
     const [type, setType] = useState<string>('');
@@ -87,6 +87,7 @@ const AddTest: React.FC<{show: boolean, onHide: ()=>void}> = (props) =>{
               backgroundColor: 'rgba(255, 100, 100, 0.85)',
               padding: '2px 10px',
               color: 'white',
+              zIndex: '100000',
               borderRadius: 3,
               ...props.style,
             }}

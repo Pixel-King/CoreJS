@@ -159,7 +159,7 @@ const RunTest:React.FC = () =>{
                     />
             </> 
             }
-            {!quest.length && <AnswerNotFounModal/>}
+            {!quest.length && !loading && <AnswerNotFounModal/>}
             {loading && <Spinner animation="border" variant="primary"/>}
             </div>
 
