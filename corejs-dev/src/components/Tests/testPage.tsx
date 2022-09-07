@@ -14,7 +14,7 @@ import { selectUserState } from '../User/userSlice';
 import { selectTestState, setTestId } from './testSlice';
 import AddTest from './Modal/Addtest';
 import ChangeTestModal from './Modal/ChangeTestModal';
-import { Form } from 'react-bootstrap';
+import { Form, Pagination } from 'react-bootstrap';
 
 interface testBody{
     id: string;
@@ -38,6 +38,7 @@ const TestPage: React.FC = () => {
     });
     const [showAddTestModal, setShowAddTestModal] = useState<boolean>(false);
     const [showChangeTestModal, setShowChangeTestModal] = useState<boolean>(false);
+    const [activePage, setActivePage] = useState(1);
     const [sort, setSort] = useState<string>('az');
 
     const dispatch = useAppDispatch();
@@ -163,6 +164,11 @@ const TestPage: React.FC = () => {
                             </>
                         )
                     })}
+            </div>
+            <div>
+                <Pagination>
+
+                </Pagination>
             </div>
             <AddTest show={showAddTestModal} onHide={()=>setShowAddTestModal(false)}></AddTest>
             <ChangeTestModal 
