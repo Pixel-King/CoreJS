@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
-import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useState, useRef } from 'react';
+import { Button, Modal, Overlay, Spinner } from 'react-bootstrap';
 import { useAppSelector } from '../../../app/hooks';
 import { dbHostURL } from '../../../dburl';
 import { selectUserState } from '../../User/userSlice';
@@ -14,6 +14,7 @@ const AddTest: React.FC<{show: boolean, onHide: ()=>void}> = (props) =>{
     const [topic, setTopic] = useState<string>('');
 
     const [resMes, setResMas] = useState<string>('');
+    const target = useRef(null);
 
     const user = useAppSelector(selectUserState);
 
@@ -64,7 +65,7 @@ const AddTest: React.FC<{show: boolean, onHide: ()=>void}> = (props) =>{
                 <input type="text" onChange={(e)=>setTopic(e.target.value)}/>
                 <label htmlFor="" >Тип:</label>
                 <input type="text" onChange={(e)=>setType(e.target.value)}/>
-                <label htmlFor="">Сложность:</label>
+                <label htmlFor="">Сложность:{rating}</label>
                 <input type="range"
                     min={0}
                     max={10} 
@@ -74,9 +75,26 @@ const AddTest: React.FC<{show: boolean, onHide: ()=>void}> = (props) =>{
             </div>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={()=>AddTestAsync()}>Добавить</Button>
+            <Button ref={target} onClick={()=>AddTestAsync()}>{loading ? <Spinner animation="border" variant="primary"/> :<>Добавить</> }</Button>
             <Button onClick={props.onHide}>Отмена</Button>
         </Modal.Footer>
+        <Overlay target={target.current} show={resMes !== '' ? true : false} placement="left">
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            style={{
+              position: 'absolute',
+              backgroundColor: 'rgba(255, 100, 100, 0.85)',
+              padding: '2px 10px',
+              color: 'white',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            {resMes}
+          </div>
+        )}
+      </Overlay>
       </Modal>
     );
 }

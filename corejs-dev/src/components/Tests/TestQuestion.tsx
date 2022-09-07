@@ -34,7 +34,7 @@ const TestQuest: React.FC<{
                     {text}
                 </div>
                 <div className='quest-code'>
-                    {code}
+                <div className='question-code' dangerouslySetInnerHTML={{__html: code || ''}}></div>
                 </div>
             </div>
             <div className='quest-answer__wrap'>
