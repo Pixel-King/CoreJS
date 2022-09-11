@@ -1,0 +1,81 @@
+.change-profile_wrap{
+    width: 64rem;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+}
+.simple_form section{
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    background: var(--header-background-default);
+    padding: 5rem 1rem 2rem;
+    margin: 1rem 0;
+    border: 1px solid var(--text-default);
+}
+.inf-header{
+    position: absolute;
+    display: flex;
+    top: 15%;
+    left: 3%;
+    align-items: center;
+}
+.reset-progres{
+    top: 32%!important;
+}
+.inf-header h4{
+    text-transform: uppercase;
+    margin-bottom: 0!important;
+    margin-right: 1rem!important;
+}
+.inf-col{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.inf-col input{
+    border-radius: 4px;
+    transition: background-color .15s ease-in-out;
+    font-size: 1.4rem;
+    text-transform: none;
+    line-height: 16px;
+    display: block;
+    height: 2rem;
+    width: 100%;
+    margin: 0 0 14px;
+    padding: .5rem;
+    border: 1px solid transparent;
+}
+.inf-col label{
+    border-radius: 4px;
+    display: inline-block;
+    width: auto;
+    padding: 2px 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-bottom: 8px;
+    background-color: var();
+    position: relative;
+    left: -40%;
+}
+.inf-item{
+    padding: 0 1rem;
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .simple_form section{
+        border: 0px solid var(--text-default);
+    }
+    .inf-col{
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+    }
+    .inf-item{
+        width: 100%;
+    }
+}

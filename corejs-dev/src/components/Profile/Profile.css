@@ -1,0 +1,186 @@
+.user-profile__wrap{
+    width: 100%;
+    min-height: 84vh;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin: 1rem 0;
+}
+
+.p-r{
+    position: relative;
+    margin-bottom: 2.8rem;
+}
+
+.transform-translate-x{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-inf__wrap{
+    padding: 15px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 20px 20px 20px -9px var(--text-default);
+    border-radius: 10px;
+}
+.user-stat__wrap{
+    width: calc(100% - 400px);
+    height: 100%;
+}
+.profile-img{
+    height: auto;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 60%;
+    background-color: #eee;
+    border: 5px solid var(--color-default);
+}
+.user-inf{
+    text-align: center;
+}
+
+.user-inf h3{
+    letter-spacing: .15em;
+}
+
+.typewriter div {
+    overflow: hidden; 
+    border-right: .15em solid var(--color-default);; 
+    white-space: nowrap;
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-default); }
+  }
+.rang-material-stat__wrap{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.bar-chart{
+  height: 400px;
+  padding: 1rem 4rem;
+}
+.range-progres{
+    position: relative;
+    left: -20%;
+    margin-top: 8rem;
+}
+.range-progres__text{
+    position: absolute;
+    font-size: .9rem;
+    scale: 1.7;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -25%);
+}
+.circular-progres{
+    position: relative;
+    width: 15rem;
+    margin: 0 auto;
+}
+.all-materila{
+    position: absolute;
+    right: -60%;
+    text-align: left;
+    font-size: 1.2rem;
+}
+.codewars-progress {
+    max-width: 90%;
+}
+.codewars-completed-tasks-card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1025px) and (min-width: 700px) {
+    .user-profile__wrap{
+        display: block;
+    }
+    .profile-inf__wrap{
+        width: 100%;
+        border-right: 0px;
+        flex-direction: row;
+        box-shadow: 0px 20px 20px -9px var(--color-default);
+    }
+    .user-inf{
+        width: 50%;
+        text-align: left;
+    }
+    .profile-img__wrap{
+        width: 50%;
+    }
+    .user-stat__wrap{
+        width: 100%;
+    }
+    .profile-img{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .transform-translate-x{
+        left: 0%;
+        transform: translateX(0%);
+    }
+    .bar-chart{
+        margin-top: 1rem;
+    }
+    .range-progres {
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .user-profile__wrap{
+        display: block;
+    }
+    .profile-inf__wrap {
+        width: 100%;
+        border-right: 0;
+        display: block;
+    }
+    .user-inf{
+        text-align: center;
+    }
+    .user-stat__wrap{
+        width: 100%;
+        margin-top: 3rem;
+    }
+    .bar-chart{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        height: 300px;
+        padding: 1rem 2rem;
+    }
+    .rang-material-stat__wrap {
+        flex-direction: column;
+    }
+    .range-progres{
+        margin: 2rem auto;
+        left: 0;
+        padding-top: 2.5rem;
+    }
+    .all-materila {
+        position: absolute;
+        right: 20%;
+        top: 65%;
+        text-align: center;
+        font-size: 1rem;
+    }
+}

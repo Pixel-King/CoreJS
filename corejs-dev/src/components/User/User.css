@@ -1,0 +1,21 @@
+.user-wrap{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.user-dropdown{
+    cursor: pointer;
+    font-size: var(--bs-navbar-brand-font-size);
+}
+.u-img{
+    height: auto;
+    width: 50px;
+    border-radius: 60%;
+    background-color: #eee;
+    border: 2px solid var(--bs-primary);
+    box-shadow: 0px 0px 5px var(--bs-primary);
+    transition: .3s;
+}
+.u-img:hover{
+    box-shadow: 0px 0px 10px var(--bs-primary);
+}

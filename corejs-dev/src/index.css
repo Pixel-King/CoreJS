@@ -1,0 +1,135 @@
+/* :root[data-theme="light"] {
+  --background-color: #fafafa;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #2b3e51;
+} */
+
+:root {
+  --body-background-dark: rgb(31, 32, 35);
+  --body-background-light: rgb(244, 244, 244);
+  --body-background-default: var(--body-background-light);
+
+  --acc2-background-dark: rgb(149, 150, 152);
+  --acc2-background-light: #a9ccd8;
+  --acc2-background-default: var(--acc2-background-light);
+
+  --overlay-dark: rgba(31, 32, 35, 0.8);
+  --overlay-light: rgba(244, 244, 244, 0.8);
+  --overlay-default: var(--overlay-light);
+
+  --body-background-dark-img: url('./components/Home/assets/dark.jpg');
+  --body-background-light-img: url('./white-grey-scratone.png');
+
+  --card-background-dark: #111;
+  --card-background-light: #fff;
+  --card-background-default: var(--card-background-light);
+
+  --text-dark: rgb(190, 189, 189);
+  --text-light: rgb(61, 61, 62);
+  --text-default: var(--text-light);
+
+  --text-hover-dark: #fff;
+  --text-hover-light: #348dab;
+  --text-hover-default: var(--text-hover-light);
+
+  --color-dark: #eee;
+  --color-light: #747375;
+  --color-default:var(--color-light);
+
+  --shadow-dark: rgb(42, 42, 42);
+  --shadow-light: gray;
+  --shadow-default: var(--shadow-light);
+
+  --header-background-dark: #111 ;
+  --header-background-light: linear-gradient(#609db2, #f4f4f4); 
+  --header-background-default: var(--header-background-light);
+
+  --footer-background-dark: #111 ;
+  --footer-background-light: linear-gradient(#f4f4f4, #609db2); 
+  --footer-background-default: var(--footer-background-light);
+
+  --border-gradient-light: linear-gradient(#f4f4f4, #609db2, #f4f4f4);
+  --border-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --border-gradient-default: var(--border-gradient-light);
+
+
+  --toggle-dark: rgb(231, 248, 2);
+  --toggle-light: rgb(52, 6, 216);
+  --toggle-default: var(--toggle-light);
+
+  --nav-link-dark: #04f9e9;
+  --nav-link-light: #022c68;
+  --nav-link-default:var(--nav-link-light);
+
+  --button-dark: rgb(171, 169, 169);
+  --button-light: rgb(96, 157, 178);
+  --button-default: var(--button-light);
+
+  --button-hover-dark: #f4f4f4;
+  --button-hover-light: #348dab;
+  --button-hover-default: var(--button-hover-light);
+
+  --button-text-dark: rgb(61, 61, 62);
+  --button-text-light: #111;
+  --button-text-default:var(--button-text-light);
+
+  --burger-light: #022c68;
+  --burger-dark: #f4f4f4;
+  --burger-default:var(--burger-light);
+
+  --burger-gradient-light: linear-gradient(#609db2, #f4f4f4, #609db2);
+  --burger-gradient-dark: linear-gradient(#1f2023, #234582, #1f2023);
+  --burger-gradient-default: var(--burger-gradient-light);
+
+  --burgermenu-close: -100%;
+  --burgermenu-open: 0;
+  --burgermenu-default: var(--burgermenu-close);
+
+  --scroll-close: visible;
+  --scroll-open: hidden;
+  --scroll-default: var(--scroll-close);
+
+  --span1-close: rotate(0);
+  --span1-open: rotate(45deg);
+  --span1-default: var(--span1-close);
+
+  --span1-x-close: translate(0);
+  --span1-x-open: translate(20px, 0);
+  --span1-x-default: var(--span1-x-close);
+
+
+  --span2-close: 1;
+  --span2-open: 0;
+  --span2-default: var(--span2-close);
+
+  --span3-close: rotate(0);
+  --span3-open: rotate(-45deg);
+  --span3-default: var(--span3-close);
+
+  --span3-y-close: translate(0);
+  --span3-y-open: translate(14px, 7px);
+  --span3-y-default: var(--span3-y-close);
+
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.text-bg-dark {
+  background-color: #609db2 !important;
+}
