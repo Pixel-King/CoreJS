@@ -170,7 +170,7 @@ const ChangeQuest: React.FC = () => {
                                 <textarea id={`${el.questId}-text`} disabled={ isEdit === el.questId ? false : true } className='question-text form-control' defaultValue={ el.text }></textarea>
                             </div>
                             { el.code && 
-                            <div key={`change-quest-code-${el.questId}`} className={`change-quest-code-${el.questId}`}>
+                            <div key={`change-quest-code-${el.questId}`} className={`change-quest-code-${el.questId} m-2 p-2`}>
                                 <p>Код из вопроса:</p>
                                 <textarea id={`${el.questId}-code`} disabled={ isEdit === el.questId ? false : true } className='question-code form-control' defaultValue={el.code}></textarea>
                             </div> }

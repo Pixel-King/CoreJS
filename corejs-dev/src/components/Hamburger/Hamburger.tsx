@@ -71,6 +71,7 @@ const Hamburger: React.FC = () => {
                 <Link to="/" className='nav-link' onClick={burgerHandler}>Главная</Link>
                 <Link to="/theory" className='nav-link' onClick={burgerHandler}>Теория</Link>
                 <Link to="/tests" className='nav-link' onClick={burgerHandler}>Тесты</Link>
+                <Link to="/tasks" className='nav-link' onClick={burgerHandler}>Задачи</Link>
                 <Link to='/statistics' className='nav-link' onClick={burgerHandler}>Статистика</Link>
                 <Toggle />
                 <ToggleSound />

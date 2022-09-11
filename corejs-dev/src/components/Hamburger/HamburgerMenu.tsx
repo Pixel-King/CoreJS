@@ -33,6 +33,7 @@ const HamburgerMenu: React.FC = () => {
                 <Link to="/" className='nav-link' onClick={menuHandler}>Главная</Link>
                 <Link to="/theory" className='nav-link' onClick={menuHandler}>Теория</Link>
                 <Link to="/tests" className='nav-link' onClick={menuHandler}>Тесты</Link>
+                <Link to="/tasks" className='nav-link' onClick={menuHandler}>Задачи</Link>
                 <Link to='/statistics' className='nav-link' onClick={menuHandler}>Статистика</Link>
                 <Toggle />
                 <ToggleSound />

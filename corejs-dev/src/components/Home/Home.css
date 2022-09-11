@@ -31,7 +31,7 @@
     flex-direction: row;
     justify-content: space-around;
     column-gap: 10px;
-    row-gap: 10px;
+    row-gap: 40px;
 }
 
 .homecard_text {
