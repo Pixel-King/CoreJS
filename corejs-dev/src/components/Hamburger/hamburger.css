@@ -86,7 +86,7 @@ body {
 
 
   
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 890px) {
     .burger-wrap {
         display: block;
     }

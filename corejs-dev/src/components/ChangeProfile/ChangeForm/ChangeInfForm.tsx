@@ -113,6 +113,14 @@ const ChangeInfForm: React.FC = () =>{
                         <input type="text" value={userName} onChange={(e)=> setUserName(e.target.value)}/>
                     </div>
                 </div>
+                <div className='inf-item'>
+                <label htmlFor="">
+                        <span>Codewars:</span>
+                    </label>
+                    <div>
+                        <input type="text" value={userName} onChange={(e)=> setUserName(e.target.value)}/>
+                    </div>
+                </div>
             </div>
             <Overlay target={target.current} show={show} placement="bottom">
                 {({ placement, arrowProps, show: _show, popper, ...props }) => (

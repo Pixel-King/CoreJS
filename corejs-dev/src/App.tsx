@@ -28,6 +28,7 @@ import { dbHostURL } from './dburl';
 import RunTest from './components/Tests/testRun';
 import ChangeQuest from './components/Tests/changeQuestions';
 import AddQuest from './components/Tests/addQuestion';
+import PageTasks from './components/Codewars/pageTasks';
 
 const App: React.FC = () => {
   const auth = useAppSelector(selectAuth);
@@ -83,6 +84,7 @@ const App: React.FC = () => {
               <Link to="/" className='nav-link'>Главная</Link>
               <Link to="/theory" className='nav-link'>Теория</Link>
               <Link to="/tests" className='nav-link'>Тесты</Link>
+              <Link to="/tasks" className='nav-link'>Задачи</Link>
               <Link to='/statistics' className='nav-link'>Статистика</Link>
               <Toggle />
               <ToggleSound />
@@ -114,6 +116,7 @@ const App: React.FC = () => {
           <Route path='testsfunction' element={ <TestsRender type='function'/> } />
           <Route path='testsbrowser' element={ <TestsRender type='browser'/> } />
           <Route path='testsother' element={ <TestsRender type='other'/> } />
+          <Route path='tasks' element={ <PageTasks/> } />
           <Route path='run-test' element={ <RunTest/>} />
           <Route path='change-test-questions' element={ <ChangeQuest/>} />
           <Route path='create-question' element={ <AddQuest/>} />

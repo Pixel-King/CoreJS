@@ -17,6 +17,13 @@ const textCards: CardType[] = [
         'imgsrc': 'https://img2.freepng.ru/20180404/lgq/kisspng-computer-icons-theme-quiz-5ac5943d7b1558.1957443315228979815042.jpg',
     }, {
         'id': '3',
+        'title': 'Задачи',
+        'textRU': 'Здесь собраны задачи codewars по разным темам. Вы можете проверить свои знания, проходя каты разной сложности',
+        'textEN': '...',
+        'path': '/statistics',
+        'imgsrc': 'https://e7.pngegg.com/pngimages/1023/217/png-clipart-customer-experience-computer-icons-computer-software-marketing-purple-text.png',
+    }, {
+        'id': '4',
         'title': 'Статистика',
         'textRU': 'В разделе "Статистика" показан рейтинг пользователей. Вы можете отслеживать свой прогресс обучения, посмотрев статистику в виде графика в личном кабинете.',
         'textEN': '...',

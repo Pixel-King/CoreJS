@@ -11,6 +11,10 @@
   --body-background-light: rgb(244, 244, 244);
   --body-background-default: var(--body-background-light);
 
+  --acc2-background-dark: rgb(149, 150, 152);
+  --acc2-background-light: #a9ccd8;
+  --acc2-background-default: var(--acc2-background-light);
+
   --overlay-dark: rgba(31, 32, 35, 0.8);
   --overlay-light: rgba(244, 244, 244, 0.8);
   --overlay-default: var(--overlay-light);
@@ -59,8 +63,8 @@
   --nav-link-light: #022c68;
   --nav-link-default:var(--nav-link-light);
 
-  --button-dark: #aba9a9;
-  --button-light: #609db2;
+  --button-dark: rgb(171, 169, 169);
+  --button-light: rgb(96, 157, 178);
   --button-default: var(--button-light);
 
   --button-hover-dark: #f4f4f4;
