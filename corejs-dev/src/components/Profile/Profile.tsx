@@ -279,7 +279,7 @@ const Profile = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div key={`codewars-completed-tasks-${user.id}`} className='codewars-completed-tasks mt-3'>
+                                        <div key={`codewars-completed-tasks-${user.id}`} className='codewars-completed-tasks d-flex flex-column justify-content-center mt-3'>
                                             <h4 className='mb-3'>Последние выполненные kata</h4>
                                             <div key={`codewars-completed-tasks-card-${user.id}`} className="codewars-completed-tasks-card card card-body">
                                                 {

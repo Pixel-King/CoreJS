@@ -100,10 +100,10 @@
     font-size: 1.2rem;
 }
 .codewars-progress {
-    max-width: 95%;
+    max-width: 90%;
 }
 .codewars-completed-tasks-card {
-    max-width: 80%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
