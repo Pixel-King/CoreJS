@@ -4,7 +4,7 @@
     position: relative;
     display: flex;
     align-items: flex-start;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .p-r{
@@ -98,6 +98,14 @@
     right: -60%;
     text-align: left;
     font-size: 1.2rem;
+}
+.codewars-progress {
+    max-width: 90%;
+}
+.codewars-completed-tasks-card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 1025px) and (min-width: 700px) {
