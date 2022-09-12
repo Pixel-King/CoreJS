@@ -20,7 +20,7 @@ const textCards: CardType[] = [
         'title': 'Задачи',
         'textRU': 'Здесь собраны задачи codewars по разным темам. Вы можете проверить свои знания, проходя каты разной сложности',
         'textEN': '...',
-        'path': '/statistics',
+        'path': '/tasks',
         'imgsrc': 'https://e7.pngegg.com/pngimages/1023/217/png-clipart-customer-experience-computer-icons-computer-software-marketing-purple-text.png',
     }, {
         'id': '4',
